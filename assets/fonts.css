@@ -1,0 +1,97 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * mrs-eaves:
+ *   - http://typekit.com/eulas/00000000000000007735b2fd
+ *   - http://typekit.com/eulas/00000000000000007735b2ff
+ *   - http://typekit.com/eulas/00000000000000007735b300
+ *   - http://typekit.com/eulas/00000000000000007735b301
+ * mrs-eaves-roman-all-petite-c:
+ *   - http://typekit.com/eulas/00000000000000007735b2fc
+ * mrs-eaves-roman-all-small-ca:
+ *   - http://typekit.com/eulas/00000000000000007735b2fa
+ * mrs-eaves-roman-lining:
+ *   - http://typekit.com/eulas/00000000000000007735b2fb
+ * mrs-eaves-roman-petite-caps:
+ *   - http://typekit.com/eulas/00000000000000007735b2fe
+ * mrs-eaves-roman-small-caps:
+ *   - http://typekit.com/eulas/00000000000000007735b2f9
+ * parfumerie-script:
+ *   - http://typekit.com/eulas/0000000000000000774f35b3
+ *
+ * © 2009-2026 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2026-04-09 20:43:49 UTC"}*/
+
+@import url("/assets/fonts/font-0.css");
+
+@font-face {
+font-family:"mrs-eaves";
+src:url("/assets/fonts/font-1.woff2") format("woff2"),url("/assets/fonts/font-2.woff2") format("woff"),url("/assets/fonts/font-3.woff2") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+font-family:"mrs-eaves";
+src:url("/assets/fonts/font-4.woff2") format("woff2"),url("/assets/fonts/font-5.woff2") format("woff"),url("/assets/fonts/font-6.woff2") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"mrs-eaves";
+src:url("/assets/fonts/font-7.woff2") format("woff2"),url("/assets/fonts/font-8.woff2") format("woff"),url("/assets/fonts/font-9.woff2") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+font-family:"mrs-eaves";
+src:url("/assets/fonts/font-10.woff2") format("woff2"),url("/assets/fonts/font-11.woff2") format("woff"),url("/assets/fonts/font-12.woff2") format("opentype");
+font-display:auto;font-style:italic;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"mrs-eaves-roman-small-caps";
+src:url("/assets/fonts/font-13.woff2") format("woff2"),url("/assets/fonts/font-14.woff2") format("woff"),url("/assets/fonts/font-15.woff2") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"mrs-eaves-roman-all-small-ca";
+src:url("/assets/fonts/font-16.woff2") format("woff2"),url("/assets/fonts/font-17.woff2") format("woff"),url("/assets/fonts/font-18.woff2") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"mrs-eaves-roman-lining";
+src:url("/assets/fonts/font-19.woff2") format("woff2"),url("/assets/fonts/font-20.woff2") format("woff"),url("/assets/fonts/font-21.woff2") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"mrs-eaves-roman-all-petite-c";
+src:url("/assets/fonts/font-22.woff2") format("woff2"),url("/assets/fonts/font-23.woff2") format("woff"),url("/assets/fonts/font-24.woff2") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"mrs-eaves-roman-petite-caps";
+src:url("/assets/fonts/font-25.woff2") format("woff2"),url("/assets/fonts/font-26.woff2") format("woff"),url("/assets/fonts/font-27.woff2") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"parfumerie-script";
+src:url("/assets/fonts/font-28.woff2") format("woff2"),url("/assets/fonts/font-29.woff2") format("woff"),url("/assets/fonts/font-30.woff2") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+.tk-mrs-eaves { font-family: "mrs-eaves",serif; }
+.tk-mrs-eaves-roman-small-caps { font-family: "mrs-eaves-roman-small-caps",serif; }
+.tk-mrs-eaves-roman-all-small-ca { font-family: "mrs-eaves-roman-all-small-ca",serif; }
+.tk-mrs-eaves-roman-lining { font-family: "mrs-eaves-roman-lining",serif; }
+.tk-mrs-eaves-roman-all-petite-c { font-family: "mrs-eaves-roman-all-petite-c",serif; }
+.tk-mrs-eaves-roman-petite-caps { font-family: "mrs-eaves-roman-petite-caps",serif; }
+.tk-parfumerie-script { font-family: "parfumerie-script",sans-serif; }
