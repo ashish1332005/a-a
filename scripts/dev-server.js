@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
+const ROOT_DIR = path.resolve(__dirname, '..');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -28,7 +29,6 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
-  // Normalize url
   const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   let pathname = decodeURIComponent(parsedUrl.pathname);
   
@@ -36,13 +36,11 @@ const server = http.createServer((req, res) => {
     pathname = '/index.html';
   }
 
-  const filePath = path.join(__dirname, pathname.replace(/^\//, '').replace(/\//g, path.sep));
+  const filePath = path.join(ROOT_DIR, pathname.replace(/^\//, '').replace(/\//g, path.sep));
 
-  // Check if file exists
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
-      // Fallback to index.html for SPA client-side routes
-      const fallbackPath = path.join(__dirname, 'index.html');
+      const fallbackPath = path.join(ROOT_DIR, 'index.html');
       fs.readFile(fallbackPath, (fbErr, content) => {
         if (fbErr) {
           res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -58,7 +56,6 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-    // Handle range requests for video/audio streaming
     const range = req.headers.range;
     if (range && (ext === '.mp4' || ext === '.webm' || ext === '.mp3')) {
       const parts = range.replace(/bytes=/, "").split("-");
@@ -93,4 +90,3 @@ if (require.main === module) {
 }
 
 module.exports = server;
-

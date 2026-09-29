@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "Alessia & Matteo · Lake Como Wedding 2027",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node scripts/dev-server.js",
+    "start": "node scripts/dev-server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC"
 }
-
