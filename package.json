@@ -2,9 +2,10 @@
   "name": "bellagio-wedding-template",
   "version": "1.0.0",
   "description": "Alessia & Matteo · Lake Como Wedding 2027",
+  "main": "server.js",
   "scripts": {
-    "dev": "node scripts/dev-server.js",
-    "start": "node scripts/dev-server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "keywords": [],
   "author": "",
