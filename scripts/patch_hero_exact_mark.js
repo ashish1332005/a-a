@@ -31,7 +31,7 @@ const newBLCode = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r
         transition: {duration: 1.2, ease: "easeOut"},
         className: "absolute inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-sm pointer-events-none",
         style: {
-          top: "20.5%",
+          top: "20%",
           left: 0,
           right: 0,
           marginLeft: "auto",
@@ -40,7 +40,7 @@ const newBLCode = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r
           maxWidth: "360px"
         },
         children: [
-          /* Logo increased according to background cloud aura, with breathing space below */
+          /* Logo size matched exactly to white bg so it fills properly */
           d.jsxs("div", {
             className: "relative flex items-center justify-center",
             style: { marginBottom: "14px" },
@@ -48,22 +48,22 @@ const newBLCode = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r
               d.jsx("div", {
                 className: "absolute rounded-full pointer-events-none -z-10",
                 style: {
-                  width: "155px",
-                  height: "155px",
-                  background: "radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,0.25) 75%, transparent 100%)",
-                  filter: "blur(7px)"
+                  width: "128px",
+                  height: "128px",
+                  background: "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,0.2) 80%, transparent 100%)",
+                  filter: "blur(5px)"
                 }
               }),
               d.jsx("img", {
                 src: "/assets/wedding/logo.png",
                 alt: "SS Wreath Monogram",
-                className: "relative z-10 object-contain drop-shadow-[0_3px_10px_rgba(0,0,0,0.15)]",
-                style: { width: "112px", height: "112px", maxWidth: "112px", maxHeight: "112px" }
+                className: "relative z-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.14)]",
+                style: { width: "126px", height: "126px", maxWidth: "126px", maxHeight: "126px" }
               })
             ]
           }),
 
-          /* Bride & Groom Name directly underneath in open sky with nice separation */
+          /* Bride & Groom Name directly underneath in open sky */
           d.jsxs("div", {
             className: "space-y-0.5",
             children: [
@@ -99,4 +99,4 @@ const newBLCode = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r
 
 bundle = bundle.substring(0, blStart) + newBLCode + '\n' + bundle.substring(blEnd);
 fs.writeFileSync(bundlePath, bundle, 'utf8');
-console.log('Successfully saved updated bL bundle with larger logo and spacing!');
+console.log('Successfully updated logo size to match white bg!');
