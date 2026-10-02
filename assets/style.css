@@ -1,0 +1,966 @@
+:root {
+  --gold-primary: #c59b27;
+  --gold-dark: #8c6713;
+  --gold-light: #f3e5ab;
+  --royal-maroon: #58111a;
+  --royal-crimson: #7a1526;
+  --cream-bg: #f7f2e7;
+  --parchment-bg: #f9f5ed;
+  --text-dark: #2c221e;
+  --text-muted: #5e524b;
+  --font-serif: "Playfair Display", "Cinzel Decorative", "mrs-eaves", Georgia, serif;
+  --font-script: "parfumerie-script", "Great Vibes", "Alex Brush", cursive;
+  --font-sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-devanagari: "Rozha One", "Yatra One", serif;
+  --transition-smooth: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--cream-bg);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--cream-bg);
+}
+
+/* Floating Audio Toggle */
+.audio-controller {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+
+.audio-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid var(--gold-primary);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  color: var(--royal-maroon);
+  transition: var(--transition-smooth);
+}
+
+.audio-btn:hover {
+  transform: scale(1.08);
+}
+
+.audio-btn.playing {
+  animation: pulseAudio 2.2s infinite;
+}
+
+@keyframes pulseAudio {
+  0% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.6); }
+  70% { box-shadow: 0 0 0 16px rgba(197, 155, 39, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0); }
+}
+
+/* Navigation Indicator Dots */
+.page-nav-dots {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 900;
+}
+
+.nav-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(140, 103, 19, 0.35);
+  border: 1px solid var(--gold-primary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.nav-dot.active {
+  height: 22px;
+  border-radius: 11px;
+  background: var(--gold-primary);
+  box-shadow: 0 0 8px rgba(197, 155, 39, 0.7);
+}
+
+.nav-dot::after {
+  content: attr(data-title);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(44, 34, 30, 0.9);
+  color: #fff;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-family: var(--font-sans);
+}
+
+.nav-dot:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+@media (max-width: 768px) {
+  .page-nav-dots { display: none; }
+}
+
+/* Base Page Section */
+.page-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  overflow: hidden;
+}
+
+/* Scroll Stagger Reveal System */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.delay-1 { transition-delay: 0.12s; }
+.reveal-item.delay-2 { transition-delay: 0.25s; }
+.reveal-item.delay-3 { transition-delay: 0.38s; }
+.reveal-item.delay-4 { transition-delay: 0.5s; }
+.reveal-item.delay-5 { transition-delay: 0.62s; }
+.reveal-item.delay-6 { transition-delay: 0.75s; }
+
+.reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================================
+   PAGE 1: HERO ARCH SECTION (NO OPAQUE BOX! CLEAN INTEGRATION)
+   ======================================================== */
+.page-hero {
+  background-color: #211c19;
+  position: relative;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The Full Arch Image Container */
+.hero-canvas-frame {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  min-height: 100vh;
+  background-image: url("/__l5e/assets-v1/adb06599-e8d7-40d0-948f-428a5c58000b/bellagio-2-final.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 24px 70px;
+}
+
+/* Central Opening Content - NO OPAQUE BOX, completely transparent with subtle text shadows */
+.hero-direct-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-ganesh-salutation {
+  font-family: var(--font-devanagari);
+  color: #3d2b1f;
+  font-size: 1.05rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.hero-logo-frame {
+  width: 180px;
+  height: 180px;
+  margin: 6px auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+}
+
+.hero-couple-names {
+  font-family: var(--font-script);
+  font-size: 3.4rem;
+  color: #1e3a2b; /* Matching original elegant Lake Como forest green or maroon */
+  line-height: 1.05;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.hero-hashtag {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #3b2c22;
+  margin-bottom: 10px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  letter-spacing: 3.5px;
+  color: #2c221e;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.hero-scroll-indicator {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #3d2b1f;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.scroll-mouse-icon {
+  width: 20px;
+  height: 32px;
+  border: 1.5px solid #3d2b1f;
+  border-radius: 10px;
+  position: relative;
+}
+
+.scroll-mouse-icon::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 5px;
+  background: #3d2b1f;
+  border-radius: 2px;
+  animation: scrollWheel 2s infinite ease-in-out;
+}
+
+@keyframes scrollWheel {
+  0% { top: 5px; opacity: 1; }
+  100% { top: 16px; opacity: 0; }
+}
+
+/* ========================================================
+   PAGE 2: TAP TO REVEAL DATE & LIVE COUNTDOWN
+   (Direct Parchment Canvas - Screenshot 3 Style)
+   ======================================================== */
+.page-date-reveal {
+  background-color: var(--parchment-bg);
+  background-image: 
+    radial-gradient(circle at center, transparent 40%, rgba(212, 175, 55, 0.08) 100%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c59b27' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  padding: 80px 20px;
+}
+
+.parchment-direct-stage {
+  position: relative;
+  max-width: 580px;
+  width: 100%;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+/* Corner Floral Accents from __l5e */
+.corner-flourish-tl {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  width: 90px;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.corner-flourish-tr {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  width: 90px;
+  opacity: 0.85;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.parchment-script-heading {
+  font-family: var(--font-script);
+  font-size: 2.8rem;
+  color: #1e3a2b;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.parchment-subtext {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.reveal-interactive-btn {
+  background: linear-gradient(135deg, #f7e7a9 0%, #d4af37 50%, #aa7c11 100%);
+  color: #2b1f09;
+  border: 1.5px solid #ffffff;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(170, 124, 17, 0.35);
+  transition: var(--transition-smooth);
+}
+
+.reveal-interactive-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(170, 124, 17, 0.5);
+}
+
+.revealed-date-display {
+  display: none;
+  animation: goldShimmerIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.revealed-date-display.active {
+  display: block;
+}
+
+@keyframes goldShimmerIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.date-big-badge {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--royal-maroon);
+  padding: 12px 20px;
+  border-top: 2px solid var(--gold-primary);
+  border-bottom: 2px solid var(--gold-primary);
+  display: inline-block;
+  margin: 12px 0 20px;
+}
+
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.cd-box {
+  min-width: 75px;
+  text-align: center;
+  border-bottom: 1.5px solid var(--gold-primary);
+  padding-bottom: 8px;
+}
+
+.cd-number {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #1e3a2b;
+  line-height: 1;
+}
+
+.cd-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  display: block;
+}
+
+/* ========================================================
+   PAGE 3: ROYAL EMBROIDERY FULL CANVAS (NO OPAQUE VEIL!)
+   ======================================================== */
+.page-invitation-card {
+  background-color: #f5ede0;
+  padding: 40px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-embroidery-canvas {
+  position: relative;
+  max-width: 580px;
+  width: 100%;
+  min-height: 820px;
+  background-image: url("/__l5e/indian_embroidery_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px rgba(60, 40, 15, 0.25);
+  overflow: hidden;
+  padding: 70px 38px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* NO OPAQUE VEIL! Text sits directly in the center open canvas of the embroidery! */
+.card-direct-invitation {
+  position: relative;
+  z-index: 10;
+  max-width: 380px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-ganesh-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-ganesh-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(197, 155, 39, 0.35));
+}
+
+.card-shloka-heading {
+  font-family: var(--font-devanagari);
+  font-size: 1.45rem;
+  color: var(--royal-maroon);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.card-shloka-sanskrit {
+  font-family: var(--font-devanagari);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #735411;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.card-hosts-text {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2b1f1a;
+  margin-bottom: 4px;
+}
+
+.card-invite-cordial {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.card-person-name {
+  font-family: var(--font-serif);
+  font-size: 1.95rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--royal-maroon);
+  text-transform: uppercase;
+}
+
+.card-parentage {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+.card-with-connector {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  color: #8c6713;
+  margin: 2px 0;
+  line-height: 1;
+}
+
+.card-venue-badge {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(197, 155, 39, 0.45);
+}
+
+.card-venue-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--royal-maroon);
+  text-transform: uppercase;
+}
+
+/* User Corner Overlays at bottom */
+.corner-art-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.corner-art-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* ========================================================
+   PAGES 4, 5, 6, 7: EVENT STAGES (CLEAN EMBROIDERED SECTIONS)
+   ======================================================== */
+.event-stage-view {
+  position: relative;
+  max-width: 580px;
+  width: 100%;
+  text-align: center;
+  padding: 30px 16px;
+}
+
+.event-flourish-icon {
+  width: 70px;
+  margin: 0 auto 12px;
+  opacity: 0.9;
+}
+
+.event-flourish-icon img {
+  max-width: 100%;
+  height: auto;
+}
+
+.event-number-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8c6713;
+  border-bottom: 1px solid var(--gold-primary);
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+}
+
+.event-main-title {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.event-subtitle-pill {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  color: #8c6713;
+  margin-bottom: 24px;
+}
+
+.event-info-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0 28px;
+}
+
+.event-info-line {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: var(--text-dark);
+}
+
+.event-info-line.date-line {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--royal-maroon);
+}
+
+.event-venue-tag {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--royal-crimson);
+  margin-top: 6px;
+}
+
+.btn-event-action {
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+  background: var(--royal-maroon);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(88, 17, 26, 0.25);
+}
+
+.btn-event-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(88, 17, 26, 0.4);
+}
+
+/* Event Pages Variations */
+.page-haldi {
+  background: radial-gradient(circle at center, #fffdf2 0%, #f7eed3 100%);
+}
+.page-haldi .event-main-title { color: #aa6e09; }
+
+.page-sangeet {
+  background: radial-gradient(circle at center, #262438 0%, #151322 100%);
+  color: #ffffff;
+}
+.page-sangeet .event-main-title { color: var(--gold-light); }
+.page-sangeet .event-subtitle-pill { color: #e6c875; }
+.page-sangeet .event-info-line { color: #e8e3d8; }
+.page-sangeet .event-info-line.date-line { color: var(--gold-light); }
+.page-sangeet .event-venue-tag { color: var(--gold-light); }
+.page-sangeet .btn-event-action { background: #8c6713; }
+
+.page-wedding-event {
+  background: radial-gradient(circle at center, #faf2f2 0%, #f2dfdf 100%);
+}
+.page-wedding-event .event-main-title { color: var(--royal-maroon); }
+
+.page-dunes {
+  background: radial-gradient(circle at center, #1b2433 0%, #0d131c 100%);
+  color: #ffffff;
+}
+.page-dunes .event-main-title { color: #f2ce79; }
+.page-dunes .event-subtitle-pill { color: #d6bb74; }
+.page-dunes .event-info-line { color: #dce4f0; }
+.page-dunes .event-info-line.date-line { color: #f2ce79; }
+.page-dunes .event-venue-tag { color: #f2ce79; }
+.page-dunes .btn-event-action { background: #aa7c11; }
+
+/* ========================================================
+   PAGE 8: RSVP SLIDE (SEAMLESS PARCHMENT FORM)
+   ======================================================== */
+.page-rsvp {
+  background-color: var(--parchment-bg);
+  background-image: radial-gradient(circle at center, transparent 40%, rgba(212, 175, 55, 0.08) 100%);
+  padding: 80px 20px;
+}
+
+.rsvp-stage-view {
+  position: relative;
+  max-width: 540px;
+  width: 100%;
+}
+
+.rsvp-header-area {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rsvp-tag-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #8c6713;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.rsvp-main-title {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--royal-maroon);
+  margin-bottom: 10px;
+}
+
+.rsvp-exclusive-notice {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(197, 155, 39, 0.35);
+  border-bottom: 1px solid rgba(197, 155, 39, 0.35);
+  padding: 8px 14px;
+  display: inline-block;
+}
+
+.rsvp-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-group-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group-label {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--royal-maroon);
+  text-transform: uppercase;
+}
+
+/* Attendance Options */
+.attendance-radio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.attendance-radio-label {
+  position: relative;
+  cursor: pointer;
+}
+
+.attendance-radio-label input {
+  position: absolute;
+  opacity: 0;
+}
+
+.attendance-custom-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 6px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(197, 155, 39, 0.4);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.attendance-radio-label input:checked + .attendance-custom-box {
+  border-color: var(--royal-maroon);
+  background: #ffffff;
+  color: var(--royal-maroon);
+  box-shadow: 0 4px 12px rgba(88, 17, 26, 0.15);
+}
+
+/* Minimalist Underlined Inputs */
+.rsvp-text-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-bottom: 2px solid rgba(197, 155, 39, 0.5);
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  transition: var(--transition-smooth);
+}
+
+.rsvp-text-input:focus {
+  outline: none;
+  border-bottom-color: var(--royal-maroon);
+  background: #ffffff;
+}
+
+/* Pickup */
+.pickup-choice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pickup-label {
+  position: relative;
+  cursor: pointer;
+}
+
+.pickup-label input {
+  position: absolute;
+  opacity: 0;
+}
+
+.pickup-btn-box {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(197, 155, 39, 0.4);
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.pickup-label input:checked + .pickup-btn-box {
+  border-color: var(--royal-maroon);
+  background: var(--royal-maroon);
+  color: #ffffff;
+}
+
+.rsvp-submit-btn {
+  margin-top: 10px;
+  background: var(--royal-maroon);
+  color: #ffffff;
+  border: none;
+  padding: 16px 28px;
+  border-radius: 50px;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(88, 17, 26, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.rsvp-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(88, 17, 26, 0.45);
+}
+
+/* Modal */
+.rsvp-success-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.rsvp-success-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.success-modal-card {
+  background: #ffffff;
+  border: 2px solid var(--gold-primary);
+  border-radius: 20px;
+  max-width: 460px;
+  width: 100%;
+  padding: 36px 24px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--royal-maroon);
+  margin-bottom: 10px;
+}
+
+.modal-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.modal-close-btn {
+  background: var(--royal-maroon);
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .hero-canvas-frame { min-height: 100vh; padding: 70px 16px 50px; }
+  .hero-couple-names { font-size: 2.8rem; }
+  .card-embroidery-canvas { min-height: auto; padding: 50px 18px 50px; }
+  .card-person-name { font-size: 1.6rem; }
+  .event-main-title { font-size: 2.2rem; }
+  .attendance-radio-grid { grid-template-columns: 1fr; }
+}
