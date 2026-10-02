@@ -235,28 +235,28 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
         initial: {opacity: 0, y: 12},
         animate: {opacity: 1, y: 0},
         transition: {duration: 1.2, ease: "easeOut"},
-        className: "relative z-20 flex flex-col items-center justify-start text-center px-4 max-w-sm sm:max-w-md mx-auto pt-16 sm:pt-20 md:pt-24 space-y-2 sm:space-y-3",
+        className: "relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-sm sm:max-w-md mx-auto pt-[24vh] sm:pt-[27vh] md:pt-[29vh] space-y-2 sm:space-y-3",
         children: [
-          /* Logo with soft luminous cloud background */
+          /* Logo with soft cloud aura backdrop */
           d.jsxs("div", {
             className: "relative flex items-center justify-center my-1",
             children: [
               d.jsx("div", {
-                className: "absolute w-36 h-28 sm:w-44 sm:h-34 rounded-full pointer-events-none -z-10",
+                className: "absolute w-32 h-26 sm:w-38 sm:h-30 rounded-full pointer-events-none -z-10",
                 style: {
-                  background: "radial-gradient(ellipse at center, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.4) 65%, transparent 80%)",
+                  background: "radial-gradient(ellipse at center, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.3) 70%, transparent 85%)",
                   filter: "blur(6px)"
                 }
               }),
               d.jsx("img", {
                 src: "/assets/wedding/logo.png",
                 alt: "SS Wreath Monogram",
-                className: "relative z-10 w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
+                className: "relative z-10 w-14 h-14 sm:w-17 sm:h-17 md:w-20 md:h-20 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
               })
             ]
           }),
 
-          /* Bride & Groom Name in Sky with high contrast & white outline shadow */
+          /* Bride & Groom Name in Sky with high contrast */
           d.jsxs("div", {
             className: "space-y-0.5 pt-1",
             children: [
@@ -319,23 +319,23 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
     id: "hashtag-section",
     className: "relative w-full py-16 md:py-24 px-4 bg-[#f6efe4] overflow-hidden flex items-center justify-center min-h-[440px] md:min-h-[500px]",
     children: [
-      /* Permanent Left Pillar pushed outward */
+      /* Left Pillar shifted far off-screen so only side florals peek in */
       d.jsx("img", {
         src: "/assets/wedding/column.png",
         alt: "Floral Column Left",
-        className: "absolute -left-16 sm:-left-10 md:-left-4 lg:left-0 top-0 bottom-0 h-full w-auto max-w-[34%] sm:max-w-[26%] md:max-w-[20%] object-contain object-left pointer-events-none select-none z-0 opacity-80 md:opacity-95",
+        className: "absolute -left-36 sm:-left-32 md:-left-24 lg:-left-16 top-0 bottom-0 h-full w-auto max-w-[45%] sm:max-w-[32%] object-contain object-left pointer-events-none select-none z-0 opacity-75 md:opacity-85",
         draggable: !1
       }),
-      /* Permanent Right Pillar pushed outward */
+      /* Right Pillar shifted far off-screen so only side florals peek in */
       d.jsx("img", {
         src: "/assets/wedding/column.png",
         alt: "Floral Column Right",
-        className: "absolute -right-16 sm:-right-10 md:-right-4 lg:right-0 top-0 bottom-0 h-full w-auto max-w-[34%] sm:max-w-[26%] md:max-w-[20%] object-contain object-right pointer-events-none select-none z-0 opacity-80 md:opacity-95",
+        className: "absolute -right-36 sm:-right-32 md:-right-24 lg:-right-16 top-0 bottom-0 h-full w-auto max-w-[45%] sm:max-w-[32%] object-contain object-right pointer-events-none select-none z-0 opacity-75 md:opacity-85",
         style: {transform: "scaleX(-1)"},
         draggable: !1
       }),
 
-      /* Spacious, Uncrowded Center Content */
+      /* Wide, Uncrowded Center Content */
       d.jsxs("div", {
         className: "relative z-20 max-w-sm sm:max-w-md md:max-w-lg mx-auto text-center px-4 space-y-4 md:space-y-6",
         children: [
@@ -461,29 +461,22 @@ function bV(){
         transition: {duration: 0.8},
         className: "relative bg-[#fffdfa] border-2 border-[#c5a059]/60 rounded-3xl p-6 sm:p-10 md:p-12 text-center shadow-2xl space-y-4 md:space-y-5 overflow-hidden",
         children: [
-          /* Top-Left Corner Floral Embroidery Flush Design */
+          /* Top-Left Corner Floral Embroidery ONLY */
           d.jsx("img", {
             src: "/assets/wedding/corner_embroidery.png",
             alt: "Floral Corner Left",
-            className: "absolute top-0 left-0 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain object-top-left pointer-events-none select-none z-10 opacity-90",
-            draggable: !1
-          }),
-          /* Top-Right Corner Floral Embroidery Flush Design */
-          d.jsx("img", {
-            src: "/assets/wedding/corner_embroidery.png",
-            alt: "Floral Corner Right",
-            className: "absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain object-top-right pointer-events-none select-none z-10 opacity-90 scale-x-[-1]",
+            className: "absolute top-0 left-0 w-24 h-24 sm:w-30 sm:h-30 md:w-36 md:h-36 object-contain object-top-left pointer-events-none select-none z-10 opacity-90",
             draggable: !1
           }),
 
-          /* Ganesh Ji Logo & Shloka */
+          /* Ganesh Ji Logo (Small, Delicate) & Shloka */
           d.jsxs("div", {
-            className: "relative z-20 flex flex-col items-center justify-center space-y-2 pt-2 sm:pt-4",
+            className: "relative z-20 flex flex-col items-center justify-center space-y-1.5 pt-2 sm:pt-4",
             children: [
               d.jsx("img", {
                 src: "/assets/wedding/ganesh.png",
                 alt: "Lord Ganesha",
-                className: "w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_2px_8px_rgba(197,160,89,0.35)]"
+                className: "w-9 h-9 sm:w-11 sm:h-11 md:w-13 md:h-13 object-contain drop-shadow-[0_2px_6px_rgba(197,160,89,0.3)]"
               }),
               d.jsx("p", {
                 className: "text-[#8b6534] font-bold text-sm sm:text-base md:text-lg tracking-wider",
