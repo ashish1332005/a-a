@@ -323,33 +323,45 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
   const countdownUnits = [
     {value: n.days, label: "DAYS"},
     {value: n.hours, label: "HOURS"},
-    {value: n.minutes, label: "MINUTES"},
-    {value: n.seconds, label: "SECONDS"}
+    {value: n.minutes, label: "MINS"},
+    {value: n.seconds, label: "SECS"}
   ];
 
   return d.jsxs("section", {
     id: "hashtag-section",
-    className: "relative w-full py-16 md:py-24 px-4 bg-[#f6efe4] overflow-hidden flex items-center justify-center min-h-[440px] md:min-h-[500px]",
+    className: "relative w-full py-12 md:py-20 px-2 bg-[#f7f1e7] overflow-hidden flex items-center justify-center min-h-[460px] md:min-h-[520px] select-none",
     children: [
-      /* Left Pillar shifted far off-screen so only side florals peek in */
+      /* Left Half Pillar: partially off-screen on the left so half the pillar is visible as an architectural frame */
       d.jsx("img", {
         src: "/assets/wedding/column.png",
         alt: "Floral Column Left",
-        className: "absolute -left-36 sm:-left-32 md:-left-24 lg:-left-16 top-0 bottom-0 h-full w-auto max-w-[45%] sm:max-w-[32%] object-contain object-left pointer-events-none select-none z-0 opacity-75 md:opacity-85",
-        draggable: !1
-      }),
-      /* Right Pillar shifted far off-screen so only side florals peek in */
-      d.jsx("img", {
-        src: "/assets/wedding/column.png",
-        alt: "Floral Column Right",
-        className: "absolute -right-36 sm:-right-32 md:-right-24 lg:-right-16 top-0 bottom-0 h-full w-auto max-w-[45%] sm:max-w-[32%] object-contain object-right pointer-events-none select-none z-0 opacity-75 md:opacity-85",
-        style: {transform: "scaleX(-1)"},
+        className: "absolute top-0 bottom-0 h-full w-auto max-w-none object-contain pointer-events-none select-none z-0 opacity-90",
+        style: {
+          left: "-75px",
+          top: 0,
+          height: "100%"
+        },
         draggable: !1
       }),
 
-      /* Wide, Uncrowded Center Content */
+      /* Right Half Pillar: partially off-screen on the right so half the pillar is visible as an architectural frame */
+      d.jsx("img", {
+        src: "/assets/wedding/column.png",
+        alt: "Floral Column Right",
+        className: "absolute top-0 bottom-0 h-full w-auto max-w-none object-contain pointer-events-none select-none z-0 opacity-90",
+        style: {
+          right: "-75px",
+          top: 0,
+          height: "100%",
+          transform: "scaleX(-1)"
+        },
+        draggable: !1
+      }),
+
+      /* Center Content - strictly positioned in the center blank area without touching or overlapping the pillars */
       d.jsxs("div", {
-        className: "relative z-20 max-w-sm sm:max-w-md md:max-w-lg mx-auto text-center px-4 space-y-4 md:space-y-6",
+        className: "relative z-20 mx-auto text-center px-1 space-y-3 sm:space-y-4",
+        style: { width: "100%", maxWidth: "272px" },
         children: [
           /* Hashtag */
           d.jsx(he.p, {
@@ -357,18 +369,18 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.6},
-            className: "text-4xl sm:text-5xl md:text-6xl text-[#1e3427] font-normal tracking-wide leading-tight drop-shadow-sm select-none",
+            className: "text-3xl sm:text-4xl md:text-5xl text-[#1e3427] font-normal tracking-wide leading-tight drop-shadow-sm select-none",
             style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
             children: "#ShiGotSariDuniya"
           }),
 
           /* Flourish Divider */
           d.jsxs("div", {
-            className: "flex items-center justify-center gap-3 py-0.5 select-none",
+            className: "flex items-center justify-center gap-2 py-0.5 select-none",
             children: [
-              d.jsx("span", {className: "w-10 sm:w-16 md:w-22 h-[1.5px] bg-gradient-to-r from-transparent to-[#bfa268]"}),
+              d.jsx("span", {className: "w-8 sm:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-[#bfa268]"}),
               d.jsxs("svg", {
-                className: "w-7 h-5 text-[#bfa268]",
+                className: "w-6 h-4 text-[#bfa268]",
                 viewBox: "0 0 32 24",
                 fill: "none",
                 stroke: "currentColor",
@@ -378,7 +390,7 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
                   d.jsx("path", {d: "M18 9.5C16.5 6.5 13.5 6.5 12 8.5C10 11 11 14.5 18 19C25 14.5 26 11 24 8.5C22.5 6.5 19.5 6.5 18 9.5Z"})
                 ]
               }),
-              d.jsx("span", {className: "w-10 sm:w-16 md:w-22 h-[1.5px] bg-gradient-to-l from-transparent to-[#bfa268]"})
+              d.jsx("span", {className: "w-8 sm:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-[#bfa268]"})
             ]
           }),
 
@@ -388,63 +400,63 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.6, delay: 0.1},
-            className: "uppercase text-xs sm:text-sm md:text-lg text-[#2b261f] tracking-[0.28em] font-semibold select-none",
+            className: "uppercase text-[11px] sm:text-xs text-[#2b261f] tracking-[0.24em] font-semibold select-none",
             style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
             children: 'FROM “HI” TO “I DO”'
           }),
 
-          /* Uncrowded Clean Countdown Card */
+          /* Uncrowded Clean Countdown Card scaled perfectly to center space */
           d.jsxs(he.div, {
             initial: {opacity: 0, y: 16},
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.7, delay: 0.2},
-            className: "relative w-full max-w-sm sm:max-w-md mx-auto bg-[#fffdfa]/95 backdrop-blur-sm rounded-2xl border-2 border-[#bfa268]/60 shadow-xl p-4 sm:p-6 space-y-3",
+            className: "relative w-full mx-auto bg-[#fffdfa]/95 backdrop-blur-sm rounded-2xl border border-[#bfa268]/60 shadow-lg p-3 sm:p-4 space-y-2.5",
             children: [
               d.jsxs("div", {
                 className: "space-y-0.5",
                 children: [
                   d.jsx("p", {
-                    className: "text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#8b6534] font-bold",
+                    className: "text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-[#8b6534] font-bold",
                     style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                     children: "✦ Auspicious Dates ✦"
                   }),
                   d.jsx("h3", {
-                    className: "text-xl sm:text-2xl md:text-3xl font-bold text-[#3d2716] tracking-wider leading-tight",
+                    className: "text-base sm:text-lg font-bold text-[#3d2716] tracking-wider leading-tight",
                     style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                     children: "11-12TH NOVEMBER 2026"
                   }),
                   d.jsx("p", {
-                    className: "text-[10px] sm:text-xs uppercase tracking-wider text-[#704f24] font-semibold pt-0.5",
+                    className: "text-[9px] sm:text-[10px] uppercase tracking-wider text-[#704f24] font-semibold",
                     style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
                     children: "Pushkara Resort and Spa, Pushkar"
                   })
                 ]
               }),
 
-              /* Live Countdown Counter */
+              /* Live Countdown Counter fitting inside the card */
               d.jsx("div", {
-                className: "pt-1 flex items-center justify-center gap-1.5 sm:gap-2.5",
+                className: "pt-1 flex items-center justify-center gap-1 sm:gap-1.5",
                 children: countdownUnits.map((u, idx) => d.jsxs("div", {
                   className: "flex items-center",
                   children: [
                     d.jsxs("div", {
-                      className: "flex flex-col items-center bg-[#faf6ee] border border-[#bfa268]/60 rounded-xl px-2 py-1.5 sm:px-3 sm:py-2 min-w-[50px] sm:min-w-[62px] shadow-sm",
+                      className: "flex flex-col items-center bg-[#faf6ee] border border-[#bfa268]/60 rounded-xl px-1.5 py-1 min-w-[46px] sm:min-w-[50px] shadow-sm",
                       children: [
                         d.jsx("span", {
-                          className: "text-lg sm:text-2xl font-bold text-[#3d2716] leading-none",
+                          className: "text-base sm:text-lg font-bold text-[#3d2716] leading-none",
                           style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
                           children: String(u.value).padStart(2, "0")
                         }),
                         d.jsx("span", {
-                          className: "text-[9px] sm:text-[10px] tracking-wider uppercase text-[#8b6534] font-bold mt-0.5",
+                          className: "text-[7.5px] sm:text-[8px] tracking-wider uppercase text-[#8b6534] font-bold mt-0.5",
                           style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
                           children: u.label
                         })
                       ]
                     }),
                     idx < countdownUnits.length - 1 && d.jsx("span", {
-                      className: "text-[#bfa268] font-bold text-base sm:text-xl mx-0.5",
+                      className: "text-[#bfa268] font-bold text-xs mx-0.5",
                       children: ":"
                     })
                   ]
