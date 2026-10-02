@@ -61,10 +61,10 @@ const newSectionHashtag = `function SectionHashtag({targetDate: e}){
         draggable: !1
       }),
 
-      /* Center Content - strictly positioned in the center blank area without touching or overlapping the pillars */
+      /* Center Content - strictly positioned in the center blank area */
       d.jsxs("div", {
         className: "relative z-20 mx-auto text-center px-1 space-y-3 sm:space-y-4",
-        style: { width: "100%", maxWidth: "272px" },
+        style: { width: "100%", maxWidth: "268px" },
         children: [
           /* Hashtag */
           d.jsx(he.p, {
@@ -108,64 +108,58 @@ const newSectionHashtag = `function SectionHashtag({targetDate: e}){
             children: 'FROM “HI” TO “I DO”'
           }),
 
-          /* Uncrowded Clean Countdown Card scaled perfectly to center space */
+          /* Clean, Uncrowded Date & Venue Card */
           d.jsxs(he.div, {
             initial: {opacity: 0, y: 16},
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.7, delay: 0.2},
-            className: "relative w-full mx-auto bg-[#fffdfa]/95 backdrop-blur-sm rounded-2xl border border-[#bfa268]/60 shadow-lg p-3 sm:p-4 space-y-2.5",
+            className: "relative w-full mx-auto bg-[#fffdfa]/95 backdrop-blur-sm rounded-2xl border border-[#bfa268]/60 shadow-md py-3.5 px-4 space-y-1 text-center",
             children: [
-              d.jsxs("div", {
-                className: "space-y-0.5",
-                children: [
-                  d.jsx("p", {
-                    className: "text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-[#8b6534] font-bold",
-                    style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-                    children: "✦ Auspicious Dates ✦"
-                  }),
-                  d.jsx("h3", {
-                    className: "text-base sm:text-lg font-bold text-[#3d2716] tracking-wider leading-tight",
-                    style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-                    children: "11-12TH NOVEMBER 2026"
-                  }),
-                  d.jsx("p", {
-                    className: "text-[9px] sm:text-[10px] uppercase tracking-wider text-[#704f24] font-semibold",
-                    style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
-                    children: "Pushkara Resort and Spa, Pushkar"
-                  })
-                ]
+              d.jsx("h3", {
+                className: "text-base sm:text-lg font-bold text-[#3d2716] tracking-wider leading-snug",
+                style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
+                children: "11-12TH NOVEMBER 2026"
               }),
-
-              /* Live Countdown Counter fitting inside the card */
-              d.jsx("div", {
-                className: "pt-1 flex items-center justify-center gap-1 sm:gap-1.5",
-                children: countdownUnits.map((u, idx) => d.jsxs("div", {
-                  className: "flex items-center",
-                  children: [
-                    d.jsxs("div", {
-                      className: "flex flex-col items-center bg-[#faf6ee] border border-[#bfa268]/60 rounded-xl px-1.5 py-1 min-w-[46px] sm:min-w-[50px] shadow-sm",
-                      children: [
-                        d.jsx("span", {
-                          className: "text-base sm:text-lg font-bold text-[#3d2716] leading-none",
-                          style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
-                          children: String(u.value).padStart(2, "0")
-                        }),
-                        d.jsx("span", {
-                          className: "text-[7.5px] sm:text-[8px] tracking-wider uppercase text-[#8b6534] font-bold mt-0.5",
-                          style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
-                          children: u.label
-                        })
-                      ]
-                    }),
-                    idx < countdownUnits.length - 1 && d.jsx("span", {
-                      className: "text-[#bfa268] font-bold text-xs mx-0.5",
-                      children: ":"
-                    })
-                  ]
-                }, u.label))
+              d.jsx("p", {
+                className: "text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-[#704f24] font-semibold",
+                style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
+                children: "Pushkara Resort & Spa, Pushkar"
               })
             ]
+          }),
+
+          /* Live Countdown Counter Placed Below the Box */
+          d.jsx(he.div, {
+            initial: {opacity: 0, y: 14},
+            whileInView: {opacity: 1, y: 0},
+            viewport: {once: !0},
+            transition: {duration: 0.7, delay: 0.3},
+            className: "pt-1.5 flex items-center justify-center gap-1 sm:gap-1.5",
+            children: countdownUnits.map((u, idx) => d.jsxs("div", {
+              className: "flex items-center",
+              children: [
+                d.jsxs("div", {
+                  className: "flex flex-col items-center bg-[#fffdfa]/90 backdrop-blur-sm border border-[#bfa268]/60 rounded-xl px-2 py-1.5 min-w-[48px] sm:min-w-[52px] shadow-sm",
+                  children: [
+                    d.jsx("span", {
+                      className: "text-base sm:text-lg font-bold text-[#3d2716] leading-none",
+                      style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
+                      children: String(u.value).padStart(2, "0")
+                    }),
+                    d.jsx("span", {
+                      className: "text-[7.5px] sm:text-[8px] tracking-wider uppercase text-[#8b6534] font-bold mt-0.5",
+                      style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
+                      children: u.label
+                    })
+                  ]
+                }),
+                idx < countdownUnits.length - 1 && d.jsx("span", {
+                  className: "text-[#bfa268] font-bold text-xs mx-0.5",
+                  children: ":"
+                })
+              ]
+            }, u.label))
           })
         ]
       })
@@ -175,4 +169,4 @@ const newSectionHashtag = `function SectionHashtag({targetDate: e}){
 
 bundle = bundle.substring(0, shStart) + newSectionHashtag + '\nfunction zF(){ return null; }\n' + bundle.substring(zfEnd);
 fs.writeFileSync(bundlePath, bundle, 'utf8');
-console.log('Successfully saved SectionHashtag with half pillars and center-isolated text!');
+console.log('Successfully saved SectionHashtag with uncluttered box and counter below the box!');
