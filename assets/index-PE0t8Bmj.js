@@ -237,7 +237,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
         transition: {duration: 1.2, ease: "easeOut"},
         className: "absolute inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-sm pointer-events-none",
         style: {
-          top: "20%",
+          top: "20.5%",
           left: 0,
           right: 0,
           marginLeft: "auto",
@@ -246,27 +246,26 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
           maxWidth: "360px"
         },
         children: [
-          /* Logo size matched exactly to white bg so it fills properly */
-          d.jsxs("div", {
+          /* Soft balanced atmospheric cloud aura covering BOTH logo and text seamlessly */
+          d.jsx("div", {
+            className: "absolute inset-x-0 top-0 bottom-0 pointer-events-none -z-10",
+            style: {
+              background: "radial-gradient(ellipse 85% 75% at 50% 45%, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.48) 50%, rgba(255,255,255,0.15) 72%, transparent 92%)",
+              filter: "blur(12px)",
+              transform: "scale(1.15)"
+            }
+          }),
+
+          /* Logo */
+          d.jsx("div", {
             className: "relative flex items-center justify-center",
             style: { marginBottom: "14px" },
-            children: [
-              d.jsx("div", {
-                className: "absolute rounded-full pointer-events-none -z-10",
-                style: {
-                  width: "128px",
-                  height: "128px",
-                  background: "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,0.2) 80%, transparent 100%)",
-                  filter: "blur(5px)"
-                }
-              }),
-              d.jsx("img", {
-                src: "/assets/wedding/logo.png",
-                alt: "SS Wreath Monogram",
-                className: "relative z-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.14)]",
-                style: { width: "126px", height: "126px", maxWidth: "126px", maxHeight: "126px" }
-              })
-            ]
+            children: d.jsx("img", {
+              src: "/assets/wedding/logo.png",
+              alt: "SS Wreath Monogram",
+              className: "relative z-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]",
+              style: { width: "115px", height: "115px", maxWidth: "115px", maxHeight: "115px" }
+            })
           }),
 
           /* Bride & Groom Name directly underneath in open sky */
@@ -274,7 +273,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
             className: "space-y-0.5",
             children: [
               d.jsx("h1", {
-                className: "text-3xl sm:text-4xl text-[#182d20] font-bold tracking-tight leading-tight drop-shadow-[0_1px_4px_rgba(255,255,255,0.98)]",
+                className: "text-3xl sm:text-4xl text-[#182d20] font-bold tracking-tight leading-tight drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)]",
                 style: {fontFamily: "'Playfair Display', 'Cormorant Garamond', Georgia, serif"},
                 children: "Sarthak"
               }),
@@ -283,7 +282,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
                 children: [
                   d.jsx("span", {className: "text-xs select-none", children: "🌿"}),
                   d.jsx("span", {
-                    className: "text-xl italic text-[#8b6534] drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]",
+                    className: "text-xl italic text-[#8b6534] drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]",
                     style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                     children: "&"
                   }),
@@ -291,7 +290,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
                 ]
               }),
               d.jsx("h2", {
-                className: "text-3xl sm:text-4xl text-[#182d20] font-bold tracking-tight leading-tight drop-shadow-[0_1px_4px_rgba(255,255,255,0.98)]",
+                className: "text-3xl sm:text-4xl text-[#182d20] font-bold tracking-tight leading-tight drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)]",
                 style: {fontFamily: "'Playfair Display', 'Cormorant Garamond', Georgia, serif"},
                 children: "Shivangi"
               })
