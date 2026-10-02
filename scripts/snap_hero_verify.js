@@ -4,25 +4,23 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 
 const server = http.createServer(handler);
-server.listen(3002, () => {
-  console.log('Test server running on port 3002');
-  
+server.listen(3012, () => {
   const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
-  const userDataDir = 'd:\\b8\\scratch_chrome_hero2';
+  const userDataDir = 'd:\\b8\\scratch_chrome_hero3';
   const chrome = spawn(chromePath, [
     '--headless=new',
-    '--remote-debugging-port=9575',
+    '--remote-debugging-port=9585',
     '--user-data-dir=' + userDataDir,
     '--no-first-run',
     '--no-default-browser-check',
     '--disable-gpu',
     '--window-size=412,915',
-    'http://localhost:3002'
+    'http://localhost:3012'
   ]);
 
   setTimeout(async () => {
     try {
-      const listRes = await fetch('http://127.0.0.1:9575/json');
+      const listRes = await fetch('http://127.0.0.1:9585/json');
       const tabs = await listRes.json();
       const ws = new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
 
@@ -48,14 +46,14 @@ server.listen(3002, () => {
             method: 'Page.captureScreenshot',
             params: { format: 'png' }
           }));
-        }, 1200);
+        }, 1500);
       };
 
       ws.onmessage = (event) => {
         const msg = JSON.parse(event.data);
-        if (msg.id === 2) {
+        if (msg.id === 2 && msg.result && msg.result.data) {
           fs.writeFileSync('d:/b8/scratch_hero_snap.png', Buffer.from(msg.result.data, 'base64'));
-          console.log('Saved hero screenshot to d:/b8/scratch_hero_snap.png');
+          console.log('Saved hero screenshot');
           ws.close();
           chrome.kill();
           server.close();
@@ -64,7 +62,7 @@ server.listen(3002, () => {
         }
       };
     } catch(e) {
-      console.error('Error:', e);
+      console.error(e);
       chrome.kill();
       server.close();
       process.exit(1);

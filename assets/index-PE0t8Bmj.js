@@ -237,7 +237,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
         transition: {duration: 1.2, ease: "easeOut"},
         className: "absolute inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-sm pointer-events-none",
         style: {
-          top: "17%",
+          top: "16%",
           left: 0,
           right: 0,
           marginLeft: "auto",
@@ -246,15 +246,15 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
           maxWidth: "340px"
         },
         children: [
-          /* Prominent Enlarged Logo */
+          /* New SS Infinity Monogram in Golden Circle */
           d.jsx("div", {
             className: "relative flex items-center justify-center",
-            style: { marginBottom: "12px" },
+            style: { marginBottom: "14px" },
             children: d.jsx("img", {
-              src: "/assets/wedding/logo.png",
-              alt: "SS Wreath Monogram",
+              src: "/assets/wedding/ss_circle_logo.png?v=3",
+              alt: "SS Monogram Logo",
               className: "relative z-10 object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.15)]",
-              style: { width: "205px", height: "205px", maxWidth: "205px", maxHeight: "205px" }
+              style: { width: "165px", height: "165px", maxWidth: "165px", maxHeight: "165px" }
             })
           }),
 
