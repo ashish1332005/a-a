@@ -237,7 +237,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
         transition: {duration: 1.2, ease: "easeOut"},
         className: "absolute inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-sm pointer-events-none",
         style: {
-          top: "23%",
+          top: "20.5%",
           left: 0,
           right: 0,
           marginLeft: "auto",
@@ -246,31 +246,32 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
           maxWidth: "360px"
         },
         children: [
-          /* Logo in the circled area between wisteria strands */
+          /* Logo increased according to background cloud aura, with breathing space below */
           d.jsxs("div", {
-            className: "relative flex items-center justify-center mb-1",
+            className: "relative flex items-center justify-center",
+            style: { marginBottom: "14px" },
             children: [
               d.jsx("div", {
                 className: "absolute rounded-full pointer-events-none -z-10",
                 style: {
-                  width: "130px",
-                  height: "130px",
-                  background: "radial-gradient(circle, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.2) 75%, transparent 100%)",
-                  filter: "blur(6px)"
+                  width: "155px",
+                  height: "155px",
+                  background: "radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,0.25) 75%, transparent 100%)",
+                  filter: "blur(7px)"
                 }
               }),
               d.jsx("img", {
                 src: "/assets/wedding/logo.png",
                 alt: "SS Wreath Monogram",
-                className: "relative z-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]",
-                style: { width: "84px", height: "84px", maxWidth: "84px", maxHeight: "84px" }
+                className: "relative z-10 object-contain drop-shadow-[0_3px_10px_rgba(0,0,0,0.15)]",
+                style: { width: "112px", height: "112px", maxWidth: "112px", maxHeight: "112px" }
               })
             ]
           }),
 
-          /* Bride & Groom Name directly underneath in open sky */
+          /* Bride & Groom Name directly underneath in open sky with nice separation */
           d.jsxs("div", {
-            className: "space-y-0.5 pt-0.5",
+            className: "space-y-0.5",
             children: [
               d.jsx("h1", {
                 className: "text-3xl sm:text-4xl text-[#182d20] font-bold tracking-tight leading-tight drop-shadow-[0_1px_4px_rgba(255,255,255,0.98)]",
