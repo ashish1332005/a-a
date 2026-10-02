@@ -675,45 +675,78 @@ function jV(){
   });
 }
 function DressCodeSection(){
-  const dressCodes = [
+  const [activeIndex, setActiveIndex] = m.useState(0);
+  const touchStartX = m.useRef(null);
+  const touchEndX = m.useRef(null);
+
+  const wardrobeCards = [
     {
-      title: "Pyaar Ka Rang",
-      time: "11TH NOV · 12:00 PM",
-      theme: "Henna & Haldi Hues",
-      attire: "Haldi Yellows, Mehendi Greens, Festive Pastels & Traditional Florals"
+      id: "w1",
+      image: "/assets/wedding/wardrobe_1.jpg",
+      alt: "Pyaar Ka Rang - Henna & Haldi Hues"
     },
     {
-      title: "Shaam Shandaar",
-      time: "11TH NOV · 9:30 PM",
-      theme: "Glitz, Glam & Dance",
-      attire: "Cocktail Glamour, Indo-Western Royalty, Shimmer Sarees & Bandhgala Suits"
+      id: "w2",
+      image: "/assets/wedding/wardrobe_2.jpg",
+      alt: "Shaam Shandaar - Glitz, Glam and dance"
     },
     {
-      title: "Band Baaja Baraat",
-      time: "12TH NOV · 12:00 PM",
-      theme: "The Sacred Seven",
-      attire: "Grand Traditional Indian, Regal Sherwanis, Silk Sarees & Embroidered Lehengas"
+      id: "w3",
+      image: "/assets/wedding/wardrobe_3.jpg",
+      alt: "Band Baaja Baraat - The Sacred Seven"
     },
     {
-      title: "Dune At Dusk",
-      time: "12TH NOV · 10:00 PM",
-      theme: "Arabian Night Under The Starry Light",
-      attire: "Arabian Chic, Desert Glamour, Elegant Evening Gowns & Midnight Formals"
+      id: "w4",
+      image: "/assets/wedding/wardrobe_4.jpg",
+      alt: "Dune at Dusk - Arabian Night"
     }
   ];
 
+  const total = wardrobeCards.length;
+
+  const nextSlide = () => {
+    setActiveIndex((prev) => (prev + 1) % total);
+  };
+
+  const prevSlide = () => {
+    setActiveIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const diff = touchStartX.current - touchEndX.current;
+      if (diff > 35) {
+        nextSlide();
+      } else if (diff < -35) {
+        prevSlide();
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return d.jsx("section", {
     id: "dress-code",
-    className: "w-full py-16 md:py-24 px-3 md:px-6 bg-[#f4eee4] overflow-hidden",
+    className: "w-full py-14 md:py-20 bg-[#faf6ee] overflow-hidden relative",
     children: d.jsxs("div", {
-      className: "max-w-5xl mx-auto text-center space-y-8 md:space-y-12",
+      className: "max-w-5xl mx-auto text-center space-y-6 md:space-y-8 px-3 sm:px-6",
       children: [
+        /* Header */
         d.jsxs(he.div, {
-          initial: {opacity: 0, y: 20},
+          initial: {opacity: 0, y: 16},
           whileInView: {opacity: 1, y: 0},
           viewport: {once: !0},
           transition: {duration: 0.6},
-          className: "space-y-2",
+          className: "space-y-1.5 px-4",
           children: [
             d.jsx("p", {
               className: "text-xs md:text-sm uppercase tracking-[0.3em] text-[#8b6534] font-bold",
@@ -723,7 +756,7 @@ function DressCodeSection(){
             d.jsx("h2", {
               className: "text-4xl md:text-6xl text-[#3d2716] font-normal leading-tight",
               style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
-              children: "Dress Code"
+              children: "Wardrobe Planner"
             }),
             d.jsx("div", {
               className: "w-24 h-0.5 bg-[#c5a059] mx-auto my-2"
@@ -731,47 +764,151 @@ function DressCodeSection(){
             d.jsx("p", {
               className: "text-sm md:text-base text-[#704f24] italic max-w-lg mx-auto",
               style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
-              children: "Curated styling guide for each royal wedding celebration"
+              children: "Let's help you pack for the wedding"
             })
           ]
         }),
-        d.jsx("div", {
-          className: "grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-left",
-          children: dressCodes.map((item, idx) => d.jsxs(he.div, {
-            key: item.title,
-            initial: {opacity: 0, y: 24},
-            whileInView: {opacity: 1, y: 0},
-            viewport: {once: !0},
-            transition: {duration: 0.6, delay: idx * 0.15},
-            className: "relative rounded-2xl bg-[#fffdfa] border border-[#c5a059]/40 p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 space-y-3",
-            children: [
-              d.jsxs("div", {
-                className: "flex items-center justify-between border-b border-[#c5a059]/30 pb-3",
-                children: [
-                  d.jsx("span", {
-                    className: "text-xl md:text-2xl text-[#3d2716] font-bold",
-                    style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
-                    children: item.title
-                  }),
-                  d.jsx("span", {
-                    className: "text-[11px] md:text-xs tracking-wider uppercase text-[#8b6534] font-bold bg-[#faf6ee] px-2.5 py-1 rounded-full border border-[#c5a059]/40",
-                    style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
-                    children: item.time
+
+        /* 3D Coverflow Stage */
+        d.jsxs("div", {
+          className: "relative w-full flex items-center justify-center select-none py-2 my-2",
+          style: { minHeight: "520px", height: "520px" },
+          onTouchStart: handleTouchStart,
+          onTouchMove: handleTouchMove,
+          onTouchEnd: handleTouchEnd,
+          children: [
+            /* Left Arrow */
+            d.jsx("button", {
+              type: "button",
+              onClick: prevSlide,
+              style: {
+                backgroundColor: "#7c1d29",
+                color: "#fffdfa",
+                borderColor: "rgba(197,160,89,0.6)"
+              },
+              className: "absolute left-2 sm:left-6 md:left-14 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow-2xl flex items-center justify-center text-xl sm:text-2xl font-bold transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border",
+              "aria-label": "Previous wardrobe card",
+              children: "‹"
+            }),
+
+            /* Center Stage Cards */
+            d.jsx("div", {
+              className: "relative w-full flex items-center justify-center",
+              style: { maxWidth: "340px", height: "500px" },
+              children: wardrobeCards.map((card, idx) => {
+                const offset = idx - activeIndex;
+                let transform = "translateX(0) scale(1)";
+                let zIndex = 20;
+                let opacity = 1;
+                let pointerEvents = "auto";
+                let cursor = "default";
+                let filter = "none";
+
+                if (offset === 0) {
+                  transform = "translateX(0%) scale(1)";
+                  zIndex = 30;
+                  opacity = 1;
+                } else if (offset === -1 || (offset === total - 1 && activeIndex === 0)) {
+                  transform = "translateX(-52%) scale(0.85)";
+                  zIndex = 15;
+                  opacity = 0.65;
+                  cursor = "pointer";
+                  filter = "brightness(0.92)";
+                } else if (offset === 1 || (offset === -(total - 1) && activeIndex === total - 1)) {
+                  transform = "translateX(52%) scale(0.85)";
+                  zIndex = 15;
+                  opacity = 0.65;
+                  cursor = "pointer";
+                  filter = "brightness(0.92)";
+                } else {
+                  transform = offset < 0 ? "translateX(-95%) scale(0.7)" : "translateX(95%) scale(0.7)";
+                  zIndex = 5;
+                  opacity = 0;
+                  pointerEvents = "none";
+                }
+
+                return d.jsx("div", {
+                  key: card.id,
+                  onClick: () => {
+                    if (offset !== 0) setActiveIndex(idx);
+                  },
+                  className: "absolute inset-0 flex items-center justify-center w-full",
+                  style: {
+                    transform,
+                    zIndex,
+                    opacity,
+                    pointerEvents,
+                    cursor,
+                    filter,
+                    transition: "all 0.5s cubic-bezier(0.25, 1, 0.5, 1)"
+                  },
+                  children: d.jsx("div", {
+                    className: "relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-[#c5a059]/60 bg-[#fffdfa] transition-all duration-300",
+                    children: d.jsx("img", {
+                      src: card.image,
+                      alt: card.alt,
+                      className: "w-full h-auto block select-none pointer-events-none rounded-2xl sm:rounded-3xl",
+                      draggable: !1
+                    })
                   })
-                ]
-              }),
-              d.jsx("p", {
-                className: "italic text-sm md:text-base text-[#8b6534] font-semibold",
-                style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
-                children: item.theme
-              }),
-              d.jsx("p", {
-                className: "text-xs md:text-sm text-[#5a4023] leading-relaxed",
-                style: {fontFamily: "'Montserrat', sans-serif"},
-                children: item.attire
+                });
               })
-            ]
-          }, item.title))
+            }),
+
+            /* Right Arrow */
+            d.jsx("button", {
+              type: "button",
+              onClick: nextSlide,
+              style: {
+                backgroundColor: "#7c1d29",
+                color: "#fffdfa",
+                borderColor: "rgba(197,160,89,0.6)"
+              },
+              className: "absolute right-2 sm:right-6 md:right-14 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow-2xl flex items-center justify-center text-xl sm:text-2xl font-bold transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border",
+              "aria-label": "Next wardrobe card",
+              children: "›"
+            })
+          ]
+        }),
+
+        /* Bottom Controls */
+        d.jsxs("div", {
+          className: "space-y-4 pt-4",
+          children: [
+            /* Dot Indicators */
+            d.jsx("div", {
+              className: "flex items-center justify-center gap-2",
+              children: wardrobeCards.map((card, idx) => d.jsx("button", {
+                type: "button",
+                key: card.id,
+                onClick: () => setActiveIndex(idx),
+                style: {
+                  backgroundColor: activeIndex === idx ? "#7c1d29" : "rgba(197,160,89,0.35)",
+                  width: activeIndex === idx ? "28px" : "10px",
+                  height: "10px"
+                },
+                className: "transition-all duration-300 rounded-full cursor-pointer border border-[#c5a059]/40",
+                "aria-label": "Go to slide " + (idx + 1)
+              }))
+            }),
+
+            /* Scroll / Next Button */
+            d.jsx("div", {
+              className: "pt-1",
+              children: d.jsx("button", {
+                type: "button",
+                onClick: nextSlide,
+                style: {
+                  backgroundColor: "#7c1d29",
+                  color: "#fffdfa",
+                  borderColor: "rgba(197,160,89,0.5)",
+                  fontFamily: "'Cinzel', 'Playfair Display', serif"
+                },
+                className: "inline-flex items-center justify-center px-8 py-3 rounded-full text-xs sm:text-sm tracking-[0.2em] uppercase font-bold shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border",
+                children: "SCROLL THE NEXT"
+              })
+            })
+          ]
         })
       ]
     })
