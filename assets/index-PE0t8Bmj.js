@@ -220,7 +220,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
   }, [n]);
 
   return d.jsxs("section", {
-    className: "relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#faf6ee]",
+    className: "relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden bg-[#faf6ee]",
     children: [
       d.jsx("div", {
         className: "absolute inset-0 overflow-hidden",
@@ -235,85 +235,85 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
         initial: {opacity: 0, y: 15},
         animate: {opacity: 1, y: 0},
         transition: {duration: 1.2, ease: "easeOut"},
-        className: "relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-md md:max-w-lg mx-auto -translate-y-12 md:-translate-y-16 space-y-2 md:space-y-3",
+        className: "relative z-20 flex flex-col items-center justify-start text-center px-4 max-w-sm sm:max-w-md md:max-w-lg mx-auto pt-20 sm:pt-24 md:pt-28 space-y-1.5 md:space-y-2.5",
         children: [
           d.jsx("div", {
-            className: "relative flex items-center justify-center",
+            className: "relative flex items-center justify-center mb-0.5",
             children: d.jsx("img", {
               src: "/assets/wedding/logo.png",
               alt: "SS Wreath Monogram",
-              className: "w-24 h-24 md:w-32 md:h-32 object-contain",
+              className: "w-20 h-20 md:w-26 md:h-26 object-contain",
               style: {
-                filter: "drop-shadow(0 0 20px rgba(255,255,255,1)) drop-shadow(0 0 10px rgba(255,255,255,0.9)) drop-shadow(0 2px 8px rgba(0,0,0,0.18))"
+                filter: "drop-shadow(0 0 20px rgba(255,255,255,1)) drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 2px 6px rgba(0,0,0,0.15))"
               }
             })
           }),
           d.jsxs("div", {
-            className: "space-y-1",
+            className: "space-y-0.5",
             children: [
               d.jsx("p", {
-                className: "text-[11px] md:text-xs tracking-[0.28em] uppercase text-[#3d2716] font-bold drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)]",
+                className: "text-[10px] md:text-xs tracking-[0.28em] uppercase text-[#3d2716] font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]",
                 style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                 children: "SHREE GANESHAY NAMAH"
               }),
               d.jsxs("div", {
                 className: "flex items-center justify-center gap-2 text-[#bfa268] text-xs select-none",
                 children: [
-                  d.jsx("span", {className: "w-6 h-px bg-[#bfa268]/80"}),
-                  d.jsx("span", {children: "✤"}),
-                  d.jsx("span", {className: "w-6 h-px bg-[#bfa268]/80"})
+                  d.jsx("span", {className: "w-5 h-px bg-[#bfa268]/80"}),
+                  d.jsx("span", {className: "text-[10px]", children: "✤"}),
+                  d.jsx("span", {className: "w-5 h-px bg-[#bfa268]/80"})
                 ]
               })
             ]
           }),
           d.jsxs("div", {
-            className: "space-y-0.5 py-1",
+            className: "space-y-0 py-0.5",
             children: [
               d.jsx("h1", {
-                className: "text-4xl md:text-6xl text-[#1e3427] font-bold tracking-normal leading-tight drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)]",
+                className: "text-3xl sm:text-4xl md:text-5xl text-[#1e3427] font-bold tracking-tight leading-tight drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)]",
                 style: {fontFamily: "'Playfair Display', 'Cormorant Garamond', Georgia, serif"},
                 children: "Sarthak"
               }),
               d.jsxs("div", {
-                className: "flex items-center justify-center gap-3 text-[#bfa268] my-0.5",
+                className: "flex items-center justify-center gap-2 text-[#bfa268] -my-0.5",
                 children: [
-                  d.jsx("span", {className: "text-sm select-none", children: "🌿"}),
+                  d.jsx("span", {className: "text-xs select-none", children: "🌿"}),
                   d.jsx("span", {
-                    className: "text-2xl md:text-3xl italic text-[#8b6534]",
+                    className: "text-xl md:text-2xl italic text-[#8b6534]",
                     style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                     children: "&"
                   }),
-                  d.jsx("span", {className: "text-sm select-none scale-x-[-1]", children: "🌿"})
+                  d.jsx("span", {className: "text-xs select-none scale-x-[-1]", children: "🌿"})
                 ]
               }),
               d.jsx("h2", {
-                className: "text-4xl md:text-6xl text-[#1e3427] font-bold tracking-normal leading-tight drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)]",
+                className: "text-3xl sm:text-4xl md:text-5xl text-[#1e3427] font-bold tracking-tight leading-tight drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)]",
                 style: {fontFamily: "'Playfair Display', 'Cormorant Garamond', Georgia, serif"},
                 children: "Shivangi"
               })
             ]
           }),
           d.jsx("div", {
-            className: "pt-1",
+            className: "pt-0.5",
             children: d.jsx("div", {
-              className: "inline-block border-l-2 border-r-2 border-[#8b6534] px-4 py-0.5",
+              className: "inline-block border-l-2 border-r-2 border-[#8b6534] px-3 py-0.5",
               children: d.jsx("p", {
-                className: "text-xs md:text-sm tracking-[0.24em] uppercase text-[#3d2716] font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]",
+                className: "text-[10px] md:text-xs tracking-[0.22em] uppercase text-[#3d2716] font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]",
                 style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                 children: "11-12TH NOVEMBER 2026"
               })
             })
           }),
           d.jsxs("div", {
-            className: "space-y-0.5 pt-1",
+            className: "space-y-0.5",
             children: [
               d.jsx("p", {
-                className: "text-[11px] md:text-xs tracking-[0.22em] uppercase text-[#3d2716] font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]",
+                className: "text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-[#3d2716] font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]",
                 style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
                 children: "PUSHKARA RESORT AND SPA"
               }),
               d.jsx("p", {
-                className: "text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-[#704f24] font-semibold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]",
+                className: "text-[9px] md:text-[10px] tracking-[0.18em] uppercase text-[#704f24] font-semibold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]",
                 style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
                 children: "PUSHKAR, RAJASTHAN"
               })
@@ -372,48 +372,42 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
 
   return d.jsxs("section", {
     id: "hashtag-section",
-    className: "relative w-full py-16 md:py-24 px-4 bg-[#f6efe4] overflow-hidden flex items-center justify-center min-h-[440px] md:min-h-[520px]",
+    className: "relative w-full py-16 md:py-24 px-4 bg-[#f6efe4] overflow-hidden flex items-center justify-center min-h-[420px] md:min-h-[480px]",
     children: [
+      /* Left Column pushed to edge */
       d.jsx("img", {
         src: "/assets/wedding/column.png",
         alt: "Floral Column Left",
-        className: "absolute left-0 top-0 bottom-0 h-full w-auto max-w-[24%] md:max-w-[19%] object-contain object-left pointer-events-none select-none z-10 opacity-95",
+        className: "absolute -left-14 sm:-left-8 md:left-0 top-0 bottom-0 h-full w-auto max-w-[34%] sm:max-w-[26%] md:max-w-[20%] object-contain object-left pointer-events-none select-none z-0 opacity-75 md:opacity-95",
         draggable: !1
       }),
+      /* Right Column pushed to edge */
       d.jsx("img", {
         src: "/assets/wedding/column.png",
         alt: "Floral Column Right",
-        className: "absolute right-0 top-0 bottom-0 h-full w-auto max-w-[24%] md:max-w-[19%] object-contain object-right pointer-events-none select-none z-10 opacity-95",
+        className: "absolute -right-14 sm:-right-8 md:right-0 top-0 bottom-0 h-full w-auto max-w-[34%] sm:max-w-[26%] md:max-w-[20%] object-contain object-right pointer-events-none select-none z-0 opacity-75 md:opacity-95",
         style: {transform: "scaleX(-1)"},
         draggable: !1
       }),
-      d.jsx("div", {
-        className: "absolute inset-0 pointer-events-none overflow-hidden select-none z-0",
-        children: [
-          d.jsx("span", {className: "absolute top-[18%] left-[22%] text-[#d6be96] text-xs opacity-60", children: "🍂"}),
-          d.jsx("span", {className: "absolute top-[65%] left-[26%] text-[#e8cda5] text-xs opacity-50", children: "🌸"}),
-          d.jsx("span", {className: "absolute top-[22%] right-[22%] text-[#d6be96] text-xs opacity-60", children: "🍂"}),
-          d.jsx("span", {className: "absolute top-[70%] right-[25%] text-[#e8cda5] text-xs opacity-50", children: "🌸"})
-        ]
-      }),
+      /* Center Content Area with ample breathing room */
       d.jsxs("div", {
-        className: "relative z-20 max-w-2xl mx-auto text-center px-4 space-y-4 md:space-y-5",
+        className: "relative z-20 max-w-sm sm:max-w-md md:max-w-xl mx-auto text-center px-4 sm:px-6 space-y-4 md:space-y-5",
         children: [
           d.jsx(he.p, {
             initial: {opacity: 0, y: 16},
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.6},
-            className: "text-4xl md:text-6xl lg:text-7xl text-[#1e3427] font-normal tracking-wide leading-tight drop-shadow-sm select-none",
+            className: "text-4xl sm:text-5xl md:text-6xl text-[#1e3427] font-normal tracking-wide leading-tight drop-shadow-sm select-none",
             style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
             children: "#ShiGotSariDuniya"
           }),
           d.jsxs("div", {
             className: "flex items-center justify-center gap-3 py-0.5 select-none",
             children: [
-              d.jsx("span", {className: "w-12 md:w-24 h-[1.5px] bg-gradient-to-r from-transparent to-[#bfa268]"}),
+              d.jsx("span", {className: "w-10 sm:w-16 md:w-24 h-[1.5px] bg-gradient-to-r from-transparent to-[#bfa268]"}),
               d.jsxs("svg", {
-                className: "w-8 h-6 text-[#bfa268]",
+                className: "w-7 h-5 text-[#bfa268]",
                 viewBox: "0 0 32 24",
                 fill: "none",
                 stroke: "currentColor",
@@ -423,7 +417,7 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
                   d.jsx("path", {d: "M18 9.5C16.5 6.5 13.5 6.5 12 8.5C10 11 11 14.5 18 19C25 14.5 26 11 24 8.5C22.5 6.5 19.5 6.5 18 9.5Z"})
                 ]
               }),
-              d.jsx("span", {className: "w-12 md:w-24 h-[1.5px] bg-gradient-to-l from-transparent to-[#bfa268]"})
+              d.jsx("span", {className: "w-10 sm:w-16 md:w-24 h-[1.5px] bg-gradient-to-l from-transparent to-[#bfa268]"})
             ]
           }),
           d.jsx(he.p, {
@@ -431,27 +425,27 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.6, delay: 0.1},
-            className: "uppercase text-sm md:text-xl text-[#2b261f] tracking-[0.28em] font-semibold select-none",
+            className: "uppercase text-xs sm:text-sm md:text-lg text-[#2b261f] tracking-[0.28em] font-semibold select-none",
             style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
             children: 'FROM “HI” TO “I DO”'
           }),
           d.jsx("div", {
-            className: "pt-2 flex flex-col items-center justify-center",
+            className: "pt-1 flex flex-col items-center justify-center",
             children: !revealed ? d.jsxs(he.button, {
               onClick: handleReveal,
               whileHover: {scale: 1.05},
               whileTap: {scale: 0.95},
               "aria-label": "Tap to reveal wedding dates",
-              className: "relative inline-flex items-center justify-center gap-3 px-8 md:px-11 py-3.5 md:py-4 rounded-full bg-gradient-to-r from-[#fbf6ec] via-[#fffdf9] to-[#fbf6ec] text-[#3d2716] border-2 border-[#bfa268] shadow-[0_4px_20px_rgba(191,162,104,0.35)] hover:shadow-[0_6px_25px_rgba(191,162,104,0.5)] cursor-pointer transition-all duration-300 group",
+              className: "relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-9 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#fbf6ec] via-[#fffdf9] to-[#fbf6ec] text-[#3d2716] border-2 border-[#bfa268] shadow-[0_4px_20px_rgba(191,162,104,0.35)] hover:shadow-[0_6px_25px_rgba(191,162,104,0.5)] cursor-pointer transition-all duration-300 group",
               children: [
-                d.jsx("span", {className: "text-[#8b6534] text-base select-none", children: "🌸"}),
+                d.jsx("span", {className: "text-[#8b6534] text-sm select-none", children: "🌸"}),
                 d.jsx("span", {
-                  className: "uppercase tracking-[0.2em] font-bold text-xs md:text-sm text-[#3d2716] group-hover:text-[#8b6534] transition-colors",
+                  className: "uppercase tracking-[0.2em] font-bold text-xs sm:text-sm text-[#3d2716] group-hover:text-[#8b6534] transition-colors",
                   style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                   children: "TAP TO REVEAL"
                 }),
                 d.jsxs("svg", {
-                  className: "w-5 h-5 text-[#8b6534] -rotate-12 transition-transform group-hover:scale-110",
+                  className: "w-4 h-4 sm:w-5 sm:h-5 text-[#8b6534] -rotate-12 transition-transform group-hover:scale-110",
                   viewBox: "0 0 24 24",
                   fill: "none",
                   stroke: "currentColor",
@@ -465,57 +459,56 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
                     d.jsx("path", {d: "M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"})
                   ]
                 }),
-                d.jsx("span", {className: "text-[#8b6534] text-base select-none", children: "🌸"})
+                d.jsx("span", {className: "text-[#8b6534] text-sm select-none", children: "🌸"})
               ]
             }) : d.jsxs(he.div, {
-              initial: {opacity: 0, scale: 0.92, y: 12},
+              initial: {opacity: 0, scale: 0.92, y: 10},
               animate: {opacity: 1, scale: 1, y: 0},
               transition: {duration: 0.6, ease: "easeOut"},
-              className: "w-full max-w-lg mx-auto bg-[#fffdfa]/95 backdrop-blur-md rounded-2xl md:rounded-3xl border-2 border-[#bfa268]/70 shadow-2xl p-6 md:p-8 space-y-4",
+              className: "w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto bg-[#fffdfa]/95 backdrop-blur-md rounded-2xl border-2 border-[#bfa268]/70 shadow-2xl p-4 sm:p-6 md:p-7 space-y-3",
               children: [
                 d.jsxs("div", {
-                  className: "space-y-1",
+                  className: "space-y-0.5",
                   children: [
                     d.jsx("p", {
-                      className: "text-xs md:text-sm uppercase tracking-[0.25em] text-[#8b6534] font-bold",
+                      className: "text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#8b6534] font-bold",
                       style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                       children: "✦ The Auspicious Dates ✦"
                     }),
                     d.jsx("h3", {
-                      className: "text-2xl md:text-4xl lg:text-5xl font-bold text-[#3d2716] tracking-wider leading-tight",
-                      style: {fontFamily: "'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif"},
+                      className: "text-xl sm:text-2xl md:text-3xl font-bold text-[#3d2716] tracking-wider leading-tight",
+                      style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                       children: "11-12TH NOVEMBER 2026"
                     }),
                     d.jsx("p", {
-                      className: "text-xs md:text-sm uppercase tracking-wider text-[#704f24] font-semibold pt-1",
+                      className: "text-[10px] sm:text-xs uppercase tracking-wider text-[#704f24] font-semibold pt-0.5",
                       style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
                       children: "Pushkara Resort and Spa, Pushkar"
                     })
                   ]
                 }),
                 d.jsx("div", {
-                  className: "pt-2 flex items-center justify-center gap-2 md:gap-3",
+                  className: "pt-1 flex items-center justify-center gap-1.5 sm:gap-2.5",
                   children: countdownUnits.map((u, idx) => d.jsxs("div", {
                     className: "flex items-center",
                     children: [
                       d.jsxs("div", {
-                        className: "flex flex-col items-center bg-[#faf6ee] border border-[#bfa268]/60 rounded-xl px-2.5 py-2 md:px-4 md:py-2.5 min-w-[62px] md:min-w-[80px] shadow-sm",
+                        className: "flex flex-col items-center bg-[#faf6ee] border border-[#bfa268]/60 rounded-xl px-2 py-1.5 sm:px-3 sm:py-2 min-w-[50px] sm:min-w-[62px] shadow-sm",
                         children: [
                           d.jsx("span", {
-                            className: "text-2xl md:text-4xl font-bold text-[#3d2716] leading-none",
+                            className: "text-lg sm:text-2xl font-bold text-[#3d2716] leading-none",
                             style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
                             children: String(u.value).padStart(2, "0")
                           }),
                           d.jsx("span", {
-                            className: "text-[10px] md:text-xs tracking-wider uppercase text-[#8b6534] font-bold mt-1",
+                            className: "text-[9px] sm:text-[10px] tracking-wider uppercase text-[#8b6534] font-bold mt-0.5",
                             style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
                             children: u.label
                           })
                         ]
                       }),
                       idx < countdownUnits.length - 1 && d.jsx("span", {
-                        className: "text-[#bfa268] font-bold text-xl md:text-2xl mx-1",
-                        style: {fontFamily: "'Playfair Display', serif"},
+                        className: "text-[#bfa268] font-bold text-base sm:text-xl mx-0.5",
                         children: ":"
                       })
                     ]
@@ -530,158 +523,77 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
   });
 }
 function zF(){ return null; }
-const WF=1,HF="5f00c8fb-9224-49e9-93f2-9936e25e5082",KF="3f9d9875-eabc-44df-87dc-3ba667b34959",GF="/__l5e/assets-v1/5f00c8fb-9224-49e9-93f2-9936e25e5082/details-embroidery-2.png",qF="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/5f00c8fb-9224-49e9-93f2-9936e25e5082/details-embroidery-2.png",YF="details-embroidery-2.png",ZF=176406,QF="image/webp",XF="2026-08-01T21:37:52Z",OC={version:WF,asset_id:HF,project_id:KF,url:GF,r2_key:qF,original_filename:YF,size:ZF,content_type:QF,created_at:XF},JF=[{title:"Welcome Party",lines:["La Limonaia","September 11, 2027","at 7pm"]},{title:"Wedding Day",lines:["Villa Cipressi","September 12, 2027","at 5pm"]},{title:"",lines:["","",""]}];function eV(){
-  const events = [
-    {
-      title: "Pyaar Ka Rang",
-      sub: "Henna & Haldi Hues",
-      time: "11th Nov · 12:00 PM – 4:00 PM",
-      venue: "Pool Garden"
-    },
-    {
-      title: "Shaam Shandaar",
-      sub: "Glitz, Glam & Dance",
-      time: "11th Nov · 9:30 PM Onwards",
-      venue: "Pushkara Baagh"
-    },
-    {
-      title: "Band Baaja Baraat",
-      sub: "The Sacred Seven",
-      time: "12th Nov · 12:00 PM",
-      venue: "Palm Deck"
-    },
-    {
-      title: "Dune At Dusk",
-      sub: "Arabian Night",
-      time: "12th Nov · 10:00 PM Onwards",
-      venue: "Pushkara Resort"
-    }
-  ];
-
-  return d.jsx("section",{
-    id:"itinerary",
-    className:"w-full py-12 md:py-20 px-3 md:px-6 bg-[#faf6ee]",
-    children:d.jsxs(he.div,{
-      initial:{opacity:0,y:24},
-      whileInView:{opacity:1,y:0},
-      viewport:{once:!0},
-      transition:{duration:0.7},
-      className:"relative max-w-xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-2 border-[#c5a059]/40 [container-type:inline-size]",
-      children:[
-        d.jsx("img",{
-          src:"/__l5e/indian_embroidery_bg.jpg",
-          alt:"Wedding Itinerary Background",
-          className:"w-full h-auto block select-none pointer-events-none",
-          draggable:!1
-        }),
-        d.jsxs("div",{
-          className:"absolute inset-0 left-[22%] right-[22%] top-[8%] bottom-[8%] flex flex-col items-center justify-between text-center select-none pointer-events-none",
-          children:[
-            d.jsxs("div",{
-              className:"space-y-0.5",
-              children:[
-                d.jsx("p",{
-                  className:"font-body uppercase tracking-[0.25em] text-[#8b6534] font-bold",
-                  style:{fontSize:"2.2cqw"},
-                  children:"✦ WEDDING ITINERARY ✦"
-                }),
-                d.jsx("h2",{
-                  className:"font-display text-[#3d2716] font-bold leading-tight",
-                  style:{fontSize:"5.6cqw"},
-                  children:"The Celebrations"
-                })
-              ]
-            }),
-            d.jsx("div",{
-              className:"w-full flex flex-col justify-around flex-1 py-1",
-              children:events.map((ev)=>d.jsxs("div",{
-                className:"py-1 border-b border-[#c5a059]/20 last:border-none",
-                children:[
-                  d.jsx("p",{
-                    className:"font-display text-[#3d2716] font-bold leading-tight",
-                    style:{fontSize:"3.8cqw"},
-                    children:ev.title
-                  }),
-                  d.jsx("p",{
-                    className:"font-body text-[#8b6534] italic font-semibold leading-tight",
-                    style:{fontSize:"2.4cqw"},
-                    children:ev.sub
-                  }),
-                  d.jsxs("p",{
-                    className:"font-body text-[#523d29] font-medium tracking-wide mt-0.5",
-                    style:{fontSize:"2.3cqw"},
-                    children:[ev.time," • ",ev.venue]
-                  })
-                ]
-              },ev.title))
-            })
-          ]
-        })
-      ]
-    })
-  });
-}const tV=1,nV="14c85bd5-d8fd-4897-b67a-eef5d9d15427",rV="3f9d9875-eabc-44df-87dc-3ba667b34959",sV="/__l5e/ganesh.png",iV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/14c85bd5-d8fd-4897-b67a-eef5d9d15427/villa-illustration.png",oV="villa-illustration.png",aV=860273,lV="image/png",cV="2026-08-01T20:47:38Z",IC={version:tV,asset_id:nV,project_id:rV,url:sV,r2_key:iV,original_filename:oV,size:aV,content_type:lV,created_at:cV},uV=1,dV="59745157-22d7-443c-8b72-353ad416e54c",fV="3f9d9875-eabc-44df-87dc-3ba667b34959",hV="/__l5e/assets-v1/59745157-22d7-443c-8b72-353ad416e54c/key-tassel.png",pV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/59745157-22d7-443c-8b72-353ad416e54c/key-tassel.png",mV="key-tassel.png",gV=148226,yV="image/webp",vV="2026-08-01T21:56:41Z",DC={version:uV,asset_id:dV,project_id:fV,url:hV,r2_key:pV,original_filename:mV,size:gV,content_type:yV,created_at:vV},Cx=[IC.url],wV=["w-72 md:w-[26rem]"],xV="https://maps.app.goo.gl/6PuohKkbUqTcSj56A";function bV(){
+function bV(){
   return d.jsx("section", {
     id: "invitation",
-    className: "w-full py-16 md:py-24 px-3 md:px-6 bg-[#f6efe4] overflow-hidden",
+    className: "w-full py-14 md:py-22 px-3 md:px-6 bg-[#f6efe4] overflow-hidden",
     children: d.jsx("div", {
-      className: "max-w-3xl mx-auto",
+      className: "max-w-2xl mx-auto",
       children: d.jsxs(he.div, {
         initial: {opacity: 0, y: 30},
         whileInView: {opacity: 1, y: 0},
         viewport: {once: !0},
         transition: {duration: 0.8},
-        className: "relative bg-[#fffdfa] border-2 border-[#c5a059]/60 rounded-3xl p-6 md:p-14 text-center shadow-2xl space-y-5 overflow-hidden",
+        className: "relative bg-[#fffdfa] border-2 border-[#c5a059]/60 rounded-3xl p-6 sm:p-10 md:p-12 text-center shadow-2xl space-y-4 md:space-y-5 overflow-hidden",
         children: [
-          /* Ornate Corner Borders */
-          d.jsx("div", {className: "absolute top-3 left-3 w-8 h-8 md:w-12 md:h-12 border-t-2 border-l-2 border-[#c5a059]/70 pointer-events-none"}),
-          d.jsx("div", {className: "absolute top-3 right-3 w-8 h-8 md:w-12 md:h-12 border-t-2 border-r-2 border-[#c5a059]/70 pointer-events-none"}),
-          d.jsx("div", {className: "absolute bottom-3 left-3 w-8 h-8 md:w-12 md:h-12 border-b-2 border-l-2 border-[#c5a059]/70 pointer-events-none"}),
-          d.jsx("div", {className: "absolute bottom-3 right-3 w-8 h-8 md:w-12 md:h-12 border-b-2 border-r-2 border-[#c5a059]/70 pointer-events-none"}),
+          /* Top-Left Corner Floral Embroidery */
+          d.jsx("img", {
+            src: "/assets/wedding/corner_embroidery.png",
+            alt: "Floral Corner Left",
+            className: "absolute -top-1 -left-1 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain pointer-events-none select-none z-10 opacity-90",
+            draggable: !1
+          }),
+          /* Top-Right Corner Floral Embroidery (Mirrored) */
+          d.jsx("img", {
+            src: "/assets/wedding/corner_embroidery.png",
+            alt: "Floral Corner Right",
+            className: "absolute -top-1 -right-1 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain pointer-events-none select-none z-10 opacity-90 scale-x-[-1]",
+            draggable: !1
+          }),
 
-          /* Ganesh Ji Logo & Shloka */
+          /* Ganesh Ji Logo (Compact & Refined) & Shloka */
           d.jsxs("div", {
-            className: "flex flex-col items-center justify-center space-y-2.5",
+            className: "relative z-20 flex flex-col items-center justify-center space-y-2 pt-2 sm:pt-4",
             children: [
               d.jsx("img", {
                 src: "/assets/wedding/ganesh.png",
                 alt: "Lord Ganesha",
-                className: "w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-[0_2px_10px_rgba(197,160,89,0.35)]"
+                className: "w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_2px_8px_rgba(197,160,89,0.35)]"
               }),
               d.jsx("p", {
-                className: "text-[#8b6534] font-bold text-base md:text-lg tracking-wider",
+                className: "text-[#8b6534] font-bold text-sm sm:text-base md:text-lg tracking-wider",
                 style: {fontFamily: "'Playfair Display', serif"},
                 children: "॥ श्री गणेशाय नमः ॥"
               }),
               d.jsxs("div", {
-                className: "space-y-1 text-xs md:text-sm text-[#704f24] font-medium leading-relaxed max-w-lg mx-auto",
+                className: "space-y-0.5 text-xs sm:text-sm text-[#704f24] font-medium leading-relaxed max-w-md mx-auto",
                 children: [
                   d.jsx("p", {children: "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। ।"}),
                   d.jsx("p", {children: "निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥ ॥"})
                 ]
               }),
               d.jsxs("div", {
-                className: "flex items-center justify-center gap-3 pt-2 text-[#bfa268]",
+                className: "flex items-center justify-center gap-3 pt-1 text-[#bfa268]",
                 children: [
-                  d.jsx("span", {className: "w-12 md:w-20 h-px bg-gradient-to-r from-transparent to-[#bfa268]"}),
-                  d.jsx("span", {className: "text-sm", children: "✤"}),
-                  d.jsx("span", {className: "w-12 md:w-20 h-px bg-gradient-to-l from-transparent to-[#bfa268]"})
+                  d.jsx("span", {className: "w-10 sm:w-16 h-px bg-gradient-to-r from-transparent to-[#bfa268]"}),
+                  d.jsx("span", {className: "text-xs sm:text-sm", children: "✤"}),
+                  d.jsx("span", {className: "w-10 sm:w-16 h-px bg-gradient-to-l from-transparent to-[#bfa268]"})
                 ]
               })
             ]
           }),
 
-          /* Parents & Invitation Text */
+          /* Host Parents & Lineage */
           d.jsxs("div", {
-            className: "space-y-2 pt-2",
+            className: "relative z-20 space-y-1 pt-1",
             children: [
               d.jsx("h3", {
-                className: "text-xl md:text-3xl text-[#3d2716] font-bold tracking-wide",
+                className: "text-lg sm:text-2xl md:text-3xl text-[#3d2716] font-bold tracking-wide",
                 style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
                 children: "Mr. Sharad & Mrs. Shilpa Luthra"
               }),
               d.jsx("p", {
-                className: "text-sm md:text-base text-[#704f24] italic",
+                className: "text-xs sm:text-sm md:text-base text-[#704f24] italic",
                 style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
                 children: "Cordially invite you to grace the wedding celebration of their son"
               })
@@ -690,15 +602,15 @@ const WF=1,HF="5f00c8fb-9224-49e9-93f2-9936e25e5082",KF="3f9d9875-eabc-44df-87dc
 
           /* Groom & Grandparents */
           d.jsxs("div", {
-            className: "space-y-1 py-1",
+            className: "relative z-20 space-y-0.5 py-0.5",
             children: [
               d.jsx("h2", {
-                className: "text-3xl md:text-5xl text-[#1e3427] font-bold tracking-wider",
+                className: "text-2xl sm:text-4xl md:text-5xl text-[#1e3427] font-bold tracking-wider",
                 style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
                 children: "SARTHAK"
               }),
               d.jsx("p", {
-                className: "text-xs md:text-sm text-[#8b6534] font-semibold tracking-wide",
+                className: "text-[11px] sm:text-xs md:text-sm text-[#8b6534] font-semibold tracking-wide",
                 style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                 children: "(G/S/O Shri Joginder Luthra & Late Smt. Shukla Luthra)"
               })
@@ -707,29 +619,29 @@ const WF=1,HF="5f00c8fb-9224-49e9-93f2-9936e25e5082",KF="3f9d9875-eabc-44df-87dc
 
           /* Connector */
           d.jsxs("div", {
-            className: "flex items-center justify-center gap-3 py-1",
+            className: "relative z-20 flex items-center justify-center gap-3 py-0.5",
             children: [
-              d.jsx("span", {className: "w-8 md:w-16 h-px bg-[#c5a059]/50"}),
+              d.jsx("span", {className: "w-6 sm:w-12 h-px bg-[#c5a059]/50"}),
               d.jsx("span", {
-                className: "text-lg md:text-2xl text-[#8b6534] font-serif italic font-bold",
+                className: "text-base sm:text-xl md:text-2xl text-[#8b6534] font-serif italic font-bold",
                 style: {fontFamily: "'Alex Brush', 'Playfair Display', cursive, serif"},
                 children: "with"
               }),
-              d.jsx("span", {className: "w-8 md:w-16 h-px bg-[#c5a059]/50"})
+              d.jsx("span", {className: "w-6 sm:w-12 h-px bg-[#c5a059]/50"})
             ]
           }),
 
           /* Bride & Parents */
           d.jsxs("div", {
-            className: "space-y-1 py-1",
+            className: "relative z-20 space-y-0.5 py-0.5",
             children: [
               d.jsx("h2", {
-                className: "text-3xl md:text-5xl text-[#1e3427] font-bold tracking-wider",
+                className: "text-2xl sm:text-4xl md:text-5xl text-[#1e3427] font-bold tracking-wider",
                 style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
                 children: "SHIVANGI"
               }),
               d.jsx("p", {
-                className: "text-xs md:text-sm text-[#8b6534] font-semibold tracking-wide",
+                className: "text-[11px] sm:text-xs md:text-sm text-[#8b6534] font-semibold tracking-wide",
                 style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                 children: "(D/O Mr. Manish & Mrs. Sangeeta Chawla)"
               })
@@ -738,15 +650,15 @@ const WF=1,HF="5f00c8fb-9224-49e9-93f2-9936e25e5082",KF="3f9d9875-eabc-44df-87dc
 
           /* Venue */
           d.jsxs("div", {
-            className: "pt-4 border-t border-[#c5a059]/40 space-y-1",
+            className: "relative z-20 pt-3 border-t border-[#c5a059]/40 space-y-0.5",
             children: [
               d.jsx("p", {
-                className: "text-xs md:text-sm tracking-[0.25em] uppercase text-[#3d2716] font-bold",
+                className: "text-[11px] sm:text-xs md:text-sm tracking-[0.25em] uppercase text-[#3d2716] font-bold",
                 style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                 children: "AT PUSHKARA RESORT AND SPA, PUSHKAR"
               }),
               d.jsx("p", {
-                className: "text-[11px] md:text-xs tracking-[0.2em] uppercase text-[#704f24] font-medium",
+                className: "text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#704f24] font-medium",
                 style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
                 children: "Pushkar, Rajasthan"
               })
@@ -757,7 +669,6 @@ const WF=1,HF="5f00c8fb-9224-49e9-93f2-9936e25e5082",KF="3f9d9875-eabc-44df-87dc
     })
   });
 }
-
 const _V=1,SV="ac682b5b-4d77-408f-b7c9-227bee99656b",kV="3f9d9875-eabc-44df-87dc-3ba667b34959",EV="/__l5e/assets-v1/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",CV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",TV="dress-code-embroidery-2.png",RV=127586,PV="image/webp",NV="2026-08-01T21:36:04Z",MC={version:_V,asset_id:SV,project_id:kV,url:EV,r2_key:CV,original_filename:TV,size:RV,content_type:PV,created_at:NV};
 
 function jV(){
