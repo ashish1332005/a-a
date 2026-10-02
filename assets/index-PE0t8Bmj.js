@@ -237,34 +237,24 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
         transition: {duration: 1.2, ease: "easeOut"},
         className: "absolute inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-sm pointer-events-none",
         style: {
-          top: "14%",
+          top: "17%",
           left: 0,
           right: 0,
           marginLeft: "auto",
           marginRight: "auto",
           width: "100%",
-          maxWidth: "380px"
+          maxWidth: "340px"
         },
         children: [
-          /* Luminous atmospheric aura behind enlarged logo and text */
-          d.jsx("div", {
-            className: "absolute inset-x-0 top-0 bottom-0 pointer-events-none -z-10",
-            style: {
-              background: "radial-gradient(ellipse 90% 80% at 50% 42%, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.68) 50%, rgba(255,255,255,0.2) 75%, transparent 95%)",
-              filter: "blur(14px)",
-              transform: "scale(1.25)"
-            }
-          }),
-
-          /* Enlarged Prominent Logo */
+          /* Prominent Enlarged Logo */
           d.jsx("div", {
             className: "relative flex items-center justify-center",
-            style: { marginBottom: "6px" },
+            style: { marginBottom: "12px" },
             children: d.jsx("img", {
               src: "/assets/wedding/logo.png",
               alt: "SS Wreath Monogram",
-              className: "relative z-10 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.16)]",
-              style: { width: "195px", height: "195px", maxWidth: "195px", maxHeight: "195px" }
+              className: "relative z-10 object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.15)]",
+              style: { width: "205px", height: "205px", maxWidth: "205px", maxHeight: "205px" }
             })
           }),
 
@@ -273,7 +263,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
             className: "space-y-0.5",
             children: [
               d.jsx("h1", {
-                className: "text-5xl sm:text-6xl md:text-7xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_1px_4px_rgba(255,255,255,0.98)] select-none",
+                className: "text-5xl sm:text-6xl md:text-7xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_6px_rgba(255,255,255,0.95)] select-none",
                 style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                 children: "Sarthak"
               }),
@@ -282,7 +272,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
                 children: [
                   d.jsx("span", {className: "text-xs select-none", children: "🌿"}),
                   d.jsx("span", {
-                    className: "text-2xl sm:text-3xl italic text-[#8b6534] drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]",
+                    className: "text-2xl sm:text-3xl italic text-[#8b6534] drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)]",
                     style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                     children: "&"
                   }),
@@ -290,7 +280,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
                 ]
               }),
               d.jsx("h2", {
-                className: "text-5xl sm:text-6xl md:text-7xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_1px_4px_rgba(255,255,255,0.98)] select-none",
+                className: "text-5xl sm:text-6xl md:text-7xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_6px_rgba(255,255,255,0.95)] select-none",
                 style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                 children: "Shivangi"
               })
