@@ -251,7 +251,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
             className: "relative flex items-center justify-center",
             style: { marginBottom: "14px" },
             children: d.jsx("img", {
-              src: "/assets/wedding/ss_circle_logo.png?v=3",
+              src: "/assets/wedding/ss_circle_logo.png?v=4",
               alt: "SS Monogram Logo",
               className: "relative z-10 object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.15)]",
               style: { width: "165px", height: "165px", maxWidth: "165px", maxHeight: "165px" }
