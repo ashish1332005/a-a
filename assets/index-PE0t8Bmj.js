@@ -323,37 +323,32 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
     return () => clearInterval(o);
   }, [e]);
 
-  const countdownUnits = [
-    {value: n.days, label: "DAYS"},
-    {value: n.hours, label: "HOURS"},
-    {value: n.minutes, label: "MINS"},
-    {value: n.seconds, label: "SECS"}
-  ];
+  const padZero = (num) => String(num).padStart(2, '0');
 
   return d.jsxs("section", {
     id: "hashtag-section",
-    className: "relative w-full py-12 md:py-20 px-2 bg-[#f7f1e7] overflow-hidden flex items-center justify-center min-h-[460px] md:min-h-[520px] select-none",
+    className: "relative w-full py-16 md:py-24 px-4 bg-[#f7f1e7] overflow-hidden flex items-center justify-center min-h-[480px] md:min-h-[560px] select-none",
     children: [
-      /* Left Half Pillar: partially off-screen on the left so half the pillar is visible as an architectural frame */
+      /* Left Floral Pillar */
       d.jsx("img", {
         src: "/assets/wedding/column.png",
         alt: "Floral Column Left",
-        className: "absolute top-0 bottom-0 h-full w-auto max-w-none object-contain pointer-events-none select-none z-0 opacity-90",
+        className: "absolute top-0 bottom-0 h-full w-auto max-w-none object-contain pointer-events-none select-none z-0 opacity-95",
         style: {
-          left: "-75px",
+          left: "-45px",
           top: 0,
           height: "100%"
         },
         draggable: !1
       }),
 
-      /* Right Half Pillar: partially off-screen on the right so half the pillar is visible as an architectural frame */
+      /* Right Floral Pillar */
       d.jsx("img", {
         src: "/assets/wedding/column.png",
         alt: "Floral Column Right",
-        className: "absolute top-0 bottom-0 h-full w-auto max-w-none object-contain pointer-events-none select-none z-0 opacity-90",
+        className: "absolute top-0 bottom-0 h-full w-auto max-w-none object-contain pointer-events-none select-none z-0 opacity-95",
         style: {
-          right: "-75px",
+          right: "-45px",
           top: 0,
           height: "100%",
           transform: "scaleX(-1)"
@@ -361,114 +356,116 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
         draggable: !1
       }),
 
-      /* Center Content - strictly positioned in the center blank area */
+      /* Center Content */
       d.jsxs("div", {
-        className: "relative z-20 mx-auto text-center px-1 space-y-3 sm:space-y-4",
-        style: { width: "100%", maxWidth: "268px" },
+        className: "relative z-20 mx-auto text-center px-4 space-y-6 sm:space-y-7 max-w-md",
         children: [
-          /* Hashtag */
-          d.jsx(he.p, {
-            initial: {opacity: 0, y: 14},
+          /* Top Heading */
+          d.jsx(he.h2, {
+            initial: {opacity: 0, y: 16},
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.6},
-            className: "text-3xl sm:text-4xl md:text-5xl text-[#1e3427] font-normal tracking-wide leading-tight drop-shadow-sm select-none",
+            className: "text-4xl sm:text-5xl md:text-6xl text-[#182d20] font-normal leading-tight",
             style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
-            children: "#ShiGotSariDuniya"
+            children: "Together with their Families"
           }),
 
-          /* Flourish Divider */
-          d.jsxs("div", {
-            className: "flex items-center justify-center gap-2 py-0.5 select-none",
-            children: [
-              d.jsx("span", {className: "w-8 sm:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-[#bfa268]"}),
-              d.jsxs("svg", {
-                className: "w-6 h-4 text-[#bfa268]",
-                viewBox: "0 0 32 24",
-                fill: "none",
-                stroke: "currentColor",
-                strokeWidth: "1.8",
-                children: [
-                  d.jsx("path", {d: "M12 7.5C10 4 6 4 4 6.5C1.5 9.5 3 14 12 19.5C21 14 22.5 9.5 20 6.5C18 4 14 4 12 7.5Z"}),
-                  d.jsx("path", {d: "M18 9.5C16.5 6.5 13.5 6.5 12 8.5C10 11 11 14.5 18 19C25 14.5 26 11 24 8.5C22.5 6.5 19.5 6.5 18 9.5Z"})
-                ]
-              }),
-              d.jsx("span", {className: "w-8 sm:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-[#bfa268]"})
-            ]
-          }),
-
-          /* Tagline */
-          d.jsx(he.p, {
-            initial: {opacity: 0, y: 14},
-            whileInView: {opacity: 1, y: 0},
-            viewport: {once: !0},
-            transition: {duration: 0.6, delay: 0.1},
-            className: "uppercase text-[11px] sm:text-xs text-[#2b261f] tracking-[0.24em] font-semibold select-none",
-            style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-            children: 'FROM “HI” TO “I DO”'
-          }),
-
-          /* Clean, Uncrowded Date & Venue Card */
+          /* Family Names & Hashtag */
           d.jsxs(he.div, {
             initial: {opacity: 0, y: 16},
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
-            transition: {duration: 0.7, delay: 0.2},
-            className: "relative w-full mx-auto bg-[#fffdfa]/95 backdrop-blur-sm rounded-2xl border border-[#bfa268]/60 shadow-md py-3.5 px-4 space-y-1 text-center",
+            transition: {duration: 0.6, delay: 0.15},
+            className: "space-y-1 text-[#3d2716]",
             children: [
-              d.jsx("h3", {
-                className: "text-base sm:text-lg font-bold text-[#3d2716] tracking-wider leading-snug",
-                style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-                children: "11-12TH NOVEMBER 2026"
+              d.jsx("p", {
+                className: "text-base sm:text-lg italic",
+                style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
+                children: "Sharad & Shilpa Luthra"
               }),
               d.jsx("p", {
-                className: "text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-[#704f24] font-semibold",
-                style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
-                children: "Pushkara Resort & Spa, Pushkar"
+                className: "text-base sm:text-lg italic",
+                style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
+                children: "Manish & Sangeeta Chawla"
+              }),
+              d.jsx("p", {
+                className: "text-[11px] sm:text-xs text-[#8b6534] font-bold tracking-[0.25em] uppercase pt-1.5",
+                style: {fontFamily: "'Cinzel', serif"},
+                children: "#ShiGotSariDuniya"
               })
             ]
           }),
 
-          /* Live Countdown Counter Placed Below the Box */
+          /* Countdown Timer - 3 Columns (Days | Hours | Minutes) */
           d.jsx(he.div, {
-            initial: {opacity: 0, y: 14},
+            initial: {opacity: 0, y: 20},
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
-            transition: {duration: 0.7, delay: 0.3},
-            className: "pt-1.5 flex items-center justify-center gap-1 sm:gap-1.5",
-            children: countdownUnits.map((u, idx) => d.jsxs("div", {
-              className: "flex items-center",
+            transition: {duration: 0.6, delay: 0.3},
+            className: "pt-2",
+            children: d.jsxs("div", {
+              className: "flex items-center justify-center max-w-xs sm:max-w-sm mx-auto",
               children: [
+                /* Days */
                 d.jsxs("div", {
-                  className: "flex flex-col items-center bg-[#fffdfa]/90 backdrop-blur-sm border border-[#bfa268]/60 rounded-xl px-2 py-1.5 min-w-[48px] sm:min-w-[52px] shadow-sm",
+                  className: "flex-1 flex flex-col items-center justify-center px-2 sm:px-4 border-r border-[#c5a059]/40",
                   children: [
                     d.jsx("span", {
-                      className: "text-base sm:text-lg font-bold text-[#3d2716] leading-none",
-                      style: {fontFamily: "'Playfair Display', 'Cinzel', serif"},
-                      children: String(u.value).padStart(2, "0")
+                      className: "text-4xl sm:text-5xl text-[#182d20] font-normal leading-none select-none",
+                      style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
+                      children: n.days
                     }),
                     d.jsx("span", {
-                      className: "text-[7.5px] sm:text-[8px] tracking-wider uppercase text-[#8b6534] font-bold mt-0.5",
-                      style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
-                      children: u.label
+                      className: "text-[10px] sm:text-xs font-semibold text-[#3d2716] tracking-[0.22em] uppercase mt-2 select-none",
+                      style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
+                      children: "DAYS"
                     })
                   ]
                 }),
-                idx < countdownUnits.length - 1 && d.jsx("span", {
-                  className: "text-[#bfa268] font-bold text-xs mx-0.5",
-                  children: ":"
+
+                /* Hours */
+                d.jsxs("div", {
+                  className: "flex-1 flex flex-col items-center justify-center px-2 sm:px-4 border-r border-[#c5a059]/40",
+                  children: [
+                    d.jsx("span", {
+                      className: "text-4xl sm:text-5xl text-[#182d20] font-normal leading-none select-none",
+                      style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
+                      children: padZero(n.hours)
+                    }),
+                    d.jsx("span", {
+                      className: "text-[10px] sm:text-xs font-semibold text-[#3d2716] tracking-[0.22em] uppercase mt-2 select-none",
+                      style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
+                      children: "HOURS"
+                    })
+                  ]
+                }),
+
+                /* Minutes */
+                d.jsxs("div", {
+                  className: "flex-1 flex flex-col items-center justify-center px-2 sm:px-4",
+                  children: [
+                    d.jsx("span", {
+                      className: "text-4xl sm:text-5xl text-[#182d20] font-normal leading-none select-none",
+                      style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
+                      children: padZero(n.minutes)
+                    }),
+                    d.jsx("span", {
+                      className: "text-[10px] sm:text-xs font-semibold text-[#3d2716] tracking-[0.22em] uppercase mt-2 select-none",
+                      style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
+                      children: "MINUTES"
+                    })
+                  ]
                 })
               ]
-            }, u.label))
+            })
           })
         ]
       })
     ]
   });
 }
-function zF(){ return null; }
 const WF=1,HF="5f00c8fb-9224-49e9-93f2-9936e25e5082",KF="3f9d9875-eabc-44df-87dc-3ba667b34959",GF="/__l5e/assets-v1/5f00c8fb-9224-49e9-93f2-9936e25e5082/details-embroidery-2.png",qF="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/5f00c8fb-9224-49e9-93f2-9936e25e5082/details-embroidery-2.png",YF="details-embroidery-2.png",ZF=176406,QF="image/webp",XF="2026-08-01T21:37:52Z",OC={version:WF,asset_id:HF,project_id:KF,url:GF,r2_key:qF,original_filename:YF,size:ZF,content_type:QF,created_at:XF};
-
 function bV(){
   return d.jsx("section", {
     id: "invitation",
