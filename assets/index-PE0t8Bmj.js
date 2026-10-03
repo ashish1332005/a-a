@@ -610,7 +610,7 @@ function jV(){
   const cards = [
     {
       id: "day1",
-      image: "/assets/wedding/itinerary_card_1.jpg?v=6",
+      image: "/assets/wedding/itinerary_card_1.jpg?v=11",
       alt: "Pyaar Ka Rang and Shaam Shandaar"
     },
     {

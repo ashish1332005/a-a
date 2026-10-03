@@ -3,6 +3,7 @@ const http = require('http');
 const { spawn } = require('child_process');
 
 const bgBase64 = fs.readFileSync('C:/Users/Ashish Sharma/.gemini/antigravity-ide/brain/9bfbee67-e706-4bba-9d31-0e49baa67dce/.user_uploaded/media_1791008006088.jpg').toString('base64');
+const mehndiBase64 = fs.readFileSync('d:/b8/assets/wedding/mehndi_ceremony_icon.png').toString('base64');
 
 function generateHtml(dayNumber) {
   const isDay1 = dayNumber === 1;
@@ -32,6 +33,10 @@ function generateHtml(dayNumber) {
     <p class="date-text">12th November, Thursday</p>
     <p class="time-text">10 PM onwards</p>
   `;
+
+  const extraArt = isDay1 ? `
+    <img id="mehndi-art" src="data:image/png;base64,${mehndiBase64}" alt="Mehndi Ceremony" />
+  ` : '';
 
   return `<!DOCTYPE html>
 <html>
@@ -66,6 +71,16 @@ function generateHtml(dayNumber) {
       height: 1024px;
       display: block;
       object-fit: fill;
+    }
+    #mehndi-art {
+      position: absolute;
+      top: 230px;
+      right: 22px;
+      width: 175px;
+      height: auto;
+      z-index: 15;
+      filter: drop-shadow(0 6px 14px rgba(43, 31, 20, 0.18));
+      pointer-events: none;
     }
     #overlay {
       position: absolute;
@@ -159,6 +174,7 @@ function generateHtml(dayNumber) {
 <body>
   <div id="container">
     <img id="bg-img" src="data:image/jpeg;base64,${bgBase64}" />
+    ${extraArt}
     <div id="overlay">
       <div class="event-block">
         ${event1}
@@ -180,7 +196,7 @@ function generateHtml(dayNumber) {
 async function renderCard(dayNumber, outFile) {
   return new Promise((resolve, reject) => {
     const html = generateHtml(dayNumber);
-    const port = 3090 + dayNumber;
+    const port = 3120 + dayNumber;
     const server = http.createServer((req, res) => {
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end(html);
@@ -188,10 +204,10 @@ async function renderCard(dayNumber, outFile) {
 
     server.listen(port, () => {
       const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
-      const userDataDir = 'd:\\b8\\scratch_chrome_card_render_' + dayNumber;
+      const userDataDir = 'd:\\b8\\scratch_chrome_day_render_' + dayNumber;
       const chrome = spawn(chromePath, [
         '--headless=new',
-        '--remote-debugging-port=' + (9710 + dayNumber),
+        '--remote-debugging-port=' + (9850 + dayNumber),
         '--user-data-dir=' + userDataDir,
         '--no-first-run',
         '--no-default-browser-check',
@@ -203,7 +219,7 @@ async function renderCard(dayNumber, outFile) {
 
       setTimeout(async () => {
         try {
-          const listRes = await fetch('http://127.0.0.1:' + (9710 + dayNumber) + '/json');
+          const listRes = await fetch('http://127.0.0.1:' + (9850 + dayNumber) + '/json');
           const tabs = await listRes.json();
           const ws = new WebSocket(tabs.find(t => t.type === 'page').webSocketDebuggerUrl);
 
@@ -260,5 +276,5 @@ async function renderCard(dayNumber, outFile) {
 (async () => {
   await renderCard(1, 'assets/wedding/itinerary_card_1.jpg');
   await renderCard(2, 'assets/wedding/itinerary_card_2.jpg');
-  console.log('Successfully rendered both card images!');
+  console.log('Both cards rendered successfully with mehndi ceremony artwork!');
 })();
