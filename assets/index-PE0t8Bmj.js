@@ -611,12 +611,12 @@ function jV(){
   const cards = [
     {
       id: "day1",
-      image: "/assets/wedding/itinerary_card_1.jpg?v=4",
+      image: "/assets/wedding/itinerary_card_1.jpg?v=6",
       alt: "Pyaar Ka Rang and Shaam Shandaar"
     },
     {
       id: "day2",
-      image: "/assets/wedding/itinerary_card_2.jpg?v=4",
+      image: "/assets/wedding/itinerary_card_2.jpg?v=6",
       alt: "Band Baaja Baraat and Dune At Dusk"
     }
   ];
@@ -662,15 +662,12 @@ function jV(){
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.7, delay: idx * 0.2},
-            className: "group relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#c5a059]/50 bg-[#fffdfa] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_35px_rgba(197,160,89,0.25)]",
-            children: d.jsx("div", {
-              className: "relative w-full overflow-hidden bg-[#faf6ee]",
-              children: d.jsx("img", {
-                src: card.image,
-                alt: card.alt,
-                className: "w-full h-auto block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.02]",
-                draggable: !1
-              })
+            className: "group relative rounded-2xl overflow-hidden shadow-2xl border border-[#c5a059]/40 bg-transparent transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_35px_rgba(197,160,89,0.25)]",
+            children: d.jsx("img", {
+              src: card.image,
+              alt: card.alt,
+              className: "w-full h-auto block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.02]",
+              draggable: !1
             })
           }, card.id))
         })
