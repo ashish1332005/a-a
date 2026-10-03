@@ -472,7 +472,7 @@ const WF=1,HF="5f00c8fb-9224-49e9-93f2-9936e25e5082",KF="3f9d9875-eabc-44df-87dc
 function bV(){
   return d.jsx("section", {
     id: "invitation",
-    className: "w-full py-12 md:py-20 px-3 md:px-6 bg-[#f6efe4] overflow-hidden",
+    className: "w-full py-12 md:py-20 px-3 md:px-6 bg-transparent overflow-hidden",
     children: d.jsx("div", {
       className: "max-w-xl mx-auto",
       children: d.jsxs(he.div, {
@@ -480,21 +480,21 @@ function bV(){
         whileInView: {opacity: 1, y: 0},
         viewport: {once: !0},
         transition: {duration: 0.8},
-        className: "relative rounded-3xl p-8 sm:p-12 md:p-14 text-center shadow-2xl space-y-4 md:space-y-5 overflow-hidden border border-[#c5a059]/40 bg-cover bg-center",
+        className: "relative rounded-3xl p-6 sm:p-10 md:p-12 text-center space-y-4 sm:space-y-6 md:space-y-7 overflow-hidden bg-transparent",
         style: {
-          backgroundImage: "url(/assets/wedding/invitation_card_bg.jpg)",
+          backgroundImage: "url(/assets/wedding/invitation_frame.png?v=2)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%"
         },
         children: [
           /* Ganesh Ji Logo & Shloka */
           d.jsxs("div", {
-            className: "relative z-20 flex flex-col items-center justify-center space-y-1.5 pt-3 sm:pt-4",
+            className: "relative z-20 flex flex-col items-center justify-center space-y-1.5 pt-3 sm:pt-6",
             children: [
               d.jsx("img", {
                 src: "/assets/wedding/ganesh.png",
                 alt: "Lord Ganesha",
-                className: "w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 object-contain drop-shadow-[0_2px_6px_rgba(197,160,89,0.35)]"
+                className: "w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 object-contain drop-shadow-[0_2px_6px_rgba(197,160,89,0.35)]"
               }),
               d.jsx("p", {
                 className: "text-[#8b6534] font-bold text-sm sm:text-base md:text-lg tracking-wider",
@@ -511,9 +511,9 @@ function bV(){
               d.jsxs("div", {
                 className: "flex items-center justify-center gap-3 pt-1 text-[#bfa268]",
                 children: [
-                  d.jsx("span", {className: "w-10 sm:w-16 h-px bg-gradient-to-r from-transparent to-[#bfa268]"}),
+                  d.jsx("span", {className: "w-12 sm:w-20 h-px bg-gradient-to-r from-transparent to-[#bfa268]"}),
                   d.jsx("span", {className: "text-xs sm:text-sm", children: "✤"}),
-                  d.jsx("span", {className: "w-10 sm:w-16 h-px bg-gradient-to-l from-transparent to-[#bfa268]"})
+                  d.jsx("span", {className: "w-12 sm:w-20 h-px bg-gradient-to-l from-transparent to-[#bfa268]"})
                 ]
               })
             ]
@@ -521,7 +521,7 @@ function bV(){
 
           /* Host Parents & Lineage */
           d.jsxs("div", {
-            className: "relative z-20 space-y-1 pt-1",
+            className: "relative z-20 space-y-1",
             children: [
               d.jsx("h3", {
                 className: "text-2xl sm:text-3xl md:text-4xl text-[#3d2716] font-normal tracking-wide",
@@ -538,10 +538,10 @@ function bV(){
 
           /* Groom & Grandparents */
           d.jsxs("div", {
-            className: "relative z-20 space-y-0.5 py-0.5",
+            className: "relative z-20 space-y-1 py-1",
             children: [
               d.jsx("h2", {
-                className: "text-4xl sm:text-5xl md:text-6xl text-[#1e3427] font-normal tracking-wide leading-tight select-none",
+                className: "text-5xl sm:text-6xl md:text-7xl text-[#1e3427] font-normal tracking-wide leading-tight select-none",
                 style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                 children: "Sarthak"
               }),
@@ -557,22 +557,22 @@ function bV(){
           d.jsxs("div", {
             className: "relative z-20 flex items-center justify-center gap-3 py-1",
             children: [
-              d.jsx("span", {className: "w-8 sm:w-14 h-px bg-[#c5a059]/40"}),
+              d.jsx("span", {className: "w-10 sm:w-16 h-px bg-[#c5a059]/40"}),
               d.jsx("span", {
-                className: "text-lg sm:text-xl md:text-2xl text-[#8b6534] italic font-normal drop-shadow-sm select-none",
+                className: "text-xl sm:text-2xl md:text-3xl text-[#8b6534] italic font-normal drop-shadow-sm select-none",
                 style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                 children: "with"
               }),
-              d.jsx("span", {className: "w-8 sm:w-14 h-px bg-[#c5a059]/40"})
+              d.jsx("span", {className: "w-10 sm:w-16 h-px bg-[#c5a059]/40"})
             ]
           }),
 
           /* Bride & Parents */
           d.jsxs("div", {
-            className: "relative z-20 space-y-0.5 py-0.5",
+            className: "relative z-20 space-y-1 py-1",
             children: [
               d.jsx("h2", {
-                className: "text-4xl sm:text-5xl md:text-6xl text-[#1e3427] font-normal tracking-wide leading-tight select-none",
+                className: "text-5xl sm:text-6xl md:text-7xl text-[#1e3427] font-normal tracking-wide leading-tight select-none",
                 style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                 children: "Shivangi"
               }),
@@ -586,7 +586,7 @@ function bV(){
 
           /* Venue */
           d.jsxs("div", {
-            className: "relative z-20 pt-3 border-t border-[#c5a059]/30 space-y-0.5 pb-2 sm:pb-4",
+            className: "relative z-20 pt-4 border-t border-[#c5a059]/30 space-y-1 pb-4 sm:pb-8",
             children: [
               d.jsx("p", {
                 className: "text-[11px] sm:text-xs md:text-sm tracking-[0.25em] uppercase text-[#3d2716] font-bold",
@@ -605,8 +605,10 @@ function bV(){
     })
   });
 }
+
 const tV=1,nV="14c85bd5-d8fd-4897-b67a-eef5d9d15427",rV="3f9d9875-eabc-44df-87dc-3ba667b34959",sV="/__l5e/assets-v1/14c85bd5-d8fd-4897-b67a-eef5d9d15427/villa-illustration.png",iV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/14c85bd5-d8fd-4897-b67a-eef5d9d15427/villa-illustration.png",oV="villa-illustration.png",aV=860273,lV="image/png",cV="2026-08-01T20:47:38Z",IC={version:tV,asset_id:nV,project_id:rV,url:sV,r2_key:iV,original_filename:oV,size:aV,content_type:lV,created_at:cV},uV=1,dV="59745157-22d7-443c-8b72-353ad416e54c",fV="3f9d9875-eabc-44df-87dc-3ba667b34959",hV="/__l5e/assets-v1/59745157-22d7-443c-8b72-353ad416e54c/key-tassel.png",pV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/59745157-22d7-443c-8b72-353ad416e54c/key-tassel.png",mV="key-tassel.png",gV=148226,yV="image/webp",vV="2026-08-01T21:56:41Z",DC={version:uV,asset_id:dV,project_id:fV,url:hV,r2_key:pV,original_filename:mV,size:gV,content_type:yV,created_at:vV},Cx=[IC.url],wV=["w-72 md:w-[26rem]"],xV="https://www.google.com/maps/search/?api=1&query=Pushkara+Resort+and+Spa,+Pushkar,+Rajasthan+305022";
 const _V=1,SV="ac682b5b-4d77-408f-b7c9-227bee99656b",kV="3f9d9875-eabc-44df-87dc-3ba667b34959",EV="/__l5e/assets-v1/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",CV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",TV="dress-code-embroidery-2.png",RV=127586,PV="image/webp",NV="2026-08-01T21:36:04Z",MC={version:_V,asset_id:SV,project_id:kV,url:EV,r2_key:CV,original_filename:TV,size:RV,content_type:PV,created_at:NV};
+
 function jV(){
   const cards = [
     {
