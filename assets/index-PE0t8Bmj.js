@@ -769,113 +769,82 @@ function DressCodeSection(){
           ]
         }),
 
-        /* 3D Coverflow Stage */
-        d.jsxs("div", {
-          className: "relative w-full flex items-center justify-center select-none py-2 my-2",
+        /* 3D Coverflow Stage without side arrows */
+        d.jsx("div", {
+          className: "relative w-full flex items-center justify-center select-none py-2 my-2 cursor-pointer",
           style: { minHeight: "520px", height: "520px" },
           onTouchStart: handleTouchStart,
           onTouchMove: handleTouchMove,
           onTouchEnd: handleTouchEnd,
-          children: [
-            /* Left Arrow */
-            d.jsx("button", {
-              type: "button",
-              onClick: prevSlide,
-              style: {
-                backgroundColor: "#7c1d29",
-                color: "#fffdfa",
-                borderColor: "rgba(197,160,89,0.6)"
-              },
-              className: "absolute left-2 sm:left-6 md:left-14 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow-2xl flex items-center justify-center text-xl sm:text-2xl font-bold transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border",
-              "aria-label": "Previous wardrobe card",
-              children: "‹"
-            }),
+          children: d.jsx("div", {
+            className: "relative w-full flex items-center justify-center",
+            style: { maxWidth: "340px", height: "500px" },
+            children: wardrobeCards.map((card, idx) => {
+              const offset = idx - activeIndex;
+              let transform = "translateX(0) scale(1)";
+              let zIndex = 20;
+              let opacity = 1;
+              let pointerEvents = "auto";
+              let cursor = "default";
+              let filter = "none";
 
-            /* Center Stage Cards */
-            d.jsx("div", {
-              className: "relative w-full flex items-center justify-center",
-              style: { maxWidth: "340px", height: "500px" },
-              children: wardrobeCards.map((card, idx) => {
-                const offset = idx - activeIndex;
-                let transform = "translateX(0) scale(1)";
-                let zIndex = 20;
-                let opacity = 1;
-                let pointerEvents = "auto";
-                let cursor = "default";
-                let filter = "none";
+              if (offset === 0) {
+                transform = "translateX(0%) scale(1)";
+                zIndex = 30;
+                opacity = 1;
+              } else if (offset === -1 || (offset === total - 1 && activeIndex === 0)) {
+                transform = "translateX(-52%) scale(0.85)";
+                zIndex = 15;
+                opacity = 0.65;
+                cursor = "pointer";
+                filter = "brightness(0.92)";
+              } else if (offset === 1 || (offset === -(total - 1) && activeIndex === total - 1)) {
+                transform = "translateX(52%) scale(0.85)";
+                zIndex = 15;
+                opacity = 0.65;
+                cursor = "pointer";
+                filter = "brightness(0.92)";
+              } else {
+                transform = offset < 0 ? "translateX(-95%) scale(0.7)" : "translateX(95%) scale(0.7)";
+                zIndex = 5;
+                opacity = 0;
+                pointerEvents = "none";
+              }
 
-                if (offset === 0) {
-                  transform = "translateX(0%) scale(1)";
-                  zIndex = 30;
-                  opacity = 1;
-                } else if (offset === -1 || (offset === total - 1 && activeIndex === 0)) {
-                  transform = "translateX(-52%) scale(0.85)";
-                  zIndex = 15;
-                  opacity = 0.65;
-                  cursor = "pointer";
-                  filter = "brightness(0.92)";
-                } else if (offset === 1 || (offset === -(total - 1) && activeIndex === total - 1)) {
-                  transform = "translateX(52%) scale(0.85)";
-                  zIndex = 15;
-                  opacity = 0.65;
-                  cursor = "pointer";
-                  filter = "brightness(0.92)";
-                } else {
-                  transform = offset < 0 ? "translateX(-95%) scale(0.7)" : "translateX(95%) scale(0.7)";
-                  zIndex = 5;
-                  opacity = 0;
-                  pointerEvents = "none";
-                }
-
-                return d.jsx("div", {
-                  key: card.id,
-                  onClick: () => {
-                    if (offset !== 0) setActiveIndex(idx);
-                  },
-                  className: "absolute inset-0 flex items-center justify-center w-full",
-                  style: {
-                    transform,
-                    zIndex,
-                    opacity,
-                    pointerEvents,
-                    cursor,
-                    filter,
-                    transition: "all 0.5s cubic-bezier(0.25, 1, 0.5, 1)"
-                  },
-                  children: d.jsx("div", {
-                    className: "relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-[#c5a059]/60 bg-[#fffdfa] transition-all duration-300",
-                    children: d.jsx("img", {
-                      src: card.image,
-                      alt: card.alt,
-                      className: "w-full h-auto block select-none pointer-events-none rounded-2xl sm:rounded-3xl",
-                      draggable: !1
-                    })
+              return d.jsx("div", {
+                key: card.id,
+                onClick: () => {
+                  if (offset !== 0) setActiveIndex(idx);
+                },
+                className: "absolute inset-0 flex items-center justify-center w-full",
+                style: {
+                  transform,
+                  zIndex,
+                  opacity,
+                  pointerEvents,
+                  cursor,
+                  filter,
+                  transition: "all 0.5s cubic-bezier(0.25, 1, 0.5, 1)"
+                },
+                children: d.jsx("div", {
+                  className: "relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-[#c5a059]/60 bg-[#fffdfa] transition-all duration-300",
+                  children: d.jsx("img", {
+                    src: card.image,
+                    alt: card.alt,
+                    className: "w-full h-auto block select-none pointer-events-none rounded-2xl sm:rounded-3xl",
+                    draggable: !1
                   })
-                });
-              })
-            }),
-
-            /* Right Arrow */
-            d.jsx("button", {
-              type: "button",
-              onClick: nextSlide,
-              style: {
-                backgroundColor: "#7c1d29",
-                color: "#fffdfa",
-                borderColor: "rgba(197,160,89,0.6)"
-              },
-              className: "absolute right-2 sm:right-6 md:right-14 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow-2xl flex items-center justify-center text-xl sm:text-2xl font-bold transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border",
-              "aria-label": "Next wardrobe card",
-              children: "›"
+                })
+              });
             })
-          ]
+          })
         }),
 
         /* Bottom Controls */
         d.jsxs("div", {
           className: "space-y-4 pt-4",
           children: [
-            /* Dot Indicators */
+            /* Dot Indicators with matching olive theme */
             d.jsx("div", {
               className: "flex items-center justify-center gap-2",
               children: wardrobeCards.map((card, idx) => d.jsx("button", {
@@ -883,7 +852,7 @@ function DressCodeSection(){
                 key: card.id,
                 onClick: () => setActiveIndex(idx),
                 style: {
-                  backgroundColor: activeIndex === idx ? "#7c1d29" : "rgba(197,160,89,0.35)",
+                  backgroundColor: activeIndex === idx ? "#596b52" : "rgba(197,160,89,0.35)",
                   width: activeIndex === idx ? "28px" : "10px",
                   height: "10px"
                 },
@@ -892,21 +861,42 @@ function DressCodeSection(){
               }))
             }),
 
-            /* Scroll / Next Button */
-            d.jsx("div", {
-              className: "pt-1",
-              children: d.jsx("button", {
-                type: "button",
-                onClick: nextSlide,
-                style: {
-                  backgroundColor: "#7c1d29",
-                  color: "#fffdfa",
-                  borderColor: "rgba(197,160,89,0.5)",
-                  fontFamily: "'Cinzel', 'Playfair Display', serif"
-                },
-                className: "inline-flex items-center justify-center px-8 py-3 rounded-full text-xs sm:text-sm tracking-[0.2em] uppercase font-bold shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border",
-                children: "SCROLL THE NEXT"
-              })
+            /* Scroll The Next Button with Elegant Golden Flourish Lines */
+            d.jsxs("div", {
+              className: "pt-2 flex items-center justify-center gap-3 sm:gap-4 select-none",
+              children: [
+                /* Left Flourish */
+                d.jsxs("div", {
+                  className: "flex items-center gap-1.5 text-[#bfa268]",
+                  children: [
+                    d.jsx("span", {className: "w-8 sm:w-14 h-[1.5px] bg-gradient-to-r from-transparent to-[#bfa268]"}),
+                    d.jsx("span", {className: "text-xs", children: "❖"})
+                  ]
+                }),
+
+                /* Olive / Sage Green Button */
+                d.jsx("button", {
+                  type: "button",
+                  onClick: nextSlide,
+                  style: {
+                    backgroundColor: "#596b52",
+                    color: "#fbf7ee",
+                    borderColor: "rgba(197,160,89,0.85)",
+                    fontFamily: "'Cinzel', 'Playfair Display', serif"
+                  },
+                  className: "inline-flex items-center justify-center px-8 sm:px-10 py-3 rounded-full text-xs sm:text-sm tracking-[0.25em] uppercase font-bold shadow-[0_6px_20px_rgba(89,107,82,0.35)] border-2 transition-all duration-300 hover:scale-105 hover:bg-[#4d5d47] active:scale-95 cursor-pointer",
+                  children: "SCROLL THE NEXT"
+                }),
+
+                /* Right Flourish */
+                d.jsxs("div", {
+                  className: "flex items-center gap-1.5 text-[#bfa268]",
+                  children: [
+                    d.jsx("span", {className: "text-xs", children: "❖"}),
+                    d.jsx("span", {className: "w-8 sm:w-14 h-[1.5px] bg-gradient-to-l from-transparent to-[#bfa268]"})
+                  ]
+                })
+              ]
             })
           ]
         })
@@ -914,7 +904,6 @@ function DressCodeSection(){
     })
   });
 }
-
 function VenueSection() {
   const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Pushkara+Resort+and+Spa,+Pushkar,+Rajasthan+305022";
 
