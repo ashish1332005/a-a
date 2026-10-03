@@ -237,7 +237,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
         transition: {duration: 1.2, ease: "easeOut"},
         className: "absolute inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-sm pointer-events-none",
         style: {
-          top: "16%",
+          top: "17%",
           left: 0,
           right: 0,
           marginLeft: "auto",
@@ -246,16 +246,29 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
           maxWidth: "340px"
         },
         children: [
-          /* Simple SS Circle Logo */
-          d.jsx("div", {
+          /* SSMonogram Logo with subtle soft white cloud behind it */
+          d.jsxs("div", {
             className: "relative flex items-center justify-center",
-            style: { marginBottom: "10px" },
-            children: d.jsx("img", {
-              src: "/assets/wedding/ss_circle_logo.png?v=6",
-              alt: "SS Monogram Logo",
-              className: "relative z-10 object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.14)]",
-              style: { width: "135px", height: "135px", maxWidth: "135px", maxHeight: "135px" }
-            })
+            style: { marginBottom: "14px" },
+            children: [
+              /* Soft subtle white cloud aura tightly around logo */
+              d.jsx("div", {
+                className: "absolute pointer-events-none -z-10",
+                style: {
+                  width: "160px",
+                  height: "100px",
+                  background: "radial-gradient(ellipse at center, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.48) 45%, rgba(255,255,255,0) 75%)",
+                  filter: "blur(10px)",
+                  transform: "scale(1.1)"
+                }
+              }),
+              d.jsx("img", {
+                src: "/assets/wedding/ss_monogram_pure.png?v=7",
+                alt: "SS Monogram",
+                className: "relative z-10 object-contain drop-shadow-[0_2px_8px_rgba(255,255,255,0.9)]",
+                style: { width: "115px", height: "auto", maxWidth: "115px" }
+              })
+            ]
           }),
 
           /* Bride & Groom Name in Calligraphy Cursive Font */
@@ -268,19 +281,19 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
                 children: "Sarthak"
               }),
               d.jsxs("div", {
-                className: "flex items-center justify-center gap-3 text-[8/6534] my-0.5",
+                className: "flex items-center justify-center gap-3 text-[#8b6534] my-0.5",
                 children: [
-                  d.jsx("span", {className: "w-8 sm:w-12 h-px bg-[8/6534]/50"}),
+                  d.jsx("span", {className: "w-8 sm:w-12 h-px bg-[#8b6534]/50"}),
                   d.jsx("span", {
                     className: "text-2xl sm:text-3xl italic text-[#8b6534] drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)] select-none",
                     style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                     children: "&"
                   }),
-                  d.jsx("span", {className: "w-8 sm:w-12 h-px bg-[8/6534]/50"})
+                  d.jsx("span", {className: "w-8 sm:w-12 h-px bg-[#8b6534]/50"})
                 ]
               }),
               d.jsx("h2", {
-                className: "text-5xl sm:text-6xl md:text-7xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
+                className: "text-5xl sm:text-6xl md:text-7xl text-X#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
                 style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                 children: "Shivangi"
               })
