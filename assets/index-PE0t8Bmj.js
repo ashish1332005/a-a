@@ -611,15 +611,13 @@ function jV(){
   const cards = [
     {
       id: "day1",
-      dayTag: "DAY 1 · WEDNESDAY, 11TH NOVEMBER",
-      image: "/assets/wedding/itinerary_card_1.jpg",
-      alt: "Pyaar Ka Rang (Henna & Haldi) & Shaam Shandaar (Sangeet)"
+      image: "/assets/wedding/itinerary_card_1.jpg?v=4",
+      alt: "Pyaar Ka Rang and Shaam Shandaar"
     },
     {
       id: "day2",
-      dayTag: "DAY 2 · THURSDAY, 12TH NOVEMBER",
-      image: "/assets/wedding/itinerary_card_2.jpg",
-      alt: "Band Baaja Baraat (Wedding Ceremony) & Dune At Dusk (After Party)"
+      image: "/assets/wedding/itinerary_card_2.jpg?v=4",
+      alt: "Band Baaja Baraat and Dune At Dusk"
     }
   ];
 
@@ -639,7 +637,7 @@ function jV(){
             d.jsx("p", {
               className: "text-xs md:text-sm uppercase tracking-[0.3em] text-[#8b6534] font-bold",
               style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-              children: "✦ WEDDING CELEBRATIONS ✦"
+              children: "✖ WEDDING CELEBRATIONS ✖"
             }),
             d.jsx("h2", {
               className: "text-4xl md:text-6xl text-[#3d2716] font-normal leading-tight",
@@ -658,29 +656,22 @@ function jV(){
         }),
         d.jsx("div", {
           className: "grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto items-start",
-          children: cards.map((card, idx) => d.jsxs(he.div, {
+          children: cards.map((card, idx) => d.jsx(he.div, {
             key: card.id,
             initial: {opacity: 0, y: 30},
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.7, delay: idx * 0.2},
             className: "group relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#c5a059]/50 bg-[#fffdfa] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_35px_rgba(197,160,89,0.25)]",
-            children: [
-              d.jsx("div", {
-                className: "bg-gradient-to-r from-[#8b6534] via-[#a8824b] to-[#8b6534] text-[#fffdfa] py-3.5 px-4 text-center text-xs md:text-sm tracking-[0.2em] uppercase font-bold border-b border-[#c5a059]/40 shadow-sm",
-                style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-                children: card.dayTag
-              }),
-              d.jsx("div", {
-                className: "relative w-full overflow-hidden bg-[#faf6ee]",
-                children: d.jsx("img", {
-                  src: card.image,
-                  alt: card.alt,
-                  className: "w-full h-auto block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.02]",
-                  draggable: !1
-                })
+            children: d.jsx("div", {
+              className: "relative w-full overflow-hidden bg-[#faf6ee]",
+              children: d.jsx("img", {
+                src: card.image,
+                alt: card.alt,
+                className: "w-full h-auto block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.02]",
+                draggable: !1
               })
-            ]
+            })
           }, card.id))
         })
       ]
