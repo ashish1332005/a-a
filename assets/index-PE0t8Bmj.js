@@ -594,7 +594,7 @@ const _V=1,SV="ac682b5b-4d77-408f-b7c9-227bee99656b",kV="3f9d9875-eabc-44df-87dc
 function jV(){
   const days = [
     {
-      image: "/assets/Embroidered%20Linen%20Celebration%20Nook.png?v=1",
+      image: "/assets/inbg.png?v=1",
       alt: "Embroidered celebration cloth for 11 November",
       date: "11th November · Wednesday",
       events: [
@@ -603,7 +603,7 @@ function jV(){
       ]
     },
     {
-      image: "/assets/Embroidered%20Wedding%20Canopy%20Frame%20(1).png?v=1",
+      image: "/assets/Embroidered%20Ivory%20Wedding%20Invitation%20Frame.png?v=1",
       alt: "Embroidered wedding canopy cloth for 12 November",
       date: "12th November · Thursday",
       events: [
