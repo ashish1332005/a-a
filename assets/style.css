@@ -181,7 +181,7 @@ body {
   width: 100%;
   max-width: 580px;
   min-height: 100vh;
-  background-image: url("/assets/wedding/pastel_resort_arch_with_ivy.png");
+  background-image: url("/assets/wedding/mediterranean_villa_floral_arch.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -217,9 +217,9 @@ body {
 }
 
 .hero-logo-frame {
-  width: 180px;
-  height: 180px;
-  margin: 6px auto 14px;
+  width: 150px;
+  height: 150px;
+  margin: 6px auto 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,13 +234,12 @@ body {
 
 .hero-couple-names {
   font-family: 'Greysilya Regula', 'Greysilya Regular', 'Gresilya', var(--font-script);
-  font-size: 3.4rem;
-  font-weight: 700;
-  -webkit-text-stroke: 0.6px currentColor;
-  color: #1e3a2b; /* Matching original elegant Lake Como forest green or maroon */
+  font-size: 4.2rem;
+  font-weight: normal;
+  color: #182d20;
   line-height: 1.05;
   margin-bottom: 8px;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 0 15px rgba(255, 255, 255, 0.6);
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95);
 }
 
 .hero-hashtag {
