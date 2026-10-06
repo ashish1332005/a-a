@@ -592,37 +592,56 @@ const tV=1,nV="14c85bd5-d8fd-4897-b67a-eef5d9d15427",rV="3f9d9875-eabc-44df-87dc
 const _V=1,SV="ac682b5b-4d77-408f-b7c9-227bee99656b",kV="3f9d9875-eabc-44df-87dc-3ba667b34959",EV="/__l5e/assets-v1/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",CV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",TV="dress-code-embroidery-2.png",RV=127586,PV="image/webp",NV="2026-08-01T21:36:04Z",MC={version:_V,asset_id:SV,project_id:kV,url:EV,r2_key:CV,original_filename:TV,size:RV,content_type:PV,created_at:NV};
 
 function jV(){
-  const events = [
-    { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "12 PM – 4 PM", place: "AT POOL GARDEN" },
-    { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH" }
+  const days = [
+    {
+      image: "/assets/Embroidered%20Linen%20Celebration%20Nook.png?v=1",
+      alt: "Embroidered celebration cloth for 11 November",
+      date: "11th November · Wednesday",
+      events: [
+        { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "12 PM – 4 PM", place: "AT POOL GARDEN" },
+        { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH" }
+      ]
+    },
+    {
+      image: "/assets/Embroidered%20Wedding%20Canopy%20Frame%20(1).png?v=1",
+      alt: "Embroidered wedding canopy cloth for 12 November",
+      date: "12th November · Thursday",
+      events: [
+        { title: "Band Baaja Baraat", time: "12 PM", place: "THE SACRED SEVEN · AT PALM DECK" },
+        { title: "Dune At Dusk", note: "Arabian night under the starry light", time: "10 PM onwards" }
+      ]
+    }
   ];
 
   return d.jsx("section", {
     id: "itinerary",
     className: "event-nook-section",
-    children: d.jsxs("div", {
-      className: "event-nook-card",
-      children: [
-        d.jsx("img", {
-          src: "/assets/Embroidered%20Linen%20Celebration%20Nook.png?v=1",
-          alt: "Embroidered ivory celebration frame",
-          className: "event-nook-image",
-          draggable: !1
-        }),
-        d.jsx("div", {
-          className: "event-nook-copy",
-          children: events.map((event, idx) => d.jsxs("article", {
-            className: "event-nook-item",
-            children: [
-              d.jsx("h2", { children: event.title }),
-              d.jsx("p", { className: "event-nook-note", children: "(" + event.note + ")" }),
-              d.jsx("p", { className: "event-nook-date", children: "11th November · Wednesday" }),
-              d.jsx("p", { className: "event-nook-time", children: event.time }),
-              d.jsx("p", { className: "event-nook-place", children: event.place })
-            ]
-          }, "event-" + idx))
-        })
-      ]
+    children: d.jsx("div", {
+      className: "event-nook-stack",
+      children: days.map((day, dayIndex) => d.jsxs("div", {
+        className: "event-nook-card",
+        children: [
+          d.jsx("img", {
+            src: day.image,
+            alt: day.alt,
+            className: "event-nook-image",
+            draggable: !1
+          }),
+          d.jsx("div", {
+            className: "event-nook-copy",
+            children: day.events.map((event, eventIndex) => d.jsxs("article", {
+              className: "event-nook-item",
+              children: [
+                d.jsx("h2", { children: event.title }),
+                event.note && d.jsx("p", { className: "event-nook-note", children: "(" + event.note + ")" }),
+                d.jsx("p", { className: "event-nook-date", children: day.date }),
+                d.jsx("p", { className: "event-nook-time", children: event.time }),
+                event.place && d.jsx("p", { className: "event-nook-place", children: event.place })
+              ]
+            }, "event-" + dayIndex + "-" + eventIndex))
+          })
+        ]
+      }, "day-" + dayIndex))
     })
   });
 }

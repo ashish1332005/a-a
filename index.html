@@ -210,9 +210,14 @@
 
       #itinerary.event-nook-section {
         width: 100%;
-        padding: clamp(20px, 4vw, 48px) 12px;
+        padding: clamp(16px, 3vw, 32px) 12px;
         background: transparent;
         overflow: hidden;
+      }
+      .event-nook-stack {
+        display: grid;
+        gap: clamp(24px, 4vw, 44px);
+        width: 100%;
       }
       .event-nook-card {
         position: relative;
@@ -283,15 +288,16 @@
         line-height: 1.25;
       }
       @media (max-width: 420px) {
-        .event-nook-copy { inset: 12% 27% 13%; }
+        .event-nook-copy { inset: 12% 25% 13%; }
         .event-nook-item { padding: 5px 0; }
         .event-nook-item + .event-nook-item { padding-top: 14px; }
         .event-nook-item p { margin-top: 3px; }
+        .event-nook-item h2 { font-size: clamp(15px, 4vw, 17px); }
       }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=106"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=107"></script>
   </body>
 </html>
