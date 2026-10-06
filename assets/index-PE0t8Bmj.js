@@ -619,7 +619,7 @@ function jV(){
     children: d.jsx("div", {
       className: "event-nook-stack",
       children: days.map((day, dayIndex) => d.jsxs("div", {
-        className: "event-nook-card",
+        className: dayIndex === 1 ? "event-nook-card event-nook-card-canopy" : "event-nook-card",
         children: [
           d.jsx("img", {
             src: day.image,
