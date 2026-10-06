@@ -207,10 +207,91 @@
       @media (min-width: 768px) {
         #invitation .invitation-card { padding: 88px 40px 36px !important; gap: 12px; }
       }
+
+      #itinerary.event-nook-section {
+        width: 100%;
+        padding: clamp(20px, 4vw, 48px) 12px;
+        background: #f8f4e9;
+        overflow: hidden;
+      }
+      .event-nook-card {
+        position: relative;
+        width: min(100%, 760px);
+        aspect-ratio: 1086 / 1448;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .event-nook-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        user-select: none;
+        pointer-events: none;
+      }
+      .event-nook-copy {
+        position: absolute;
+        inset: 11% 27% 12%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        color: #26372a;
+        font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      }
+      .event-nook-item {
+        width: 100%;
+        padding: 10px 0;
+      }
+      .event-nook-item + .event-nook-item {
+        border-top: 1px solid rgba(137, 105, 61, 0.38);
+        padding-top: clamp(20px, 4vw, 34px);
+      }
+      .event-nook-item h2 {
+        margin: 0;
+        color: #26372a;
+        font-family: 'Cinzel', 'Playfair Display', serif;
+        font-size: clamp(17px, 4vw, 30px);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: 0.035em;
+      }
+      .event-nook-item p { margin: 5px 0 0; }
+      .event-nook-note {
+        font-size: clamp(13px, 2.7vw, 19px);
+        font-style: italic;
+        line-height: 1.2;
+      }
+      .event-nook-date {
+        margin-top: clamp(10px, 2vw, 16px) !important;
+        font-size: clamp(12px, 2.5vw, 17px);
+        font-weight: 600;
+        line-height: 1.2;
+      }
+      .event-nook-time {
+        font-size: clamp(14px, 3vw, 21px);
+        font-weight: 600;
+        line-height: 1.2;
+      }
+      .event-nook-place {
+        font-family: 'Cinzel', 'Playfair Display', serif;
+        font-size: clamp(10px, 2vw, 14px);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 1.25;
+      }
+      @media (max-width: 420px) {
+        .event-nook-copy { inset: 12% 27% 13%; }
+        .event-nook-item { padding: 5px 0; }
+        .event-nook-item + .event-nook-item { padding-top: 14px; }
+        .event-nook-item p { margin-top: 3px; }
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=105"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=106"></script>
   </body>
 </html>

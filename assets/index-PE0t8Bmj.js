@@ -592,68 +592,35 @@ const tV=1,nV="14c85bd5-d8fd-4897-b67a-eef5d9d15427",rV="3f9d9875-eabc-44df-87dc
 const _V=1,SV="ac682b5b-4d77-408f-b7c9-227bee99656b",kV="3f9d9875-eabc-44df-87dc-3ba667b34959",EV="/__l5e/assets-v1/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",CV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",TV="dress-code-embroidery-2.png",RV=127586,PV="image/webp",NV="2026-08-01T21:36:04Z",MC={version:_V,asset_id:SV,project_id:kV,url:EV,r2_key:CV,original_filename:TV,size:RV,content_type:PV,created_at:NV};
 
 function jV(){
-  const cards = [
-    {
-      id: "day1",
-      image: "/assets/wedding/itinerary_card_1.jpg?v=11",
-      alt: "Pyaar Ka Rang and Shaam Shandaar"
-    },
-    {
-      id: "day2",
-      image: "/assets/wedding/itinerary_card_2.jpg?v=6",
-      alt: "Band Baaja Baraat and Dune At Dusk"
-    }
+  const events = [
+    { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "12 PM – 4 PM", place: "AT POOL GARDEN" },
+    { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH" }
   ];
 
   return d.jsx("section", {
     id: "itinerary",
-    className: "w-full py-14 md:py-24 px-3 md:px-6 bg-[#faf6ee] overflow-hidden",
+    className: "event-nook-section",
     children: d.jsxs("div", {
-      className: "max-w-6xl mx-auto text-center space-y-8 md:space-y-12",
+      className: "event-nook-card",
       children: [
-        d.jsxs(he.div, {
-          initial: {opacity: 0, y: 20},
-          whileInView: {opacity: 1, y: 0},
-          viewport: {once: !0},
-          transition: {duration: 0.6},
-          className: "space-y-2",
-          children: [
-            d.jsx("p", {
-              className: "text-xs md:text-sm uppercase tracking-[0.3em] text-[#8b6534] font-bold",
-              style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-              children: "✖ WEDDING CELEBRATIONS ✖"
-            }),
-            d.jsx("h2", {
-              className: "text-4xl md:text-6xl text-[#3d2716] font-normal leading-tight",
-              style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
-              children: "Events Itinerary"
-            }),
-            d.jsx("div", {
-              className: "w-24 h-0.5 bg-[#c5a059] mx-auto my-2"
-            }),
-            d.jsx("p", {
-              className: "text-sm md:text-base text-[#704f24] italic max-w-lg mx-auto",
-              style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
-              children: "Join us for two magical days of timeless royal festivities at Pushkara Resort and Spa"
-            })
-          ]
+        d.jsx("img", {
+          src: "/assets/Embroidered%20Linen%20Celebration%20Nook.png?v=1",
+          alt: "Embroidered ivory celebration frame",
+          className: "event-nook-image",
+          draggable: !1
         }),
         d.jsx("div", {
-          className: "grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto items-start",
-          children: cards.map((card, idx) => d.jsx(he.div, {
-            key: card.id,
-            initial: {opacity: 0, y: 30},
-            whileInView: {opacity: 1, y: 0},
-            viewport: {once: !0},
-            transition: {duration: 0.7, delay: idx * 0.2},
-            className: "group relative rounded-2xl overflow-hidden shadow-2xl border border-[#c5a059]/40 bg-transparent transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_35px_rgba(197,160,89,0.25)]",
-            children: d.jsx("img", {
-              src: card.image,
-              alt: card.alt,
-              className: "w-full h-auto block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.02]",
-              draggable: !1
-            })
-          }, card.id))
+          className: "event-nook-copy",
+          children: events.map((event, idx) => d.jsxs("article", {
+            className: "event-nook-item",
+            children: [
+              d.jsx("h2", { children: event.title }),
+              d.jsx("p", { className: "event-nook-note", children: "(" + event.note + ")" }),
+              d.jsx("p", { className: "event-nook-date", children: "11th November · Wednesday" }),
+              d.jsx("p", { className: "event-nook-time", children: event.time }),
+              d.jsx("p", { className: "event-nook-place", children: event.place })
+            ]
+          }, "event-" + idx))
         })
       ]
     })
