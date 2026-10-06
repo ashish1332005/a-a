@@ -279,6 +279,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
                 className: "text-7xl sm:text-8xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none hero-couple-name",
                 style: {
                   fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
+                  fontSize: "clamp(5rem, 16vw, 6rem)",
                   WebkitTextStroke: "0px #182d20"
                 },
                 children: "Sarthak"
@@ -301,6 +302,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
                 className: "text-7xl sm:text-8xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none hero-couple-name",
                 style: {
                   fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
+                  fontSize: "clamp(5rem, 16vw, 6rem)",
                   WebkitTextStroke: "0px #182d20"
                 },
                 children: "Shivangi"
@@ -516,7 +518,7 @@ function bV(){
             ]
           }),
 
-          /* Bride first, then Groom */
+          /* Groom first, then Bride */
           d.jsxs("div", {
             className: "relative z-20 space-y-0.5 py-0",
             children: [
@@ -547,7 +549,7 @@ function bV(){
             ]
           }),
 
-          /* Groom & Grandparents */
+          /* Bride & Parents */
           d.jsxs("div", {
             className: "relative z-20 space-y-0.5 py-0",
             children: [
@@ -1451,6 +1453,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/alert-
                 className: "text-8xl sm:text-9xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none hero-couple-name",
                 style: {
                   fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
+                  fontSize: "clamp(5rem, 16vw, 6rem)",
                   WebkitTextStroke: "0px #182d20"
                 },
                 children: e[0] || "Sarthak"
@@ -1471,6 +1474,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/alert-
                 className: "text-8xl sm:text-9xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none hero-couple-name",
                 style: {
                   fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
+                  fontSize: "clamp(5rem, 16vw, 6rem)",
                   WebkitTextStroke: "0px #182d20"
                 },
                 children: e[1] || "Shivangi"
