@@ -235,6 +235,8 @@ body {
 .hero-couple-names {
   font-family: 'Greysilya Regula', 'Greysilya Regular', 'Gresilya', var(--font-script);
   font-size: 3.4rem;
+  font-weight: 700;
+  -webkit-text-stroke: 0.6px currentColor;
   color: #1e3a2b; /* Matching original elegant Lake Como forest green or maroon */
   line-height: 1.05;
   margin-bottom: 8px;

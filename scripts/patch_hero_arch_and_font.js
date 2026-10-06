@@ -72,13 +72,17 @@ const newBL = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r}){
             ]
           }),
 
-          /* Bride & Groom Name in Greysilya Regular Font */
+          /* Bride & Groom Name in BOLD Greysilya Regular Font */
           d.jsxs("div", {
             className: "space-y-0.5",
             children: [
               d.jsx("h1", {
-                className: "text-5xl sm:text-6xl md:text-7xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
-                style: {fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive"},
+                className: "text-6xl sm:text-7xl md:text-8xl text-[#182d20] font-bold tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
+                style: {
+                  fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
+                  fontWeight: "700",
+                  WebkitTextStroke: "0.6px #182d20"
+                },
                 children: "Sarthak"
               }),
               d.jsxs("div", {
@@ -86,16 +90,24 @@ const newBL = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r}){
                 children: [
                   d.jsx("span", {className: "w-8 sm:w-12 h-px bg-[#8b6534]/50"}),
                   d.jsx("span", {
-                    className: "text-2xl sm:text-3xl italic text-[#8b6534] drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)] select-none",
-                    style: {fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive"},
+                    className: "text-3xl sm:text-4xl italic text-[#8b6534] font-bold drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)] select-none",
+                    style: {
+                      fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
+                      fontWeight: "700",
+                      WebkitTextStroke: "0.4px #8b6534"
+                    },
                     children: "&"
                   }),
                   d.jsx("span", {className: "w-8 sm:w-12 h-px bg-[#8b6534]/50"})
                 ]
               }),
               d.jsx("h2", {
-                className: "text-5xl sm:text-6xl md:text-7xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
-                style: {fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive"},
+                className: "text-6xl sm:text-7xl md:text-8xl text-[#182d20] font-bold tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
+                style: {
+                  fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
+                  fontWeight: "700",
+                  WebkitTextStroke: "0.6px #182d20"
+                },
                 children: "Shivangi"
               })
             ]
@@ -109,4 +121,4 @@ const newBL = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r}){
 
 bundle = bundle.substring(0, blStart) + newBL + bundle.substring(blEnd);
 fs.writeFileSync(bundlePath, bundle, 'utf8');
-console.log('Successfully updated Hero arch background and Greysilya font in bundle!');
+console.log('Successfully updated Groom and Bride names to bold!');
