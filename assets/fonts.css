@@ -95,3 +95,36 @@ font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
 .tk-mrs-eaves-roman-all-petite-c { font-family: "mrs-eaves-roman-all-petite-c",serif; }
 .tk-mrs-eaves-roman-petite-caps { font-family: "mrs-eaves-roman-petite-caps",serif; }
 .tk-parfumerie-script { font-family: "parfumerie-script",sans-serif; }
+
+@font-face {
+  font-family: "Greysilya Regular";
+  src: url("/assets/fonts/Gresilya-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gresilya Regular";
+  src: url("/assets/fonts/Gresilya-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Greysilya";
+  src: url("/assets/fonts/Gresilya-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gresilya";
+  src: url("/assets/fonts/Gresilya-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

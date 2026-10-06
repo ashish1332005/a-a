@@ -3,3 +3,5 @@ node_modules/
 Thumbs.db
 *.log
 *.bak
+*.bak_*
+scratch_*
