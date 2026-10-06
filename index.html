@@ -82,10 +82,134 @@
         -moz-osx-font-smoothing: grayscale;
         background-color: #faf6ee;
       }
+
+      .hero-couple-name {
+        color: #182d20 !important;
+        font-family: 'Greysilya Regular', 'Gresilya', cursive !important;
+        font-size: clamp(5.5rem, 17vw, 8.5rem) !important;
+        line-height: 0.92 !important;
+        white-space: nowrap;
+        text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95);
+      }
+
+      .hashtag-title {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
+        color: #182d20 !important;
+        font-family: 'Cinzel', 'Playfair Display', serif !important;
+        font-size: clamp(1rem, 5vw, 1.75rem) !important;
+        letter-spacing: 0.04em !important;
+        line-height: 1.25 !important;
+        overflow-wrap: anywhere;
+      }
+
+      #invitation .invitation-card {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 42rem;
+        min-height: clamp(600px, 150vw, 980px) !important;
+        margin-inline: auto;
+        padding: 64px 20px 40px !important;
+        border-radius: 28px;
+        background-position: center;
+        background-size: 100% 100%;
+        gap: 8px;
+      }
+
+      #invitation .invitation-card > * {
+        width: 100%;
+        flex: 0 0 auto;
+        margin: 0 !important;
+        position: relative;
+        z-index: 1;
+      }
+
+      #invitation .invitation-mantra {
+        color: #f5e7c7 !important;
+        font-family: 'Playfair Display', serif !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.05em !important;
+      }
+
+      #invitation .invitation-host-name {
+        color: #fff8ec !important;
+        font-size: clamp(1.55rem, 6vw, 2.15rem) !important;
+        line-height: 1.05 !important;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      }
+
+      #invitation .invitation-host-copy {
+        color: #f5e7c7 !important;
+        font-size: clamp(0.78rem, 3.5vw, 0.95rem) !important;
+        line-height: 1.35 !important;
+      }
+
+      #invitation .invitation-couple-name {
+        color: #fff8ec !important;
+        font-family: 'Greysilya Regular', 'Gresilya', cursive !important;
+        font-size: clamp(3.25rem, 10vw, 4.5rem) !important;
+        line-height: 0.98 !important;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      }
+
+      #invitation .invitation-parentage {
+        color: #f5e7c7 !important;
+        display: block;
+        width: 100%;
+        white-space: nowrap !important;
+        font-family: 'Cormorant Garamond', 'Playfair Display', serif !important;
+        font-size: clamp(9px, 2.6vw, 13px) !important;
+        font-weight: 500 !important;
+        letter-spacing: 0 !important;
+        line-height: 1.25 !important;
+      }
+
+      #invitation .invitation-connector {
+        min-height: 20px;
+        gap: 12px !important;
+        margin: 0 !important;
+      }
+
+      #invitation .invitation-connector > span:nth-child(2) {
+        color: #f1d9a8 !important;
+        font-family: 'Cinzel', 'Playfair Display', serif !important;
+        font-size: 11px !important;
+        letter-spacing: 0.24em !important;
+        line-height: 1.2 !important;
+      }
+
+      #invitation .invitation-venue-title {
+        color: #fff8ec !important;
+        font-size: clamp(9px, 2.7vw, 13px) !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.1em !important;
+        line-height: 1.35 !important;
+      }
+
+      #invitation .invitation-venue-location {
+        color: #f5e7c7 !important;
+        font-size: 10px !important;
+        letter-spacing: 0.08em !important;
+        line-height: 1.3 !important;
+      }
+
+      @media (min-width: 640px) {
+        #invitation .invitation-card { padding: 80px 32px 32px !important; gap: 10px; }
+        #invitation .invitation-parentage { font-size: 13px !important; }
+      }
+
+      @media (min-width: 768px) {
+        #invitation .invitation-card { padding: 88px 40px 36px !important; gap: 12px; }
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=101"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=104"></script>
   </body>
 </html>

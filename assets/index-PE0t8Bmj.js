@@ -276,7 +276,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
             className: "space-y-0.5",
             children: [
               d.jsx("h1", {
-                className: "text-7xl sm:text-8xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
+                className: "text-7xl sm:text-8xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none hero-couple-name",
                 style: {
                   fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
                   WebkitTextStroke: "0px #182d20"
@@ -298,7 +298,7 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
                 ]
               }),
               d.jsx("h2", {
-                className: "text-7xl sm:text-8xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
+                className: "text-7xl sm:text-8xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none hero-couple-name",
                 style: {
                   fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
                   WebkitTextStroke: "0px #182d20"
@@ -374,7 +374,7 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
             whileInView: {opacity: 1, y: 0},
             viewport: {once: !0},
             transition: {duration: 0.6},
-            className: "text-xl sm:text-2xl md:text-3xl text-[#182d20] font-semibold tracking-[0.04em] uppercase leading-tight",
+            className: "text-xl sm:text-2xl md:text-3xl text-[#182d20] font-semibold tracking-[0.04em] uppercase leading-tight hashtag-title",
             style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
             children: "#ShiGotSariDuniya"
           }),
@@ -453,17 +453,18 @@ function bV(){
     id: "invitation",
     className: "w-full py-12 md:py-20 px-3 md:px-6 bg-transparent overflow-hidden",
     children: d.jsx("div", {
-      className: "max-w-xl mx-auto",
+      className: "max-w-2xl mx-auto",
       children: d.jsxs(he.div, {
         initial: {opacity: 0, y: 30},
         whileInView: {opacity: 1, y: 0},
         viewport: {once: !0},
         transition: {duration: 0.8},
-        className: "relative rounded-3xl p-6 sm:p-10 md:p-12 text-center space-y-4 sm:space-y-6 md:space-y-7 overflow-hidden bg-transparent",
+        className: "relative rounded-3xl px-5 pt-16 pb-10 sm:px-8 sm:pt-20 sm:pb-8 md:px-10 md:pt-24 md:pb-10 text-center space-y-2 sm:space-y-3 md:space-y-4 overflow-hidden bg-transparent invitation-card",
         style: {
           backgroundImage: "url(/assets/Embroidered%20Ivory%20Floral%20Frame.png?v=21)",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "100% 100%"
+          backgroundSize: "100% 100%",
+          minHeight: "clamp(600px, 150vw, 980px)"
         },
         children: [
           /* Ganesh Ji Logo & Shloka */
@@ -476,7 +477,7 @@ function bV(){
                 className: "w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 object-contain drop-shadow-[0_2px_6px_rgba(197,160,89,0.35)]"
               }),
               d.jsx("p", {
-                className: "text-[#f5e7c7] font-semibold text-sm sm:text-base md:text-lg tracking-wider",
+                className: "text-[#f5e7c7] font-semibold text-sm sm:text-base md:text-lg tracking-wider invitation-mantra",
                 style: {fontFamily: "'Playfair Display', serif"},
                 children: "॥ श्री गणेशाय नमः ॥"
               }),
@@ -500,15 +501,15 @@ function bV(){
 
           /* Host Parents & Lineage */
           d.jsxs("div", {
-            className: "relative z-20 space-y-1",
+            className: "relative z-20 space-y-0.5",
             children: [
               d.jsx("h3", {
-                className: "text-2xl sm:text-3xl md:text-4xl text-[#fff8ec] font-normal tracking-wide drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]",
+                className: "text-2xl sm:text-3xl md:text-4xl text-[#fff8ec] font-normal tracking-wide drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] invitation-host-name",
                 style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
                 children: "Mr. Sharad & Mrs. Shilpa Luthra"
               }),
               d.jsx("p", {
-                className: "text-xs sm:text-sm md:text-base text-[#f5e7c7] italic",
+                className: "text-xs sm:text-sm md:text-base text-[#f5e7c7] italic invitation-host-copy",
                 style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
                 children: "Cordially invite you to grace the wedding celebration of their son"
               })
@@ -517,63 +518,63 @@ function bV(){
 
           /* Bride first, then Groom */
           d.jsxs("div", {
-            className: "relative z-20 space-y-1 py-1",
+            className: "relative z-20 space-y-0.5 py-0",
             children: [
               d.jsx("h2", {
-                className: "text-5xl sm:text-6xl md:text-7xl text-[#fff8ec] font-normal tracking-wide leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] select-none",
-                style: {fontFamily: "'Greysilya Regular', 'Gresilya', cursive"},
-                children: "Shivangi"
-              }),
-              d.jsx("p", {
-                className: "whitespace-nowrap text-[10px] sm:text-xs md:text-sm text-[#f5e7c7] font-medium tracking-normal",
-                style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
-                children: "(D/O Mr. Manish & Mrs. Sangeeta Chawla)"
-              })
-            ]
-          }),
-
-          /* Connector */
-          d.jsxs("div", {
-            className: "relative z-20 flex items-center justify-center gap-3 py-1",
-            children: [
-              d.jsx("span", {className: "w-10 sm:w-16 h-px bg-[#c5a059]/40"}),
-              d.jsx("span", {
-                className: "text-xl sm:text-2xl md:text-3xl text-[#8b6534] italic font-normal drop-shadow-sm select-none",
-                style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
-                children: "with"
-              }),
-              d.jsx("span", {className: "w-10 sm:w-16 h-px bg-[#c5a059]/40"})
-            ]
-          }),
-
-          /* Groom & Grandparents */
-          d.jsxs("div", {
-            className: "relative z-20 space-y-1 py-1",
-            children: [
-              d.jsx("h2", {
-                className: "text-5xl sm:text-6xl md:text-7xl text-[#fff8ec] font-normal tracking-wide leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] select-none",
+                className: "text-5xl sm:text-6xl md:text-7xl text-[#fff8ec] font-normal tracking-wide leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] select-none invitation-couple-name",
                 style: {fontFamily: "'Greysilya Regular', 'Gresilya', cursive"},
                 children: "Sarthak"
               }),
               d.jsx("p", {
-                className: "whitespace-nowrap text-[10px] sm:text-xs md:text-sm text-[#f5e7c7] font-medium tracking-normal",
+                className: "whitespace-nowrap text-[10px] sm:text-xs md:text-sm text-[#f5e7c7] font-medium tracking-normal invitation-parentage",
                 style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
                 children: "(G/S/O Shri Joginder Luthra & Late Smt. Shukla Luthra)"
               })
             ]
           }),
 
+          /* Connector */
+          d.jsxs("div", {
+            className: "relative z-20 flex items-center justify-center gap-3 py-0 invitation-connector",
+            children: [
+              d.jsx("span", {className: "w-8 sm:w-12 h-px bg-[#c5a059]/50"}),
+              d.jsx("span", {
+                className: "text-xs sm:text-sm uppercase tracking-[0.24em] text-[#f1d9a8] font-medium select-none",
+                style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
+                children: "WITH"
+              }),
+              d.jsx("span", {className: "w-8 sm:w-12 h-px bg-[#c5a059]/50"})
+            ]
+          }),
+
+          /* Groom & Grandparents */
+          d.jsxs("div", {
+            className: "relative z-20 space-y-0.5 py-0",
+            children: [
+              d.jsx("h2", {
+                className: "text-5xl sm:text-6xl md:text-7xl text-[#fff8ec] font-normal tracking-wide leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] select-none invitation-couple-name",
+                style: {fontFamily: "'Greysilya Regular', 'Gresilya', cursive"},
+                children: "Shivangi"
+              }),
+              d.jsx("p", {
+                className: "whitespace-nowrap text-[10px] sm:text-xs md:text-sm text-[#f5e7c7] font-medium tracking-normal invitation-parentage",
+                style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
+                children: "(D/O of Mr. Manish & Mrs. Sangeeta Chawla)"
+              })
+            ]
+          }),
+
           /* Venue */
           d.jsxs("div", {
-            className: "relative z-20 pt-4 border-t border-[#c5a059]/30 space-y-1 pb-4 sm:pb-8",
+            className: "relative z-20 pt-2 border-t border-[#c5a059]/40 space-y-0.5 pb-1",
             children: [
               d.jsx("p", {
-                className: "text-[11px] sm:text-xs md:text-sm tracking-[0.18em] uppercase text-[#fff8ec] font-semibold",
+                className: "text-[10px] sm:text-xs md:text-sm tracking-[0.12em] uppercase text-[#fff8ec] font-medium invitation-venue-title",
                 style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                 children: "AT PUSHKARA RESORT AND SPA, PUSHKAR"
               }),
               d.jsx("p", {
-                className: "text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-[#f5e7c7] font-medium",
+                className: "text-[9px] sm:text-[10px] tracking-[0.1em] uppercase text-[#f5e7c7] font-medium invitation-venue-location",
                 style: {fontFamily: "'Cinzel', 'Montserrat', sans-serif"},
                 children: "Pushkar, Rajasthan"
               })
@@ -1139,7 +1140,7 @@ ${v}`}class Xe extends Error{constructor({message:t,code:n,cause:r,name:s}){var 
       className:"max-w-2xl mx-auto space-y-4",
       children:[
         d.jsx("h2",{
-          className:"font-display text-xl sm:text-2xl md:text-3xl text-[#3d2716] font-medium tracking-[0.04em] leading-tight drop-shadow-sm",
+          className:"font-display text-xl sm:text-2xl md:text-3xl text-[#3d2716] font-medium tracking-[0.04em] leading-tight drop-shadow-sm hashtag-title",
           children:"#ShiGotSariDuniya"
         }),
       ]
@@ -1447,7 +1448,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/alert-
             className: "space-y-0.5",
             children: [
               d.jsx("h1", {
-                className: "text-8xl sm:text-9xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
+                className: "text-8xl sm:text-9xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none hero-couple-name",
                 style: {
                   fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
                   WebkitTextStroke: "0px #182d20"
@@ -1467,7 +1468,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/alert-
                 ]
               }),
               d.jsx("h2", {
-                className: "text-8xl sm:text-9xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none",
+                className: "text-8xl sm:text-9xl md:text-9xl text-[#182d20] font-normal tracking-wide leading-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)] select-none hero-couple-name",
                 style: {
                   fontFamily: "'Greysilya Regula', 'Greysilya Regular', 'Gresilya', cursive",
                   WebkitTextStroke: "0px #182d20"
