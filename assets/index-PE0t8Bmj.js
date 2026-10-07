@@ -646,6 +646,7 @@ function jV(){
   });
 }
 function DressCodeSection(){
+  const storyRef = m.useRef(null);
   const wardrobeCards = [
     { id: "w1", image: "/assets/Embroidered%20Haldi%20Mehndi%20Celebration.png", title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", date: "11th November · Wednesday", time: "12 PM – 4 PM", place: "AT POOL GARDEN", alt: "Pyaar Ka Rang - Henna and Haldi celebration" },
     { id: "w2", image: "/assets/Embroidered%20South%20Asian%20Wedding%20Portrait.png", title: "Shaam Shandaar", note: "Glitz, Glam & Dance", date: "11th November · Wednesday", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH", alt: "Shaam Shandaar evening celebration" },
@@ -653,6 +654,30 @@ function DressCodeSection(){
     { id: "w4", image: "/assets/Embroidered%20Desert%20Celebration%20Invitation.png", title: "Dune At Dusk", note: "An Arabian night under the starry light", date: "12th November · Thursday", time: "10 PM onwards", alt: "Dune at Dusk desert celebration" },
     { id: "w5", image: "/assets/Boho%20Afterparty%20Under%20String%20Lights%20(1).png", title: "The Midnight Rave", note: "The vows are done. The night is ours.", alt: "Midnight Rave afterparty" }
   ];
+  m.useEffect(() => {
+    let frame = 0;
+    const updatePeel = () => {
+      frame = 0;
+      const story = storyRef.current;
+      if (!story) return;
+      const storyStart = window.scrollY + story.getBoundingClientRect().top - window.innerHeight * 0.12;
+      const progress = Math.max(0, Math.min(wardrobeCards.length, (window.scrollY - storyStart) / window.innerHeight));
+      story.querySelectorAll(".wardrobe-fabric").forEach((sheet, index) => {
+        const peel = Math.max(0, Math.min(1, progress - index));
+        sheet.style.transform = "translate3d(0," + (-peel * 112) + "%,0) rotateX(" + (-peel * 7) + "deg)";
+        sheet.style.filter = "drop-shadow(0 " + (peel * 24) + "px " + (18 + peel * 12) + "px rgba(61,39,22," + (0.2 + peel * 0.1) + "))";
+      });
+    };
+    const queueUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updatePeel); };
+    updatePeel();
+    window.addEventListener("scroll", queueUpdate, {passive: !0});
+    window.addEventListener("resize", queueUpdate);
+    return () => {
+      window.removeEventListener("scroll", queueUpdate);
+      window.removeEventListener("resize", queueUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
   return d.jsx("section", {
     id: "dress-code",
     className: "wardrobe-section",
@@ -667,24 +692,29 @@ function DressCodeSection(){
         ]
       }),
       d.jsx("div", {
-        className: "wardrobe-stack",
-        children: wardrobeCards.map((card, index) => d.jsxs("article", {
-          className: "wardrobe-fabric",
-          style: {zIndex: index + 1},
-          children: [
-            d.jsx("img", {src: card.image, alt: card.alt, className: "wardrobe-fabric-image", draggable: !1}),
-            d.jsxs("div", {
-              className: "wardrobe-copy",
-              children: [
-                d.jsx("h3", {children: card.title}),
-                d.jsx("p", {className: "wardrobe-note", children: card.note}),
-                card.date && d.jsx("p", {className: "wardrobe-date", children: card.date}),
-                card.time && d.jsx("p", {className: "wardrobe-time", children: card.time}),
-                card.place && d.jsx("p", {className: "wardrobe-place", children: card.place})
-              ]
-            })
-          ]
-        }, card.id))
+        ref: storyRef,
+        className: "wardrobe-story",
+        style: {height: "500vh"},
+        children: d.jsx("div", {
+          className: "wardrobe-stage",
+          children: wardrobeCards.map((card, index) => d.jsxs("article", {
+            className: "wardrobe-fabric",
+            style: {zIndex: wardrobeCards.length - index},
+            children: [
+              d.jsx("img", {src: card.image, alt: card.alt, className: "wardrobe-fabric-image", draggable: !1}),
+              d.jsxs("div", {
+                className: "wardrobe-copy",
+                children: [
+                  d.jsx("h3", {children: card.title}),
+                  d.jsx("p", {className: "wardrobe-note", children: card.note}),
+                  card.date && d.jsx("p", {className: "wardrobe-date", children: card.date}),
+                  card.time && d.jsx("p", {className: "wardrobe-time", children: card.time}),
+                  card.place && d.jsx("p", {className: "wardrobe-place", children: card.place})
+                ]
+              })
+            ]
+          }, card.id))
+        })
       })
     ]
   });
