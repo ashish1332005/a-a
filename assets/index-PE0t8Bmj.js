@@ -789,56 +789,113 @@ function DressCodeSection(){
     ]
   });
 }function OurStorySection() {
+  const trackRef = m.useRef(null);
+  const [activeIndex, setActiveIndex] = m.useState(0);
+  const storyCards = [
+    { id: "move", image: "/assets/Embroidered%20House%20Move%20Story.png", alt: "The Longest House Move Ever embroidered love story" },
+    { id: "stats", image: "/assets/Embroidered%20Couple%20Wedding%20Card%20Design.png", alt: "The Stats - Him and Her embroidered couple story" }
+  ];
+  const scrollToCard = (index) => {
+    const track = trackRef.current;
+    const card = track && track.querySelectorAll(".story-panel")[index];
+    if (!track || !card) return;
+    const target = track.scrollLeft + card.getBoundingClientRect().left - track.getBoundingClientRect().left - (track.clientWidth - card.offsetWidth) / 2;
+    track.scrollTo({left: target, behavior: "smooth"});
+  };
+  m.useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let frame = 0;
+    const updateActive = () => {
+      frame = 0;
+      const center = track.getBoundingClientRect().left + track.clientWidth / 2;
+      const panels = track.querySelectorAll(".story-panel");
+      let nearest = 0;
+      let distance = Infinity;
+      panels.forEach((panel, index) => {
+        const rect = panel.getBoundingClientRect();
+        const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
+        if (nextDistance < distance) { nearest = index; distance = nextDistance; }
+      });
+      setActiveIndex(nearest);
+    };
+    const queueUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateActive); };
+    const onWheel = (event) => {
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        const canMove = event.deltaY > 0 ? track.scrollLeft + track.clientWidth < track.scrollWidth - 1 : track.scrollLeft > 1;
+        if (canMove) { track.scrollLeft += event.deltaY; event.preventDefault(); }
+      }
+    };
+    track.addEventListener("scroll", queueUpdate, {passive: !0});
+    track.addEventListener("wheel", onWheel, {passive: !1});
+    updateActive();
+    return () => {
+      track.removeEventListener("scroll", queueUpdate);
+      track.removeEventListener("wheel", onWheel);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
   return d.jsx("section", {
     id: "our-story",
-    className: "w-full py-12 md:py-20 px-3 sm:px-6 overflow-hidden relative",
-    children: d.jsxs("div", {
-      className: "max-w-4xl mx-auto text-center space-y-6 md:space-y-8",
-      children: [
-        /* Top Section Title */
-        d.jsxs(he.div, {
-          initial: { opacity: 0, y: 20 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: !0 },
-          transition: { duration: 0.6 },
-          className: "space-y-1.5 px-4",
+    className: "story-section",
+    children: [
+      d.jsxs("header", {
+        className: "story-heading",
+        children: [
+          d.jsx("p", {className: "story-kicker", children: "OUR LOVE STORY"}),
+          d.jsx("h2", {className: "story-title", children: "A Little Story of Us"})
+        ]
+      }),
+      d.jsx("div", {
+        ref: trackRef,
+        className: "story-track",
+        children: storyCards.map((card) => d.jsxs("article", {
+          className: "story-panel",
           children: [
-            d.jsx("p", {
-              className: "text-xs md:text-sm uppercase tracking-[0.3em] text-[#8b6534] font-bold",
-              style: { fontFamily: "'Cinzel', 'Playfair Display', serif" },
-              children: "✦ OUR LOVE STORY ✦"
-            }),
-            d.jsx("h2", {
-              className: "text-4xl md:text-6xl text-[#3d2716] font-normal leading-tight",
-              style: { fontFamily: "'Alex Brush', 'Great Vibes', cursive" },
-              children: "The Longest House Move Ever"
-            }),
-            d.jsx("div", {
-              className: "w-24 h-0.5 bg-[#c5a059] mx-auto my-2"
+            d.jsx("img", {src: card.image, alt: card.alt, className: "story-art", draggable: !1}),
+            card.id === "stats" && d.jsxs("div", {
+              className: "story-stats-overlay",
+              children: [
+                d.jsx("h3", {className: "story-stats-title", children: "THE STATS"}),
+                d.jsxs("div", {
+                  className: "story-stats-columns",
+                  children: [
+                    d.jsxs("div", {className: "story-stats-column story-him", children: [
+                      d.jsx("h4", {children: "HIM"}),
+                      d.jsxs("ul", {children: [
+                        d.jsx("li", {children: "Calm"}),
+                        d.jsx("li", {children: "Practical"}),
+                        d.jsx("li", {children: "Professional Procrastinator"}),
+                        d.jsx("li", {children: "Winter Enthusiast"})
+                      ]})
+                    ]}),
+                    d.jsxs("div", {className: "story-stats-column story-her", children: [
+                      d.jsx("h4", {children: "HER"}),
+                      d.jsxs("ul", {children: [
+                        d.jsx("li", {children: "Emotional"}),
+                        d.jsx("li", {children: "Lively"}),
+                        d.jsx("li", {children: "Chronically Early"}),
+                        d.jsx("li", {children: "Summer Lover"})
+                      ]})
+                    ]})
+                  ]
+                })
+              ]
             })
           ]
-        }),
-
-        /* Transparent Floating Illustration */
-        d.jsx(he.div, {
-          initial: { opacity: 0, y: 25 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: !0 },
-          transition: { duration: 0.8 },
-          className: "relative max-w-[360px] sm:max-w-[440px] md:max-w-[500px] mx-auto flex justify-center items-center select-none",
-          children: d.jsx("img", {
-            src: "/assets/wedding/our_story.png?v=transp",
-            alt: "Sarthak and Shivangi - The Longest House Move Ever",
-            className: "w-full h-auto block select-none pointer-events-none drop-shadow-md",
-            draggable: !1
-          })
-        })
-      ]
-    })
+        }, card.id))
+      }),
+      d.jsxs("div", {
+        className: "story-controls",
+        children: [
+          d.jsx("button", {type: "button", className: "story-arrow", "aria-label": "Previous story card", onClick: () => scrollToCard(Math.max(0, activeIndex - 1)), children: "‹"}),
+          d.jsx("p", {className: "story-scroll-hint", "aria-live": "polite", children: "SWIPE OR SCROLL  ·  " + String(activeIndex + 1).padStart(2, "0") + " / 02"}),
+          d.jsx("button", {type: "button", className: "story-arrow", "aria-label": "Next story card", onClick: () => scrollToCard(Math.min(storyCards.length - 1, activeIndex + 1)), children: "›"})
+        ]
+      })
+    ]
   });
-}
-
-function VenueSection() {
+}function VenueSection() {
   const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Pushkara+Resort+and+Spa,+Pushkar,+Rajasthan+305022";
 
   return d.jsx("section", {

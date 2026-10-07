@@ -414,6 +414,137 @@
         border-radius: 8px;
         background: #596b52;
       }
+      .story-section {
+        position: relative;
+        width: 100%;
+        padding: clamp(48px, 7vw, 78px) 0 34px;
+        background: transparent;
+      }
+      .story-heading {
+        margin: 0 auto clamp(22px, 4vw, 38px);
+        padding: 0 18px;
+        text-align: center;
+      }
+      .story-kicker {
+        margin: 0;
+        color: #8b6534;
+        font: 700 12px/1.3 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .26em;
+      }
+      .story-title {
+        margin: 5px 0 0;
+        color: #3d2716;
+        font: 400 clamp(38px, 7vw, 58px)/1.08 'Alex Brush', 'Great Vibes', cursive;
+      }
+      .story-track {
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(18px, 3vw, 34px);
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 8px max(5vw, calc((100vw - 620px) / 2)) 24px;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: max(5vw, calc((100vw - 620px) / 2));
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+        scrollbar-color: #b69a69 transparent;
+      }
+      .story-panel {
+        position: relative;
+        flex: 0 0 min(88vw, 620px);
+        overflow: hidden;
+        scroll-snap-align: center;
+      }
+      .story-art {
+        display: block;
+        width: 100%;
+        height: auto;
+        user-select: none;
+        pointer-events: none;
+        filter: drop-shadow(0 12px 14px rgba(61, 39, 22, .13));
+      }
+      .story-stats-overlay {
+        position: absolute;
+        inset: 0;
+        color: #26372a;
+        text-align: center;
+      }
+      .story-stats-title {
+        position: absolute;
+        top: 29%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        color: #36452f;
+        font: 700 clamp(15px, 3vw, 22px)/1.2 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .2em;
+        text-shadow: 0 1px 2px rgba(250,248,239,.95);
+      }
+      .story-stats-columns {
+        position: absolute;
+        inset: 0;
+        display: block;
+      }
+      .story-stats-column h4 {
+        position: absolute;
+        top: 34.5%;
+        margin: 0;
+        color: #805719;
+        font: 700 clamp(11px, 2vw, 15px)/1.2 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .14em;
+        text-shadow: 0 1px 2px rgba(250,248,239,.95);
+      }
+      .story-stats-column ul {
+        position: absolute;
+        top: 39%;
+        height: 24%;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .story-stats-column li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 2px;
+        color: #27372c;
+        font: italic 600 clamp(10px, 2.05vw, 14px)/1.03 'Cormorant Garamond', 'Playfair Display', serif;
+        text-align: center;
+        text-shadow: 0 1px 2px rgba(250,248,239,.98), 0 0 4px rgba(250,248,239,.85);
+      }
+      .story-him h4, .story-him ul { left: 14%; width: 26%; }
+      .story-her h4, .story-her ul { left: 73%; width: 25%; }
+      .story-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        margin: 4px auto 0;
+        padding: 0 14px;
+      }
+      .story-arrow {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border: 1px solid rgba(137, 105, 61, .5);
+        border-radius: 50%;
+        background: transparent;
+        color: #596b52;
+        font: 28px/1 'Cormorant Garamond', serif;
+        cursor: pointer;
+      }
+      .story-scroll-hint {
+        margin: 0;
+        color: #704f24;
+        font: 600 10px/1.2 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .16em;
+        white-space: nowrap;
+      }
       .wardrobe-fabric-image {
         position: absolute;
         inset: 0;
@@ -522,11 +653,20 @@
         .wardrobe-place { margin-top: 4px; font-size: 9px; }
         .wardrobe-controls { gap: 12px; }
         .wardrobe-scroll-hint { font-size: 9px; letter-spacing: .13em; }
+        .story-section { padding-top: 42px; }
+        .story-track { gap: 14px; padding-inline: 5vw; scroll-padding-inline: 5vw; }
+        .story-panel { flex-basis: 94vw; }
+        .story-stats-title { top: 29%; font-size: 15px; }
+        .story-stats-column h4 { top: 34%; font-size: 10px; }
+        .story-stats-column ul { top: 39%; height: 24%; }
+        .story-stats-column li { font-size: 10px; }
+        .story-controls { gap: 10px; }
+        .story-scroll-hint { font-size: 9px; letter-spacing: .1em; }
       }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=114"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=115"></script>
   </body>
 </html>
