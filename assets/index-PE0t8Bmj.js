@@ -661,7 +661,12 @@ function DressCodeSection(){
       const story = storyRef.current;
       if (!story) return;
       const storyStart = window.scrollY + story.getBoundingClientRect().top - window.innerHeight * 0.12;
-      const progress = Math.max(0, Math.min(wardrobeCards.length, (window.scrollY - storyStart) / window.innerHeight));
+      const progress = Math.max(0, Math.min(wardrobeCards.length - 1, (window.scrollY - storyStart) / window.innerHeight));
+      const cue = story.querySelector(".wardrobe-scroll-hint");
+      if (cue) {
+        const lookNumber = Math.min(wardrobeCards.length, Math.floor(progress) + 1);
+        cue.textContent = progress >= wardrobeCards.length - 1 ? "ALL 5 LOOKS REVEALED" : "SCROLL TO REVEAL  ·  " + String(lookNumber).padStart(2, "0") + " / 05";
+      }
       story.querySelectorAll(".wardrobe-fabric").forEach((sheet, index) => {
         const peel = Math.max(0, Math.min(1, progress - index));
         sheet.style.transform = "translate3d(0," + (-peel * 112) + "%,0) rotateX(" + (-peel * 7) + "deg)";
@@ -694,10 +699,10 @@ function DressCodeSection(){
       d.jsx("div", {
         ref: storyRef,
         className: "wardrobe-story",
-        style: {height: "500vh"},
+        style: {height: "520vh"},
         children: d.jsx("div", {
           className: "wardrobe-stage",
-          children: wardrobeCards.map((card, index) => d.jsxs("article", {
+          children: [wardrobeCards.map((card, index) => d.jsxs("article", {
             className: "wardrobe-fabric",
             style: {zIndex: wardrobeCards.length - index},
             children: [
@@ -713,7 +718,9 @@ function DressCodeSection(){
                 ]
               })
             ]
-          }, card.id))
+          }, card.id)),
+            d.jsx("p", {className: "wardrobe-scroll-hint", "aria-live": "polite", children: "SCROLL TO REVEAL  ·  01 / 05"})
+          ]
         })
       })
     ]
