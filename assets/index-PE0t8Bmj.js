@@ -651,11 +651,11 @@ function DressCodeSection(){
   const pauseUntilRef = m.useRef(0);
   const [activeIndex, setActiveIndex] = m.useState(0);
   const wardrobeCards = [
-    { id: "w1", image: "/assets/Embroidered%20Haldi%20Mehndi%20Celebration.png", title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", date: "11th November · Wednesday", time: "12 PM – 4 PM", place: "AT POOL GARDEN", alt: "Pyaar Ka Rang - Henna and Haldi celebration" },
-    { id: "w2", image: "/assets/Embroidered%20South%20Asian%20Wedding%20Portrait.png", title: "Shaam Shandaar", note: "Glitz, Glam & Dance", date: "11th November · Wednesday", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH", alt: "Shaam Shandaar evening celebration" },
-    { id: "w3", image: "/assets/Embroidered%20Sunset%20Courtyard%20Celebration.png", title: "Band Baaja Baraat", note: "The Sacred Seven", date: "12th November · Thursday", time: "12 PM", place: "AT PALM DECK", alt: "Band Baaja Baraat ceremony" },
-    { id: "w4", image: "/assets/Embroidered%20Desert%20Celebration%20Invitation.png", title: "Dune At Dusk", note: "An Arabian night under the starry light", date: "12th November · Thursday", time: "10 PM onwards", alt: "Dune at Dusk desert celebration" },
-    { id: "w5", image: "/assets/Boho%20Afterparty%20Under%20String%20Lights%20(1).png", title: "The Midnight Rave", note: "The vows are done. The night is ours.", alt: "Midnight Rave afterparty" }
+    { id: "w1", image: "/assets/Embroidered%20Indian%20Festive%20Gathering.png", title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", date: "11th November · Wednesday", time: "12 PM – 4 PM", place: "AT POOL GARDEN", alt: "Pyaar Ka Rang - Henna and Haldi celebration" },
+    { id: "w2", image: "/assets/Embroidered%20Indian%20Celebration%20Invitation.png", title: "Shaam Shandaar", note: "Glitz, Glam & Dance", date: "11th November · Wednesday", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH", alt: "Shaam Shandaar evening celebration" },
+    { id: "w3", image: "/assets/Embroidered%20Pastel%20Baraat%20Wedding%20Invitation.png", title: "Band Baaja Baraat", note: "The Sacred Seven", date: "12th November · Thursday", time: "12 PM", place: "AT PALM DECK", alt: "Band Baaja Baraat ceremony" },
+    { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Celebration.png", title: "Dune At Dusk", note: "An Arabian night under the starry light", date: "12th November · Thursday", time: "10 PM onwards", alt: "Dune at Dusk desert celebration" },
+    { id: "w5", image: "/assets/Embroidered%20Boho%20Beach%20Party%20Poster.png", title: "The Midnight Rave", note: "The vows are done. The night is ours.", alt: "Midnight Rave afterparty" }
   ];
   const scrollToLook = (index, smooth) => {
     const track = trackRef.current;
