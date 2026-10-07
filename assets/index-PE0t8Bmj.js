@@ -794,7 +794,7 @@ function DressCodeSection(){
   const storyCards = [
     { id: "move", image: "/assets/Embroidered%20House%20Move%20Story.png", alt: "The Longest House Move Ever embroidered love story" },
     { id: "stats", image: "/assets/Embroidered%20Couple%20Wedding%20Card%20Design.png", alt: "The Stats - Him and Her embroidered couple story" },
-    { id: "houses", image: "/assets/Embroidered%20Houses%20Connected%20by%20Vines.png", alt: "Two embroidered houses connected by a vine, with the line Same colony. Different houses." }
+    { id: "houses", image: "/assets/Embroidered%20Cottage%20Garland%20Invitation.png", alt: "Embroidered cottage illustration with two homes" }
   ];
   const scrollToCard = (index) => {
     const track = trackRef.current;
@@ -881,6 +881,15 @@ function DressCodeSection(){
                     ]})
                   ]
                 })
+              ]
+            }),
+            card.id === "houses" && d.jsxs("div", {
+              className: "story-move-overlay",
+              children: [
+                d.jsx("h3", {className: "story-move-title", children: "THE MOVE"}),
+                d.jsxs("p", {className: "story-move-address story-move-first", children: [d.jsx("strong", {children: "153"}), "First Floor"]}),
+                d.jsxs("p", {className: "story-move-address story-move-second", children: [d.jsx("strong", {children: "176"}), "Second Floor"]}),
+                d.jsx("p", {className: "story-move-tagline", children: "Same colony. Different houses."})
               ]
             })
           ]

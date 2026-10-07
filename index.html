@@ -472,7 +472,7 @@
       }
       .story-stats-title {
         position: absolute;
-        top: 14%;
+        top: 12%;
         left: 0;
         right: 0;
         margin: 0;
@@ -480,6 +480,12 @@
         font: 700 clamp(15px, 3vw, 22px)/1.2 'Cinzel', 'Playfair Display', serif;
         letter-spacing: .2em;
         text-shadow: 0 1px 2px rgba(250,248,239,.95);
+        background: rgba(248, 245, 235, .82);
+        width: max-content;
+        padding: 2px 10px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
       }
       .story-stats-columns {
         position: absolute;
@@ -488,7 +494,7 @@
       }
       .story-stats-column h4 {
         position: absolute;
-        top: 27.5%;
+        top: 32%;
         margin: 0;
         color: #805719;
         font: 700 clamp(11px, 2vw, 15px)/1.2 'Cinzel', 'Playfair Display', serif;
@@ -497,8 +503,8 @@
       }
       .story-stats-column ul {
         position: absolute;
-        top: 39%;
-        height: 24%;
+        top: 35.5%;
+        height: 21%;
         display: grid;
         grid-template-rows: repeat(4, 1fr);
         gap: 0;
@@ -516,8 +522,48 @@
         text-align: center;
         text-shadow: 0 1px 2px rgba(250,248,239,.98), 0 0 4px rgba(250,248,239,.85);
       }
-      .story-him h4, .story-him ul { left: 14%; width: 26%; }
-      .story-her h4, .story-her ul { left: 73%; width: 25%; }
+      .story-him h4, .story-him ul { left: 14%; width: 22%; }
+      .story-her h4, .story-her ul { left: 69%; width: 24%; }
+      .story-move-overlay {
+        position: absolute;
+        inset: 0;
+        color: #654719;
+        pointer-events: none;
+        text-shadow: 0 1px 2px rgba(250,248,239,.92);
+      }
+      .story-move-title {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        text-align: center;
+        font: 600 clamp(18px, 3.5vw, 26px)/1.2 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .25em;
+      }
+      .story-move-address {
+        position: absolute;
+        left: 61%;
+        width: 34%;
+        margin: 0;
+        text-align: left;
+        font: 500 clamp(13px, 2.4vw, 18px)/1.15 'Cormorant Garamond', 'Playfair Display', serif;
+      }
+      .story-move-address strong {
+        display: block;
+        font: 700 clamp(30px, 6vw, 46px)/.95 'Playfair Display', Georgia, serif;
+      }
+      .story-move-first { top: 31%; }
+      .story-move-second { top: 68%; }
+      .story-move-tagline {
+        position: absolute;
+        top: 83%;
+        left: 8%;
+        width: 84%;
+        margin: 0;
+        text-align: center;
+        font: italic 500 clamp(16px, 3vw, 23px)/1.2 'Cormorant Garamond', 'Playfair Display', serif;
+      }
       .story-controls {
         display: flex;
         align-items: center;
@@ -656,10 +702,16 @@
         .story-section { padding-top: 42px; }
         .story-track { gap: 14px; padding-inline: 5vw; scroll-padding-inline: 5vw; }
         .story-panel { flex-basis: 94vw; }
-        .story-stats-title { top: 14%; font-size: 15px; }
-        .story-stats-column h4 { top: 27.5%; font-size: 10px; }
-        .story-stats-column ul { top: 39%; height: 24%; }
+        .story-stats-title { top: 12%; font-size: 15px; }
+        .story-stats-column h4 { top: 32%; font-size: 10px; }
+        .story-stats-column ul { top: 35.5%; height: 21%; }
         .story-stats-column li { font-size: 10px; }
+        .story-move-title { top: 10%; font-size: 18px; }
+        .story-move-address { font-size: 12px; }
+        .story-move-address strong { font-size: 30px; }
+        .story-move-first { top: 31%; }
+        .story-move-second { top: 68%; }
+        .story-move-tagline { top: 83%; font-size: 16px; }
         .story-controls { gap: 10px; }
         .story-scroll-hint { font-size: 9px; letter-spacing: .1em; }
       }
@@ -667,6 +719,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=115"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=116"></script>
   </body>
 </html>
