@@ -452,73 +452,69 @@
       .wardrobe-copy {
         position: absolute;
         z-index: 3;
-        inset: 16% 14% 44%;
+        inset: 15% 17% 42%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        color: #26372a;
+        color: #1f3025;
         isolation: isolate;
-        text-shadow: 0 1px 2px rgba(250,248,239,.72);
+        text-shadow: 0 1px 1px rgba(250,248,239,.88), 0 0 4px rgba(250,248,239,.5);
       }
       .wardrobe-copy::before {
         content: "";
         position: absolute;
         z-index: -1;
-        inset: -5% 3%;
+        inset: -5% 8%;
         border-radius: 50%;
-        background: radial-gradient(ellipse, rgba(245,239,224,.18) 0%, rgba(245,239,224,.1) 48%, rgba(245,239,224,0) 78%);
-        filter: blur(2px);
+        background: radial-gradient(ellipse, rgba(246,242,232,.3) 0%, rgba(246,242,232,.18) 52%, rgba(246,242,232,0) 82%);
+        filter: blur(3px);
         pointer-events: none;
       }
       .wardrobe-copy h3 {
         max-width: 100%;
         margin: 0;
         color: #263d2b;
-        font: 400 clamp(34px, 7.2vw, 54px)/1.05 'Greysilya Regular', 'Gresilya', 'Alex Brush', cursive;
-        -webkit-text-stroke: .25px rgba(250,248,239,.55);
+        font: 400 clamp(34px, 6.8vw, 50px)/1.08 'Greysilya Regular', 'Gresilya', 'Alex Brush', cursive;
+        -webkit-text-stroke: .55px rgba(250,248,239,.78);
         paint-order: stroke fill;
       }
-      .wardrobe-fabric-w1 .wardrobe-copy h3 { color: #805719; }
-      .wardrobe-fabric-w2 .wardrobe-copy h3 { color: #293c5b; }
-      .wardrobe-fabric-w3 .wardrobe-copy h3 { color: #526747; }
-      .wardrobe-fabric-w4 .wardrobe-copy h3 { color: #8b4e34; }
-      .wardrobe-fabric-w5 .wardrobe-copy h3 { color: #33475d; }
-      .wardrobe-fabric-w1 .wardrobe-note { color: #704d18; }
-      .wardrobe-fabric-w2 .wardrobe-note { color: #45516b; }
-      .wardrobe-fabric-w3 .wardrobe-note { color: #4d6145; }
-      .wardrobe-fabric-w4 .wardrobe-note { color: #754532; }
-      .wardrobe-fabric-w5 .wardrobe-note { color: #3d4e61; }
-      .wardrobe-date,
-      .wardrobe-time { color: #26372a; }
-      .wardrobe-place { color: #4b5138; }
-      }
+      .wardrobe-fabric-w1 .wardrobe-copy h3 { color: #34452c; }
+      .wardrobe-fabric-w2 .wardrobe-copy h3 { color: #263751; }
+      .wardrobe-fabric-w3 .wardrobe-copy h3 { color: #3e553a; }
+      .wardrobe-fabric-w4 .wardrobe-copy h3 { color: #713e2c; }
+      .wardrobe-fabric-w5 .wardrobe-copy h3 { color: #293b50; }
       .wardrobe-note {
         max-width: 28ch;
         margin: 8px 0 0;
-        color: #704f24;
-        font: italic clamp(16px, 3vw, 21px)/1.22 'Cormorant Garamond', 'Playfair Display', serif;
+        color: #3b4937;
+        font: 600 clamp(17px, 3vw, 21px)/1.2 'Cormorant Garamond', 'Playfair Display', serif;
+        text-shadow: 0 1px 1px rgba(250,248,239,.8);
       }
       .wardrobe-date {
         margin: clamp(12px, 2vw, 18px) 0 0;
-        font: 600 clamp(13px, 2.5vw, 17px)/1.2 'Cormorant Garamond', 'Playfair Display', serif;
+        color: #26372a;
+        font: 600 clamp(13px, 2.3vw, 15px)/1.25 'Montserrat', sans-serif;
+        letter-spacing: .01em;
       }
       .wardrobe-time {
-        margin: 5px 0 0;
-        font: 600 clamp(15px, 2.8vw, 20px)/1.2 'Cormorant Garamond', 'Playfair Display', serif;
+        margin: 6px 0 0;
+        color: #26372a;
+        font: 700 clamp(15px, 2.7vw, 18px)/1.2 'Montserrat', sans-serif;
       }
       .wardrobe-place {
-        margin: 6px 0 0;
-        color: #704f24;
-        font: 600 clamp(10px, 2vw, 14px)/1.25 'Cinzel', 'Playfair Display', serif;
-        letter-spacing: .08em;
+        margin: 7px 0 0;
+        color: #364634;
+        font: 700 clamp(10px, 1.9vw, 13px)/1.25 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .09em;
+        text-shadow: 0 1px 1px rgba(250,248,239,.9);
       }
       @media (max-width: 420px) {
         .wardrobe-track { gap: 16px; padding-inline: 4.5vw; scroll-padding-inline: 4.5vw; }
         .wardrobe-fabric { flex-basis: 91vw; }
         .wardrobe-fabric::before { inset: 6px; }
-        .wardrobe-copy { inset: 14% 13% 44%; }
+        .wardrobe-copy { inset: 13% 14% 43%; }
         .wardrobe-copy h3 { font-size: clamp(31px, 8vw, 36px); }
         .wardrobe-note { margin-top: 5px; }
         .wardrobe-date { margin-top: 10px; }
