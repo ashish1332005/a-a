@@ -661,7 +661,7 @@ function DressCodeSection(){
       const story = storyRef.current;
       if (!story) return;
       const storyStart = window.scrollY + story.getBoundingClientRect().top - window.innerHeight * 0.12;
-      const progress = Math.max(0, Math.min(wardrobeCards.length - 1, (window.scrollY - storyStart) / window.innerHeight));
+      const progress = Math.max(0, Math.min(wardrobeCards.length - 1, (window.scrollY - storyStart) / (window.innerHeight * 0.55)));
       const cue = story.querySelector(".wardrobe-scroll-hint");
       if (cue) {
         const lookNumber = Math.min(wardrobeCards.length, Math.floor(progress) + 1);
@@ -699,7 +699,7 @@ function DressCodeSection(){
       d.jsx("div", {
         ref: storyRef,
         className: "wardrobe-story",
-        style: {height: "520vh"},
+        style: {height: "300vh"},
         children: d.jsx("div", {
           className: "wardrobe-stage",
           children: [wardrobeCards.map((card, index) => d.jsxs("article", {
