@@ -646,7 +646,10 @@ function jV(){
   });
 }
 function DressCodeSection(){
-  const storyRef = m.useRef(null);
+  const trackRef = m.useRef(null);
+  const activeIndexRef = m.useRef(0);
+  const pauseUntilRef = m.useRef(0);
+  const [activeIndex, setActiveIndex] = m.useState(0);
   const wardrobeCards = [
     { id: "w1", image: "/assets/Embroidered%20Haldi%20Mehndi%20Celebration.png", title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", date: "11th November · Wednesday", time: "12 PM – 4 PM", place: "AT POOL GARDEN", alt: "Pyaar Ka Rang - Henna and Haldi celebration" },
     { id: "w2", image: "/assets/Embroidered%20South%20Asian%20Wedding%20Portrait.png", title: "Shaam Shandaar", note: "Glitz, Glam & Dance", date: "11th November · Wednesday", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH", alt: "Shaam Shandaar evening celebration" },
@@ -654,32 +657,82 @@ function DressCodeSection(){
     { id: "w4", image: "/assets/Embroidered%20Desert%20Celebration%20Invitation.png", title: "Dune At Dusk", note: "An Arabian night under the starry light", date: "12th November · Thursday", time: "10 PM onwards", alt: "Dune at Dusk desert celebration" },
     { id: "w5", image: "/assets/Boho%20Afterparty%20Under%20String%20Lights%20(1).png", title: "The Midnight Rave", note: "The vows are done. The night is ours.", alt: "Midnight Rave afterparty" }
   ];
+  const scrollToLook = (index, smooth) => {
+    const track = trackRef.current;
+    const panel = track && track.querySelectorAll(".wardrobe-fabric")[index];
+    if (!track || !panel) return;
+    const target = track.scrollLeft + panel.getBoundingClientRect().left - track.getBoundingClientRect().left - (track.clientWidth - panel.offsetWidth) / 2;
+    track.scrollTo({left: target, behavior: smooth ? "smooth" : "auto"});
+  };
   m.useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
     let frame = 0;
-    const updatePeel = () => {
+    let isVisible = !("IntersectionObserver" in window);
+    const visibilityObserver = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    }, {threshold: 0.12}) : null;
+    if (visibilityObserver) visibilityObserver.observe(track);
+    const updatePanels = () => {
       frame = 0;
-      const story = storyRef.current;
-      if (!story) return;
-      const storyStart = window.scrollY + story.getBoundingClientRect().top - window.innerHeight * 0.12;
-      const progress = Math.max(0, Math.min(wardrobeCards.length - 1, (window.scrollY - storyStart) / (window.innerHeight * 0.55)));
-      const cue = story.querySelector(".wardrobe-scroll-hint");
-      if (cue) {
-        const lookNumber = Math.min(wardrobeCards.length, Math.floor(progress) + 1);
-        cue.textContent = progress >= wardrobeCards.length - 1 ? "ALL 5 LOOKS REVEALED" : "SCROLL TO REVEAL  ·  " + String(lookNumber).padStart(2, "0") + " / 05";
-      }
-      story.querySelectorAll(".wardrobe-fabric").forEach((sheet, index) => {
-        const peel = Math.max(0, Math.min(1, progress - index));
-        sheet.style.transform = "translate3d(0," + (-peel * 112) + "%,0) rotateX(" + (-peel * 7) + "deg)";
-        sheet.style.filter = "drop-shadow(0 " + (peel * 24) + "px " + (18 + peel * 12) + "px rgba(61,39,22," + (0.2 + peel * 0.1) + "))";
+      const trackRect = track.getBoundingClientRect();
+      const center = trackRect.left + track.clientWidth / 2;
+      const panels = track.querySelectorAll(".wardrobe-fabric");
+      let nearest = 0;
+      let nearestDistance = Infinity;
+      panels.forEach((panel, index) => {
+        const rect = panel.getBoundingClientRect();
+        const offset = (rect.left + rect.width / 2 - center) / Math.max(1, track.clientWidth);
+        const distance = Math.abs(offset);
+        if (distance < nearestDistance) { nearestDistance = distance; nearest = index; }
+        if (distance > 1.35) {
+          panel.style.transform = "";
+          panel.style.filter = "";
+          panel.style.setProperty("--fabric-fold", "0");
+          return;
+        }
+        const fold = Math.max(0, Math.min(1, (distance - 0.08) / 0.86));
+        const direction = offset < 0 ? 1 : -1;
+        panel.style.transformOrigin = offset < 0 ? "100% 50%" : "0% 50%";
+        panel.style.transform = "perspective(1200px) rotateY(" + (direction * fold * 58) + "deg) rotateX(" + (fold * 5) + "deg) translateZ(" + (-fold * 22) + "px) scale(" + (1 - fold * 0.025) + ")";
+        panel.style.setProperty("--fabric-fold", String(fold));
+        panel.style.filter = "drop-shadow(" + (direction * fold * 18) + "px " + (fold * 10) + "px " + (20 + fold * 18) + "px rgba(52,37,24," + (0.16 + fold * 0.2) + "))";
       });
+      if (nearest !== activeIndexRef.current) {
+        activeIndexRef.current = nearest;
+        setActiveIndex(nearest);
+      }
+      const cue = document.getElementById("wardrobe-scroll-hint");
+      if (cue) cue.textContent = "SCROLL OR SWIPE  ·  " + String(nearest + 1).padStart(2, "0") + " / 05";
     };
-    const queueUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updatePeel); };
-    updatePeel();
-    window.addEventListener("scroll", queueUpdate, {passive: !0});
-    window.addEventListener("resize", queueUpdate);
+    const queueUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updatePanels); };
+    const pauseAutoplay = () => { pauseUntilRef.current = Date.now() + 9000; };
+    const onWheel = (event) => {
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        const canMove = event.deltaY > 0 ? track.scrollLeft + track.clientWidth < track.scrollWidth - 1 : track.scrollLeft > 1;
+        if (canMove) {
+          track.scrollLeft += event.deltaY;
+          event.preventDefault();
+        }
+      }
+      pauseAutoplay();
+    };
+    track.addEventListener("scroll", queueUpdate, {passive: !0});
+    track.addEventListener("wheel", onWheel, {passive: !1});
+    track.addEventListener("touchstart", pauseAutoplay, {passive: !0});
+    track.addEventListener("pointerdown", pauseAutoplay, {passive: !0});
+    updatePanels();
+    const autoplay = window.setInterval(() => {
+      if (!isVisible || document.hidden || Date.now() < pauseUntilRef.current) return;
+      scrollToLook((activeIndexRef.current + 1) % wardrobeCards.length, !0);
+    }, 8000);
     return () => {
-      window.removeEventListener("scroll", queueUpdate);
-      window.removeEventListener("resize", queueUpdate);
+      track.removeEventListener("scroll", queueUpdate);
+      track.removeEventListener("wheel", onWheel);
+      track.removeEventListener("touchstart", pauseAutoplay);
+      track.removeEventListener("pointerdown", pauseAutoplay);
+      if (visibilityObserver) visibilityObserver.disconnect();
+      window.clearInterval(autoplay);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
@@ -693,35 +746,45 @@ function DressCodeSection(){
         children: [
           d.jsx("p", {className: "wardrobe-kicker", children: "ATTIRE INSPIRATION"}),
           d.jsx("h2", {className: "wardrobe-title", children: "Wardrobe Planner"}),
-          d.jsx("p", {className: "wardrobe-intro", children: "Scroll gently to unveil each celebration"})
+          d.jsx("p", {className: "wardrobe-intro", children: "Scroll, swipe or wait for each embroidered look to unfold"})
         ]
       }),
       d.jsx("div", {
-        ref: storyRef,
-        className: "wardrobe-story",
-        style: {height: "300vh"},
-        children: d.jsx("div", {
-          className: "wardrobe-stage",
-          children: [wardrobeCards.map((card, index) => d.jsxs("article", {
-            className: "wardrobe-fabric",
-            style: {zIndex: wardrobeCards.length - index},
-            children: [
-              d.jsx("img", {src: card.image, alt: card.alt, className: "wardrobe-fabric-image", draggable: !1}),
-              d.jsxs("div", {
-                className: "wardrobe-copy",
-                children: [
-                  d.jsx("h3", {children: card.title}),
-                  d.jsx("p", {className: "wardrobe-note", children: card.note}),
-                  card.date && d.jsx("p", {className: "wardrobe-date", children: card.date}),
-                  card.time && d.jsx("p", {className: "wardrobe-time", children: card.time}),
-                  card.place && d.jsx("p", {className: "wardrobe-place", children: card.place})
-                ]
-              })
-            ]
-          }, card.id)),
-            d.jsx("p", {className: "wardrobe-scroll-hint", "aria-live": "polite", children: "SCROLL TO REVEAL  ·  01 / 05"})
+        ref: trackRef,
+        className: "wardrobe-track",
+        children: wardrobeCards.map((card, index) => d.jsxs("article", {
+          className: "wardrobe-fabric",
+          style: {zIndex: wardrobeCards.length - Math.abs(index - activeIndex)},
+          children: [
+            d.jsx("img", {src: card.image, alt: card.alt, className: "wardrobe-fabric-image", draggable: !1}),
+            d.jsxs("div", {
+              className: "wardrobe-copy",
+              children: [
+                d.jsx("h3", {children: card.title}),
+                d.jsx("p", {className: "wardrobe-note", children: card.note}),
+                card.date && d.jsx("p", {className: "wardrobe-date", children: card.date}),
+                card.time && d.jsx("p", {className: "wardrobe-time", children: card.time}),
+                card.place && d.jsx("p", {className: "wardrobe-place", children: card.place})
+              ]
+            })
           ]
-        })
+        }, card.id))
+      }),
+      d.jsxs("div", {
+        className: "wardrobe-controls",
+        children: [
+          d.jsx("button", {type: "button", className: "wardrobe-arrow", "aria-label": "Previous event", onClick: () => { pauseUntilRef.current = Date.now() + 9000; scrollToLook((activeIndex - 1 + wardrobeCards.length) % wardrobeCards.length, !0); }, children: "‹"}),
+          d.jsx("p", {id: "wardrobe-scroll-hint", className: "wardrobe-scroll-hint", "aria-live": "polite", children: "SCROLL OR SWIPE  ·  01 / 05"}),
+          d.jsx("button", {type: "button", className: "wardrobe-arrow", "aria-label": "Next event", onClick: () => { pauseUntilRef.current = Date.now() + 9000; scrollToLook((activeIndex + 1) % wardrobeCards.length, !0); }, children: "›"})
+        ]
+      }),
+      d.jsx("div", {
+        className: "wardrobe-dots",
+        children: wardrobeCards.map((card, index) => d.jsx("button", {
+          type: "button", key: card.id, onClick: () => { pauseUntilRef.current = Date.now() + 9000; scrollToLook(index, !0); },
+          className: index === activeIndex ? "wardrobe-dot is-active" : "wardrobe-dot",
+          "aria-label": "Show " + card.title
+        }))
       })
     ]
   });
