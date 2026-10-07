@@ -646,221 +646,49 @@ function jV(){
   });
 }
 function DressCodeSection(){
-  const [activeIndex, setActiveIndex] = m.useState(0);
-  const touchStartX = m.useRef(null);
-  const touchEndX = m.useRef(null);
-
   const wardrobeCards = [
-    { id: "w1", image: "/assets/Embroidered%20Haldi%20Mehndi%20Celebration.png", alt: "Pyaar Ka Rang - Henna & Haldi Hues" },
-    { id: "w2", image: "/assets/Embroidered%20South%20Asian%20Wedding%20Portrait.png", alt: "Shaam Shandaar - Glitz, Glam and Dance" },
-    { id: "w3", image: "/assets/Embroidered%20Sunset%20Courtyard%20Celebration.png", alt: "Band Baaja Baraat - The Sacred Seven" },
-    { id: "w4", image: "/assets/Embroidered%20Desert%20Celebration%20Invitation.png", alt: "Dune at Dusk - Arabian night under the starry light" },
-    { id: "w5", image: "/assets/Boho%20Afterparty%20Under%20String%20Lights%20(1).png", alt: "The Midnight Rave afterparty" }
+    { id: "w1", image: "/assets/Embroidered%20Haldi%20Mehndi%20Celebration.png", title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", date: "11th November · Wednesday", time: "12 PM – 4 PM", place: "AT POOL GARDEN", alt: "Pyaar Ka Rang - Henna and Haldi celebration" },
+    { id: "w2", image: "/assets/Embroidered%20South%20Asian%20Wedding%20Portrait.png", title: "Shaam Shandaar", note: "Glitz, Glam & Dance", date: "11th November · Wednesday", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH", alt: "Shaam Shandaar evening celebration" },
+    { id: "w3", image: "/assets/Embroidered%20Sunset%20Courtyard%20Celebration.png", title: "Band Baaja Baraat", note: "The Sacred Seven", date: "12th November · Thursday", time: "12 PM", place: "AT PALM DECK", alt: "Band Baaja Baraat ceremony" },
+    { id: "w4", image: "/assets/Embroidered%20Desert%20Celebration%20Invitation.png", title: "Dune At Dusk", note: "An Arabian night under the starry light", date: "12th November · Thursday", time: "10 PM onwards", alt: "Dune at Dusk desert celebration" },
+    { id: "w5", image: "/assets/Boho%20Afterparty%20Under%20String%20Lights%20(1).png", title: "The Midnight Rave", note: "The vows are done. The night is ours.", alt: "Midnight Rave afterparty" }
   ];
-
-  const total = wardrobeCards.length;
-
-  const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % total);
-  };
-
-  const prevSlide = () => {
-    setActiveIndex((prev) => (prev - 1 + total) % total);
-  };
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartX.current !== null && touchEndX.current !== null) {
-      const diff = touchStartX.current - touchEndX.current;
-      if (diff > 35) {
-        nextSlide();
-      } else if (diff < -35) {
-        prevSlide();
-      }
-    }
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
-
   return d.jsx("section", {
     id: "dress-code",
-    className: "w-full py-14 md:py-20 bg-[#faf6ee] overflow-hidden relative",
-    children: d.jsxs("div", {
-      className: "max-w-5xl mx-auto text-center space-y-6 md:space-y-8 px-3 sm:px-6",
-      children: [
-        /* Header */
-        d.jsxs(he.div, {
-          initial: {opacity: 0, y: 16},
-          whileInView: {opacity: 1, y: 0},
-          viewport: {once: !0},
-          transition: {duration: 0.6},
-          className: "space-y-1.5 px-4",
+    className: "wardrobe-section",
+    children: [
+      d.jsxs(he.div, {
+        initial: {opacity: 0, y: 16}, whileInView: {opacity: 1, y: 0}, viewport: {once: !0}, transition: {duration: 0.6},
+        className: "wardrobe-heading",
+        children: [
+          d.jsx("p", {className: "wardrobe-kicker", children: "ATTIRE INSPIRATION"}),
+          d.jsx("h2", {className: "wardrobe-title", children: "Wardrobe Planner"}),
+          d.jsx("p", {className: "wardrobe-intro", children: "Scroll gently to unveil each celebration"})
+        ]
+      }),
+      d.jsx("div", {
+        className: "wardrobe-stack",
+        children: wardrobeCards.map((card, index) => d.jsxs("article", {
+          className: "wardrobe-fabric",
+          style: {zIndex: index + 1},
           children: [
-            d.jsx("p", {
-              className: "text-xs md:text-sm uppercase tracking-[0.3em] text-[#8b6534] font-bold",
-              style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-              children: "✦ ATTIRE INSPIRATION ✦"
-            }),
-            d.jsx("h2", {
-              className: "text-4xl md:text-6xl text-[#3d2716] font-normal leading-tight",
-              style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
-              children: "Wardrobe Planner"
-            }),
-            d.jsx("div", {
-              className: "w-24 h-0.5 bg-[#c5a059] mx-auto my-2"
-            }),
-            d.jsx("p", {
-              className: "text-sm md:text-base text-[#704f24] italic max-w-lg mx-auto",
-              style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
-              children: "Let's help you pack for the wedding"
-            })
-          ]
-        }),
-
-        /* 3D Coverflow Stage without side arrows */
-        d.jsx("div", {
-          className: "relative w-full flex items-center justify-center select-none py-2 my-2 cursor-pointer",
-          style: { minHeight: "520px", height: "520px" },
-          onTouchStart: handleTouchStart,
-          onTouchMove: handleTouchMove,
-          onTouchEnd: handleTouchEnd,
-          children: d.jsx("div", {
-            className: "relative w-full flex items-center justify-center",
-            style: { maxWidth: "340px", height: "500px" },
-            children: wardrobeCards.map((card, idx) => {
-              const offset = idx - activeIndex;
-              let transform = "translateX(0) scale(1)";
-              let zIndex = 20;
-              let opacity = 1;
-              let pointerEvents = "auto";
-              let cursor = "default";
-              let filter = "none";
-
-              if (offset === 0) {
-                transform = "translateX(0%) scale(1)";
-                zIndex = 30;
-                opacity = 1;
-              } else if (offset === -1 || (offset === total - 1 && activeIndex === 0)) {
-                transform = "translateX(-52%) scale(0.85)";
-                zIndex = 15;
-                opacity = 0.65;
-                cursor = "pointer";
-                filter = "brightness(0.92)";
-              } else if (offset === 1 || (offset === -(total - 1) && activeIndex === total - 1)) {
-                transform = "translateX(52%) scale(0.85)";
-                zIndex = 15;
-                opacity = 0.65;
-                cursor = "pointer";
-                filter = "brightness(0.92)";
-              } else {
-                transform = offset < 0 ? "translateX(-95%) scale(0.7)" : "translateX(95%) scale(0.7)";
-                zIndex = 5;
-                opacity = 0;
-                pointerEvents = "none";
-              }
-
-              return d.jsx("div", {
-                key: card.id,
-                onClick: () => {
-                  if (offset !== 0) setActiveIndex(idx);
-                },
-                className: "absolute inset-0 flex items-center justify-center w-full",
-                style: {
-                  transform,
-                  zIndex,
-                  opacity,
-                  pointerEvents,
-                  cursor,
-                  filter,
-                  transition: "all 0.5s cubic-bezier(0.25, 1, 0.5, 1)"
-                },
-                children: d.jsx("div", {
-                  className: "relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-[#c5a059]/60 bg-[#fffdfa] transition-all duration-300",
-                  children: d.jsx("img", {
-                    src: card.image,
-                    alt: card.alt,
-                    className: "w-full h-auto block select-none pointer-events-none rounded-2xl sm:rounded-3xl",
-                    draggable: !1
-                  })
-                })
-              });
-            })
-          })
-        }),
-
-        /* Bottom Controls */
-        d.jsxs("div", {
-          className: "space-y-4 pt-4",
-          children: [
-            /* Dot Indicators with matching olive theme */
-            d.jsx("div", {
-              className: "flex items-center justify-center gap-2",
-              children: wardrobeCards.map((card, idx) => d.jsx("button", {
-                type: "button",
-                key: card.id,
-                onClick: () => setActiveIndex(idx),
-                style: {
-                  backgroundColor: activeIndex === idx ? "#596b52" : "rgba(197,160,89,0.35)",
-                  width: activeIndex === idx ? "28px" : "10px",
-                  height: "10px"
-                },
-                className: "transition-all duration-300 rounded-full cursor-pointer border border-[#c5a059]/40",
-                "aria-label": "Go to slide " + (idx + 1)
-              }))
-            }),
-
-            /* Scroll The Next Button with Elegant Golden Flourish Lines */
+            d.jsx("img", {src: card.image, alt: card.alt, className: "wardrobe-fabric-image", draggable: !1}),
             d.jsxs("div", {
-              className: "pt-2 flex items-center justify-center gap-3 sm:gap-4 select-none",
+              className: "wardrobe-copy",
               children: [
-                /* Left Flourish */
-                d.jsxs("div", {
-                  className: "flex items-center gap-1.5 text-[#bfa268]",
-                  children: [
-                    d.jsx("span", {className: "w-8 sm:w-14 h-[1.5px] bg-gradient-to-r from-transparent to-[#bfa268]"}),
-                    d.jsx("span", {className: "text-xs", children: "❖"})
-                  ]
-                }),
-
-                /* Olive / Sage Green Button */
-                d.jsx("button", {
-                  type: "button",
-                  onClick: nextSlide,
-                  style: {
-                    backgroundColor: "#596b52",
-                    color: "#fbf7ee",
-                    borderColor: "rgba(197,160,89,0.85)",
-                    fontFamily: "'Cinzel', 'Playfair Display', serif"
-                  },
-                  className: "inline-flex items-center justify-center px-8 sm:px-10 py-3 rounded-full text-xs sm:text-sm tracking-[0.25em] uppercase font-bold shadow-[0_6px_20px_rgba(89,107,82,0.35)] border-2 transition-all duration-300 hover:scale-105 hover:bg-[#4d5d47] active:scale-95 cursor-pointer",
-                  children: "SCROLL THE NEXT"
-                }),
-
-                /* Right Flourish */
-                d.jsxs("div", {
-                  className: "flex items-center gap-1.5 text-[#bfa268]",
-                  children: [
-                    d.jsx("span", {className: "text-xs", children: "❖"}),
-                    d.jsx("span", {className: "w-8 sm:w-14 h-[1.5px] bg-gradient-to-l from-transparent to-[#bfa268]"})
-                  ]
-                })
+                d.jsx("h3", {children: card.title}),
+                d.jsx("p", {className: "wardrobe-note", children: card.note}),
+                card.date && d.jsx("p", {className: "wardrobe-date", children: card.date}),
+                card.time && d.jsx("p", {className: "wardrobe-time", children: card.time}),
+                card.place && d.jsx("p", {className: "wardrobe-place", children: card.place})
               ]
             })
           ]
-        })
-      ]
-    })
+        }, card.id))
+      })
+    ]
   });
-}
-function OurStorySection() {
+}function OurStorySection() {
   return d.jsx("section", {
     id: "our-story",
     className: "w-full py-12 md:py-20 px-3 sm:px-6 overflow-hidden relative",

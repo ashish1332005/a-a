@@ -304,6 +304,122 @@
         .event-nook-item p { margin-top: 3px; }
         .event-nook-item h2 { font-size: clamp(15px, 4vw, 17px); }
       }
+
+      /* Wardrobe linens reveal one over another as the guest scrolls. */
+      .wardrobe-section {
+        position: relative;
+        overflow: visible;
+        padding: clamp(44px, 7vw, 84px) 0 6vh;
+        background: #faf6ee;
+      }
+      .wardrobe-heading {
+        position: relative;
+        z-index: 10;
+        padding: 0 20px clamp(30px, 5vw, 56px);
+        text-align: center;
+      }
+      .wardrobe-kicker {
+        margin: 0;
+        color: #8b6534;
+        font: 700 clamp(11px, 1.5vw, 14px) 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .28em;
+      }
+      .wardrobe-title {
+        margin: 8px 0 0;
+        color: #3d2716;
+        font: 400 clamp(46px, 8vw, 72px)/1.05 'Alex Brush', 'Great Vibes', cursive;
+      }
+      .wardrobe-intro {
+        margin: 8px 0 0;
+        color: #704f24;
+        font: italic clamp(16px, 2.3vw, 20px) 'Cormorant Garamond', 'Playfair Display', serif;
+      }
+      .wardrobe-stack {
+        position: relative;
+        padding: 0 0 2vh;
+      }
+      .wardrobe-fabric {
+        position: sticky;
+        top: 12vh;
+        width: min(88vw, 520px);
+        aspect-ratio: 2 / 3;
+        margin: 0 auto 18vh;
+        overflow: visible;
+        isolation: isolate;
+        filter: drop-shadow(0 18px 18px rgba(61, 39, 22, .2));
+      }
+      .wardrobe-fabric:last-child { margin-bottom: 5vh; }
+      .wardrobe-fabric-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        user-select: none;
+        pointer-events: none;
+      }
+      .wardrobe-fabric::before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        inset: 9px;
+        border: 1px dashed rgba(101, 73, 40, .43);
+        pointer-events: none;
+      }
+      .wardrobe-fabric::after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: linear-gradient(105deg, rgba(72, 48, 27, .08), transparent 13%, transparent 83%, rgba(72, 48, 27, .07)), linear-gradient(180deg, rgba(255,255,255,.12), transparent 20%, transparent 87%, rgba(72,48,27,.08));
+        pointer-events: none;
+      }
+      .wardrobe-copy {
+        position: absolute;
+        z-index: 3;
+        inset: 11% 9% 47%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #26372a;
+        text-shadow: 0 1px 0 rgba(255,255,255,.95), 0 2px 9px rgba(250,246,238,.94);
+      }
+      .wardrobe-copy h3 {
+        max-width: 100%;
+        margin: 0;
+        color: #203728;
+        font: 400 clamp(34px, 7.7vw, 58px)/1.05 'Greysilya Regular', 'Gresilya', 'Alex Brush', cursive;
+      }
+      .wardrobe-note {
+        max-width: 100%;
+        margin: 8px 0 0;
+        color: #704f24;
+        font: italic clamp(16px, 3vw, 21px)/1.22 'Cormorant Garamond', 'Playfair Display', serif;
+      }
+      .wardrobe-date {
+        margin: clamp(12px, 2vw, 18px) 0 0;
+        font: 600 clamp(13px, 2.5vw, 17px)/1.2 'Cormorant Garamond', 'Playfair Display', serif;
+      }
+      .wardrobe-time {
+        margin: 5px 0 0;
+        font: 600 clamp(15px, 2.8vw, 20px)/1.2 'Cormorant Garamond', 'Playfair Display', serif;
+      }
+      .wardrobe-place {
+        margin: 6px 0 0;
+        color: #704f24;
+        font: 600 clamp(10px, 2vw, 14px)/1.25 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .08em;
+      }
+      @media (max-width: 420px) {
+        .wardrobe-fabric { top: 10vh; width: 91vw; margin-bottom: 15vh; }
+        .wardrobe-fabric::before { inset: 6px; }
+        .wardrobe-copy { inset: 10% 8% 48%; }
+        .wardrobe-copy h3 { font-size: clamp(31px, 8vw, 36px); }
+        .wardrobe-note { margin-top: 5px; }
+        .wardrobe-date { margin-top: 10px; }
+      }
     </style>
   </head>
   <body>
