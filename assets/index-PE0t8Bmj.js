@@ -753,7 +753,7 @@ function DressCodeSection(){
         ref: trackRef,
         className: "wardrobe-track",
         children: wardrobeCards.map((card, index) => d.jsxs("article", {
-          className: "wardrobe-fabric",
+          className: "wardrobe-fabric wardrobe-fabric-" + card.id,
           style: {zIndex: wardrobeCards.length - Math.abs(index - activeIndex)},
           children: [
             d.jsx("img", {src: card.image, alt: card.alt, className: "wardrobe-fabric-image", draggable: !1}),

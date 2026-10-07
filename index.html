@@ -436,9 +436,19 @@
         position: absolute;
         z-index: 1;
         inset: 0;
-        background: linear-gradient(105deg, rgba(72, 48, 27, .08), transparent 13%, transparent 83%, rgba(72, 48, 27, .07)), linear-gradient(180deg, rgba(255,255,255,.12), transparent 20%, transparent 87%, rgba(72,48,27,.08));
+        background: linear-gradient(105deg, rgba(43, 54, 61, .045), transparent 13%, transparent 83%, rgba(43, 54, 61, .04)), linear-gradient(180deg, rgba(255,255,255,.12), transparent 20%, transparent 87%, rgba(43,54,61,.05));
         pointer-events: none;
       }
+      .wardrobe-fabric-w1::after { background-color: rgba(231, 186, 61, .055); }
+      .wardrobe-fabric-w2::after { background-color: rgba(91, 112, 158, .055); }
+      .wardrobe-fabric-w3::after { background-color: rgba(105, 137, 91, .055); }
+      .wardrobe-fabric-w4::after { background-color: rgba(174, 91, 53, .055); }
+      .wardrobe-fabric-w5::after { background-color: rgba(63, 88, 133, .06); }
+      .wardrobe-fabric-w1 .wardrobe-fabric-image { filter: saturate(.94) contrast(1.02); }
+      .wardrobe-fabric-w2 .wardrobe-fabric-image { filter: saturate(1.04) brightness(1.015); }
+      .wardrobe-fabric-w3 .wardrobe-fabric-image { filter: saturate(.91) brightness(1.02); }
+      .wardrobe-fabric-w4 .wardrobe-fabric-image { filter: saturate(.88) contrast(1.04); }
+      .wardrobe-fabric-w5 .wardrobe-fabric-image { filter: saturate(.97) contrast(1.04); }
       .wardrobe-copy {
         position: absolute;
         z-index: 3;
@@ -449,13 +459,38 @@
         justify-content: center;
         text-align: center;
         color: #26372a;
-        text-shadow: 0 1px 0 rgba(255,255,255,.95), 0 2px 9px rgba(250,246,238,.94);
+        isolation: isolate;
+        text-shadow: 0 1px 0 rgba(255,255,255,.98), 0 2px 5px rgba(250,248,239,.95);
+      }
+      .wardrobe-copy::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: -13% -11%;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(250,248,239,.98) 0%, rgba(250,248,239,.9) 45%, rgba(250,248,239,.55) 68%, rgba(250,248,239,0) 100%);
+        filter: blur(5px);
+        pointer-events: none;
       }
       .wardrobe-copy h3 {
         max-width: 100%;
         margin: 0;
-        color: #203728;
-        font: 400 clamp(34px, 7.7vw, 58px)/1.05 'Greysilya Regular', 'Gresilya', 'Alex Brush', cursive;
+        color: #263d2b;
+        font: 400 clamp(34px, 7.2vw, 54px)/1.05 'Greysilya Regular', 'Gresilya', 'Alex Brush', cursive;
+      }
+      .wardrobe-fabric-w1 .wardrobe-copy h3 { color: #805719; }
+      .wardrobe-fabric-w2 .wardrobe-copy h3 { color: #293c5b; }
+      .wardrobe-fabric-w3 .wardrobe-copy h3 { color: #526747; }
+      .wardrobe-fabric-w4 .wardrobe-copy h3 { color: #8b4e34; }
+      .wardrobe-fabric-w5 .wardrobe-copy h3 { color: #33475d; }
+      .wardrobe-fabric-w1 .wardrobe-note { color: #704d18; }
+      .wardrobe-fabric-w2 .wardrobe-note { color: #45516b; }
+      .wardrobe-fabric-w3 .wardrobe-note { color: #4d6145; }
+      .wardrobe-fabric-w4 .wardrobe-note { color: #754532; }
+      .wardrobe-fabric-w5 .wardrobe-note { color: #3d4e61; }
+      .wardrobe-date,
+      .wardrobe-time { color: #26372a; }
+      .wardrobe-place { color: #4b5138; }
       }
       .wardrobe-note {
         max-width: 100%;
@@ -492,6 +527,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=112"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=113"></script>
   </body>
 </html>
