@@ -793,7 +793,8 @@ function DressCodeSection(){
   const [activeIndex, setActiveIndex] = m.useState(0);
   const storyCards = [
     { id: "move", image: "/assets/Embroidered%20House%20Move%20Story.png", alt: "The Longest House Move Ever embroidered love story" },
-    { id: "stats", image: "/assets/Embroidered%20Couple%20Wedding%20Card%20Design.png", alt: "The Stats - Him and Her embroidered couple story" }
+    { id: "stats", image: "/assets/Embroidered%20Couple%20Wedding%20Card%20Design.png", alt: "The Stats - Him and Her embroidered couple story" },
+    { id: "houses", image: "/assets/Embroidered%20Houses%20Connected%20by%20Vines.png", alt: "Two embroidered houses connected by a vine, with the line Same colony. Different houses." }
   ];
   const scrollToCard = (index) => {
     const track = trackRef.current;
@@ -889,7 +890,7 @@ function DressCodeSection(){
         className: "story-controls",
         children: [
           d.jsx("button", {type: "button", className: "story-arrow", "aria-label": "Previous story card", onClick: () => scrollToCard(Math.max(0, activeIndex - 1)), children: "‹"}),
-          d.jsx("p", {className: "story-scroll-hint", "aria-live": "polite", children: "SWIPE OR SCROLL  ·  " + String(activeIndex + 1).padStart(2, "0") + " / 02"}),
+          d.jsx("p", {className: "story-scroll-hint", "aria-live": "polite", children: "SWIPE OR SCROLL  ·  " + String(activeIndex + 1).padStart(2, "0") + " / " + String(storyCards.length).padStart(2, "0")}),
           d.jsx("button", {type: "button", className: "story-arrow", "aria-label": "Next story card", onClick: () => scrollToCard(Math.min(storyCards.length - 1, activeIndex + 1)), children: "›"})
         ]
       })
