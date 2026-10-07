@@ -221,8 +221,8 @@
       }
       .event-nook-card {
         position: relative;
-        width: min(100%, 760px);
-        aspect-ratio: 1086 / 1448;
+        width: min(100%, 680px);
+        aspect-ratio: 2 / 3;
         margin: 0 auto;
         overflow: hidden;
       }
@@ -247,10 +247,10 @@
       }
       .event-nook-copy {
         position: absolute;
-        inset: 11% 27% 12%;
+        inset: 10% 16% 48%;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         text-align: center;
         color: #26372a;
@@ -258,51 +258,49 @@
       }
       .event-nook-item {
         width: 100%;
-        padding: 10px 0;
-      }
-      .event-nook-item + .event-nook-item {
-        border-top: 1px solid rgba(137, 105, 61, 0.38);
-        padding-top: clamp(20px, 4vw, 34px);
+        padding: 0;
       }
       .event-nook-item h2 {
         margin: 0;
-        color: #26372a;
-        font-family: 'Cinzel', 'Playfair Display', serif;
-        font-size: clamp(17px, 4vw, 30px);
-        font-weight: 600;
-        line-height: 1.15;
-        letter-spacing: 0.035em;
+        color: #253524;
+        font-family: 'Greysilya Regular', 'Gresilya', 'Alex Brush', cursive;
+        font-size: clamp(34px, 8vw, 58px);
+        font-weight: 400;
+        line-height: 1.05;
+        text-shadow: 0 1px 1px rgba(255,255,255,.52);
       }
-      .event-nook-item p { margin: 5px 0 0; }
+      .event-nook-item p { margin: 8px 0 0; }
       .event-nook-note {
-        font-size: clamp(13px, 2.7vw, 19px);
+        color: #704f24;
+        font-size: clamp(15px, 3vw, 21px);
         font-style: italic;
-        line-height: 1.2;
+        line-height: 1.25;
       }
       .event-nook-date {
-        margin-top: clamp(10px, 2vw, 16px) !important;
-        font-size: clamp(12px, 2.5vw, 17px);
+        margin-top: clamp(14px, 2.4vw, 20px) !important;
+        font-size: clamp(14px, 2.7vw, 18px);
         font-weight: 600;
         line-height: 1.2;
+        color: #26372a;
       }
       .event-nook-time {
-        font-size: clamp(14px, 3vw, 21px);
+        font-size: clamp(16px, 3.2vw, 22px);
         font-weight: 600;
         line-height: 1.2;
+        color: #26372a;
       }
       .event-nook-place {
         font-family: 'Cinzel', 'Playfair Display', serif;
-        font-size: clamp(10px, 2vw, 14px);
+        font-size: clamp(11px, 2.3vw, 15px);
         font-weight: 600;
         letter-spacing: 0.08em;
         line-height: 1.25;
       }
       @media (max-width: 420px) {
-        .event-nook-copy { inset: 12% 25% 13%; }
-        .event-nook-item { padding: 5px 0; }
-        .event-nook-item + .event-nook-item { padding-top: 14px; }
+        .event-nook-copy { inset: 10% 12% 49%; }
+        .event-nook-item h2 { font-size: clamp(30px, 8.5vw, 36px); }
         .event-nook-item p { margin-top: 3px; }
-        .event-nook-item h2 { font-size: clamp(15px, 4vw, 17px); }
+        .event-nook-date { margin-top: 10px !important; }
       }
     </style>
   </head>
