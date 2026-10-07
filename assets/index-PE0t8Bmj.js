@@ -592,37 +592,56 @@ const tV=1,nV="14c85bd5-d8fd-4897-b67a-eef5d9d15427",rV="3f9d9875-eabc-44df-87dc
 const _V=1,SV="ac682b5b-4d77-408f-b7c9-227bee99656b",kV="3f9d9875-eabc-44df-87dc-3ba667b34959",EV="/__l5e/assets-v1/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",CV="a/v1/3f9d9875-eabc-44df-87dc-3ba667b34959/ac682b5b-4d77-408f-b7c9-227bee99656b/dress-code-embroidery-2.png",TV="dress-code-embroidery-2.png",RV=127586,PV="image/webp",NV="2026-08-01T21:36:04Z",MC={version:_V,asset_id:SV,project_id:kV,url:EV,r2_key:CV,original_filename:TV,size:RV,content_type:PV,created_at:NV};
 
 function jV(){
-  const events = [
-    { image: "/assets/Embroidered%20Haldi%20Mehndi%20Celebration.png", alt: "Embroidered Pyaar Ka Rang Haldi and Mehndi celebration", title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", date: "11th November · Wednesday", time: "12 PM – 4 PM", place: "AT POOL GARDEN" },
-    { image: "/assets/Embroidered%20South%20Asian%20Wedding%20Portrait.png", alt: "Embroidered Shaam Shandaar evening celebration", title: "Shaam Shandaar", note: "Glitz, Glam & Dance", date: "11th November · Wednesday", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH" },
-    { image: "/assets/Embroidered%20Sunset%20Courtyard%20Celebration.png", alt: "Embroidered Band Baaja Baraat wedding ceremony", title: "Band Baaja Baraat", note: "The Sacred Seven", date: "12th November · Thursday", time: "12 PM", place: "AT PALM DECK" },
-    { image: "/assets/Embroidered%20Desert%20Celebration%20Invitation.png", alt: "Embroidered Dune at Dusk desert celebration", title: "Dune At Dusk", note: "An Arabian night beneath a starlit sky", date: "12th November · Thursday", time: "10 PM onwards" },
-    { image: "/assets/Boho%20Afterparty%20Under%20String%20Lights%20(1).png", alt: "Embroidered midnight rave afterparty under string lights", title: "The Midnight Rave · Afterparty", note: "After the ‘I do,’ we dance till the night says goodbye.", date: "12th November · Thursday", time: "Late night onwards" }
+  const days = [
+    {
+      image: "/assets/image1.png?v=1",
+      alt: "Embroidered celebration cloth for 11 November",
+      date: "11th November · Wednesday",
+      events: [
+        { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "12 PM – 4 PM", place: "AT POOL GARDEN" },
+        { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH" }
+      ]
+    },
+    {
+      image: "/assets/image.png?v=1",
+      alt: "Embroidered wedding canopy cloth for 12 November",
+      date: "12th November · Thursday",
+      events: [
+        { title: "Band Baaja Baraat", time: "12 PM", place: "THE SACRED SEVEN · AT PALM DECK" },
+        { title: "Dune At Dusk", note: "Arabian night under the starry light", time: "10 PM onwards" }
+      ]
+    }
   ];
+
   return d.jsx("section", {
     id: "itinerary",
     className: "event-nook-section",
     children: d.jsx("div", {
       className: "event-nook-stack",
-      children: events.map((event, eventIndex) => d.jsxs("div", {
-        className: "event-nook-card",
+      children: days.map((day, dayIndex) => d.jsxs("div", {
+        className: dayIndex === 1 ? "event-nook-card event-nook-card-canopy" : "event-nook-card",
         children: [
-          d.jsx("img", { src: event.image, alt: event.alt, className: "event-nook-image", draggable: !1 }),
+          d.jsx("img", {
+            src: day.image,
+            alt: day.alt,
+            className: "event-nook-image",
+            draggable: !1
+          }),
           d.jsx("div", {
             className: "event-nook-copy",
-            children: d.jsxs("article", {
+            children: day.events.map((event, eventIndex) => d.jsxs("article", {
               className: "event-nook-item",
               children: [
                 d.jsx("h2", { children: event.title }),
-                event.note && d.jsx("p", { className: "event-nook-note", children: event.note }),
-                d.jsx("p", { className: "event-nook-date", children: event.date }),
+                event.note && d.jsx("p", { className: "event-nook-note", children: "(" + event.note + ")" }),
+                d.jsx("p", { className: "event-nook-date", children: day.date }),
                 d.jsx("p", { className: "event-nook-time", children: event.time }),
                 event.place && d.jsx("p", { className: "event-nook-place", children: event.place })
               ]
-            })
+            }, "event-" + dayIndex + "-" + eventIndex))
           })
         ]
-      }, "event-card-" + eventIndex))
+      }, "day-" + dayIndex))
     })
   });
 }
@@ -632,26 +651,11 @@ function DressCodeSection(){
   const touchEndX = m.useRef(null);
 
   const wardrobeCards = [
-    {
-      id: "w1",
-      image: "/assets/wedding/wardrobe_1.jpg",
-      alt: "Pyaar Ka Rang - Henna & Haldi Hues"
-    },
-    {
-      id: "w2",
-      image: "/assets/wedding/wardrobe_2.jpg",
-      alt: "Shaam Shandaar - Glitz, Glam and dance"
-    },
-    {
-      id: "w3",
-      image: "/assets/wedding/wardrobe_3.jpg",
-      alt: "Band Baaja Baraat - The Sacred Seven"
-    },
-    {
-      id: "w4",
-      image: "/assets/wedding/wardrobe_4.jpg",
-      alt: "Dune at Dusk - Arabian Night"
-    }
+    { id: "w1", image: "/assets/Embroidered%20Haldi%20Mehndi%20Celebration.png", alt: "Pyaar Ka Rang - Henna & Haldi Hues" },
+    { id: "w2", image: "/assets/Embroidered%20South%20Asian%20Wedding%20Portrait.png", alt: "Shaam Shandaar - Glitz, Glam and Dance" },
+    { id: "w3", image: "/assets/Embroidered%20Sunset%20Courtyard%20Celebration.png", alt: "Band Baaja Baraat - The Sacred Seven" },
+    { id: "w4", image: "/assets/Embroidered%20Desert%20Celebration%20Invitation.png", alt: "Dune at Dusk - Arabian night under the starry light" },
+    { id: "w5", image: "/assets/Boho%20Afterparty%20Under%20String%20Lights%20(1).png", alt: "The Midnight Rave afterparty" }
   ];
 
   const total = wardrobeCards.length;
