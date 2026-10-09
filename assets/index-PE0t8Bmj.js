@@ -678,7 +678,7 @@ function DressCodeSection(){
   const pauseUntilRef = m.useRef(0);
   const [activeIndex, setActiveIndex] = m.useState(0);
   const wardrobeCards = [
-    { id: "w1", image: "/assets/Embroidered%20Mehndi%20Wedding%20Celebration.png", title: "Pyaar Ka Rang", date: "11th November · Wednesday", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered mehndi wedding celebration" },
+    { id: "w1", image: "/assets/Embroidered%20Indian%20Wedding%20Celebration%20%281%29.png", title: "Pyaar Ka Rang", date: "11th November · Wednesday", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered Indian wedding celebration" },
     { id: "w2", image: "/assets/Embroidered%20Royal%20Reception%20Ensemble.png", title: "Shaam Shandaar", date: "11th November · Wednesday", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered royal reception ensemble" },
     { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", date: "12th November · Thursday", secondaryTitle: "The Sacred Seven", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat and Sacred Seven embroidered wedding celebration" },
     { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Lounge.png", title: "Dune At Dusk", date: "12th November · Thursday", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert sunset lounge" },
