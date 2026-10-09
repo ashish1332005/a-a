@@ -621,8 +621,8 @@ function jV(){
       alt: "Embroidered celebration cloth for 11 November",
       date: "11th November · Wednesday",
       events: [
-        { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "12 PM – 4 PM", place: "AT POOL GARDEN" },
-        { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH" }
+        { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "1 PM till sundowner", place: "AT POOL GARDEN" },
+        { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "8:30 PM onwards", place: "AT PUSHKARA BAAGH" }
       ]
     },
     {
@@ -630,8 +630,9 @@ function jV(){
       alt: "Embroidered wedding canopy cloth for 12 November",
       date: "12th November · Thursday",
       events: [
-        { title: "Band Baaja Baraat", time: "12 PM", secondaryTitle: "THE SACRED SEVEN", place: "AT PALM DECK" },
-        { title: "Dune At Dusk", note: "Arabian night under the starry light", time: "10 PM onwards", place: "AT SAND DUNES" }
+        { title: "Band Baaja Baraat", time: "1 PM", place: "Starting from Ganesh Mandir" },
+        { title: "The Sacred Seven", note: "Wedding ceremony", time: "2:30 PM followed by lunch", place: "At Palm Deck" },
+        { title: "Dune At Dusk", note: "Arabian night under the starry light", time: "9 PM onwards", place: "At Sand Dunes" }
       ]
     }
   ];
@@ -679,7 +680,7 @@ function DressCodeSection(){
   const wardrobeCards = [
     { id: "w1", image: "/assets/Embroidered%20Haldi%20Celebration%20Gathering.png", title: "Pyaar Ka Rang", time: "1 PM till sundowner", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered haldi celebration" },
     { id: "w2", image: "/assets/Embroidered%20Midnight%20Reception%20Tapestry.png", title: "Shaam Shandaar", time: "8:30 PM onwards", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered reception" },
-    { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", time: "1 PM · From Ganesh Mandir", secondaryTitle: "The Sacred Seven", secondaryNote: "2:30 PM · Ceremony & lunch · Palm Deck", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat and Sacred Seven embroidered wedding celebration" },
+    { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", time: "1 PM · Starting from Ganesh Mandir", secondaryTitle: "The Sacred Seven", secondaryNote: "Wedding ceremony · 2:30 PM followed by lunch · At Palm Deck", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat and Sacred Seven embroidered wedding celebration" },
     { id: "w4", image: "/assets/Embroidered%20Desert%20Boho%20Gathering.png", title: "Dune At Dusk", time: "9 PM onwards · At Sand Dunes", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert gathering" },
     { id: "w5", image: "/assets/Embroidered%20Afterparty%20Lounge%20Scene.png", title: "The Midnight Rave", note: "Afterparty", dressCode: "Ultra-Comfy Streetwear, PJ-Chic or Party Glam", alt: "The Midnight Rave afterparty embroidered lounge" }
   ];
