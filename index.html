@@ -280,10 +280,12 @@
         line-height: 1.2;
       }
       .event-nook-date {
-        margin-top: clamp(10px, 2vw, 16px) !important;
+        margin: 0 0 4px !important;
         font-size: clamp(12px, 2.5vw, 17px);
         font-weight: 600;
         line-height: 1.2;
+        letter-spacing: .08em;
+        text-transform: uppercase;
       }
       .event-nook-time {
         font-size: clamp(14px, 3vw, 21px);
@@ -297,12 +299,21 @@
         letter-spacing: 0.08em;
         line-height: 1.25;
       }
+      .event-nook-card-dense .event-nook-copy { inset: 8% 25% 10%; justify-content: space-around; }
+      .event-nook-card-dense .event-nook-item { padding: 3px 0; }
+      .event-nook-card-dense .event-nook-item + .event-nook-item { padding-top: 7px; }
+      .event-nook-card-dense .event-nook-item h2 { font-size: clamp(13px, 3.2vw, 21px); line-height: 1.1; }
+      .event-nook-card-dense .event-nook-note { font-size: clamp(11px, 2.3vw, 15px); }
+      .event-nook-card-dense .event-nook-time { font-size: clamp(12px, 2.6vw, 17px); }
+      .event-nook-card-dense .event-nook-place { font-size: clamp(9px, 1.8vw, 12px); letter-spacing: .04em; }
       @media (max-width: 420px) {
         .event-nook-copy { inset: 12% 25% 13%; }
         .event-nook-item { padding: 5px 0; }
         .event-nook-item + .event-nook-item { padding-top: 14px; }
         .event-nook-item p { margin-top: 3px; }
         .event-nook-item h2 { font-size: clamp(15px, 4vw, 17px); }
+        .event-nook-card-dense .event-nook-copy { inset: 8% 24% 9%; }
+        .event-nook-card-dense .event-nook-item + .event-nook-item { padding-top: 6px; }
       }
 
       /* Wardrobe linens reveal one over another as the guest scrolls. */
@@ -629,7 +640,7 @@
       .wardrobe-copy {
         position: absolute;
         z-index: 3;
-        inset: 7% 17% 65%;
+        inset: 4% 11% 61%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -669,6 +680,31 @@
         font: 600 clamp(17px, 3vw, 21px)/1.2 'Cormorant Garamond', 'Playfair Display', serif;
         text-shadow: 0 1px 1px rgba(250,248,239,.8);
       }
+      .wardrobe-secondary-title {
+        margin: 8px 0 0;
+        color: #34452c;
+        font: 700 clamp(14px, 2.5vw, 18px)/1.15 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .08em;
+      }
+      .wardrobe-secondary-note {
+        max-width: 34ch;
+        margin: 4px 0 0;
+        color: #26372a;
+        font: 600 clamp(12px, 2.2vw, 15px)/1.24 'Montserrat', sans-serif;
+      }
+      .wardrobe-dress-code {
+        max-width: 34ch;
+        margin: 9px 0 0;
+        color: #26372a;
+        font: 600 clamp(12px, 2.1vw, 15px)/1.22 'Cormorant Garamond', 'Playfair Display', serif;
+      }
+      .wardrobe-dress-code span {
+        display: block;
+        margin-bottom: 2px;
+        color: #805719;
+        font: 700 9px/1.2 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .19em;
+      }
       .wardrobe-date {
         margin: clamp(12px, 2vw, 18px) 0 0;
         color: #26372a;
@@ -691,11 +727,13 @@
         .wardrobe-track { gap: 16px; padding-inline: 4.5vw; scroll-padding-inline: 4.5vw; }
         .wardrobe-fabric { flex-basis: 91vw; }
         .wardrobe-fabric::before { inset: 6px; }
-        .wardrobe-copy { inset: 6% 17% 65%; }
+        .wardrobe-copy { inset: 4% 10% 61%; }
         .wardrobe-copy h3 { font-size: clamp(29px, 7.2vw, 32px); }
         .wardrobe-note { margin-top: 4px; font-size: 15.5px; line-height: 1.12; }
-        .wardrobe-date { margin-top: 6px; font-size: 12px; }
-        .wardrobe-time { margin-top: 3px; font-size: 14px; }
+        .wardrobe-time { max-width: 34ch; margin-top: 6px; font-size: 13px; line-height: 1.25; }
+        .wardrobe-secondary-title { margin-top: 7px; font-size: 14px; }
+        .wardrobe-secondary-note { margin-top: 3px; font-size: 11px; line-height: 1.2; }
+        .wardrobe-dress-code { margin-top: 7px; font-size: 12px; line-height: 1.18; }
         .wardrobe-place { margin-top: 4px; font-size: 9px; }
         .wardrobe-controls { gap: 12px; }
         .wardrobe-scroll-hint { font-size: 9px; letter-spacing: .13em; }
@@ -719,6 +757,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=116"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=117"></script>
   </body>
 </html>

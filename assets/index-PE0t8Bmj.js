@@ -381,6 +381,12 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
             children: "#ShiGotSariDuniya"
           }),
 
+          d.jsx("p", {
+            className: "text-[11px] sm:text-xs tracking-[0.24em] uppercase text-[#8b6534] font-semibold",
+            style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
+            children: "FROM “HI” TO “I DO”"
+          }),
+
           /* Countdown Timer - 3 Columns (Days | Hours | Minutes) */
           d.jsx(he.div, {
             initial: {opacity: 0, y: 20},
@@ -389,7 +395,7 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
             transition: {duration: 0.6, delay: 0.2},
             className: "pt-2",
             children: d.jsxs("div", {
-              className: "flex items-center justify-center max-w-xs sm:max-w-sm mx-auto",
+              className: "flex items-center justify-center max-w-md mx-auto",
               children: [
                 /* Days */
                 d.jsxs("div", {
@@ -427,7 +433,7 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
 
                 /* Minutes */
                 d.jsxs("div", {
-                  className: "flex-1 flex flex-col items-center justify-center px-2 sm:px-4",
+                  className: "flex-1 flex flex-col items-center justify-center px-1.5 sm:px-3 border-r border-[#c5a059]/40",
                   children: [
                     d.jsx("span", {
                       className: "text-4xl sm:text-5xl text-[#182d20] font-normal leading-none select-none",
@@ -438,6 +444,23 @@ const sy=m.createContext({});function iy(e){const t=m.useRef(null);return t.curr
                       className: "text-[10px] sm:text-xs font-semibold text-[#3d2716] tracking-[0.22em] uppercase mt-2 select-none",
                       style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                       children: "MINUTES"
+                    })
+                  ]
+                })
+                ,
+                /* Seconds */
+                d.jsxs("div", {
+                  className: "flex-1 flex flex-col items-center justify-center px-1.5 sm:px-3",
+                  children: [
+                    d.jsx("span", {
+                      className: "text-4xl sm:text-5xl text-[#182d20] font-normal leading-none select-none",
+                      style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
+                      children: padZero(n.seconds)
+                    }),
+                    d.jsx("span", {
+                      className: "text-[10px] sm:text-xs font-semibold text-[#3d2716] tracking-[0.16em] uppercase mt-2 select-none",
+                      style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
+                      children: "SECONDS"
                     })
                   ]
                 })
@@ -598,8 +621,8 @@ function jV(){
       alt: "Embroidered celebration cloth for 11 November",
       date: "11th November · Wednesday",
       events: [
-        { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "12 PM – 4 PM", place: "AT POOL GARDEN" },
-        { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH" }
+        { title: "Pyaar Ka Rang", time: "1 PM till sundowner" },
+        { title: "Shaam Shandaar", time: "8:30 PM onwards" }
       ]
     },
     {
@@ -607,8 +630,9 @@ function jV(){
       alt: "Embroidered wedding canopy cloth for 12 November",
       date: "12th November · Thursday",
       events: [
-        { title: "Band Baaja Baraat", time: "12 PM", place: "THE SACRED SEVEN · AT PALM DECK" },
-        { title: "Dune At Dusk", note: "Arabian night under the starry light", time: "10 PM onwards" }
+        { title: "Band Baaja Baraat", time: "1 PM", place: "Starting from Ganesh Mandir" },
+        { title: "The Sacred Seven", note: "Wedding ceremony", time: "2:30 PM followed by lunch", place: "At Palm Deck" },
+        { title: "Dune At Dusk", time: "9 PM onwards", place: "At Sand Dunes" }
       ]
     }
   ];
@@ -619,7 +643,7 @@ function jV(){
     children: d.jsx("div", {
       className: "event-nook-stack",
       children: days.map((day, dayIndex) => d.jsxs("div", {
-        className: dayIndex === 1 ? "event-nook-card event-nook-card-canopy" : "event-nook-card",
+        className: dayIndex === 1 ? "event-nook-card event-nook-card-canopy event-nook-card-dense" : "event-nook-card",
         children: [
           d.jsx("img", {
             src: day.image,
@@ -629,16 +653,18 @@ function jV(){
           }),
           d.jsx("div", {
             className: "event-nook-copy",
-            children: day.events.map((event, eventIndex) => d.jsxs("article", {
-              className: "event-nook-item",
-              children: [
-                d.jsx("h2", { children: event.title }),
-                event.note && d.jsx("p", { className: "event-nook-note", children: "(" + event.note + ")" }),
-                d.jsx("p", { className: "event-nook-date", children: day.date }),
-                d.jsx("p", { className: "event-nook-time", children: event.time }),
-                event.place && d.jsx("p", { className: "event-nook-place", children: event.place })
-              ]
-            }, "event-" + dayIndex + "-" + eventIndex))
+            children: [
+              d.jsx("p", { className: "event-nook-date", children: day.date }),
+              ...day.events.map((event, eventIndex) => d.jsxs("article", {
+                className: "event-nook-item",
+                children: [
+                  d.jsx("h2", { children: event.title }),
+                  event.note && d.jsx("p", { className: "event-nook-note", children: event.note }),
+                  d.jsx("p", { className: "event-nook-time", children: event.time }),
+                  event.place && d.jsx("p", { className: "event-nook-place", children: event.place })
+                ]
+              }, "event-" + dayIndex + "-" + eventIndex))
+            ]
           })
         ]
       }, "day-" + dayIndex))
@@ -651,11 +677,11 @@ function DressCodeSection(){
   const pauseUntilRef = m.useRef(0);
   const [activeIndex, setActiveIndex] = m.useState(0);
   const wardrobeCards = [
-    { id: "w1", image: "/assets/Embroidered%20Indian%20Festive%20Gathering.png", title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", date: "11th November · Wednesday", time: "12 PM – 4 PM", place: "AT POOL GARDEN", alt: "Pyaar Ka Rang - Henna and Haldi celebration" },
-    { id: "w2", image: "/assets/Embroidered%20Indian%20Celebration%20Invitation.png", title: "Shaam Shandaar", note: "Glitz, Glam & Dance", date: "11th November · Wednesday", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH", alt: "Shaam Shandaar evening celebration" },
-    { id: "w3", image: "/assets/Embroidered%20Pastel%20Baraat%20Wedding%20Invitation.png", title: "Band Baaja Baraat", note: "The Sacred Seven", date: "12th November · Thursday", time: "12 PM", place: "AT PALM DECK", alt: "Band Baaja Baraat ceremony" },
-    { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Celebration.png", title: "Dune At Dusk", note: "An Arabian night under the starry light", date: "12th November · Thursday", time: "10 PM onwards", alt: "Dune at Dusk desert celebration" },
-    { id: "w5", image: "/assets/Embroidered%20Boho%20Beach%20Party%20Poster.png", title: "The Midnight Rave", note: "The vows are done. The night is ours.", alt: "Midnight Rave afterparty" }
+    { id: "w1", image: "/assets/Embroidered%20Haldi%20Celebration%20Gathering.png", title: "Pyaar Ka Rang", time: "1 PM till sundowner", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered haldi celebration" },
+    { id: "w2", image: "/assets/Embroidered%20Midnight%20Reception%20Tapestry.png", title: "Shaam Shandaar", time: "8:30 PM onwards", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered reception" },
+    { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", time: "1 PM · Starting from Ganesh Mandir", secondaryTitle: "The Sacred Seven", secondaryNote: "Wedding ceremony · 2:30 PM followed by lunch · At Palm Deck", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat and Sacred Seven embroidered wedding celebration" },
+    { id: "w4", image: "/assets/Embroidered%20Desert%20Boho%20Gathering.png", title: "Dune At Dusk", time: "9 PM onwards · At Sand Dunes", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert gathering" },
+    { id: "w5", image: "/assets/Embroidered%20Afterparty%20Lounge%20Scene.png", title: "The Midnight Rave", note: "Afterparty", dressCode: "Ultra-Comfy Streetwear, PJ-Chic or Party Glam", alt: "The Midnight Rave afterparty embroidered lounge" }
   ];
   const scrollToLook = (index, smooth) => {
     const track = trackRef.current;
@@ -703,7 +729,7 @@ function DressCodeSection(){
         setActiveIndex(nearest);
       }
       const cue = document.getElementById("wardrobe-scroll-hint");
-      if (cue) cue.textContent = "SCROLL OR SWIPE  ·  " + String(nearest + 1).padStart(2, "0") + " / 05";
+      if (cue) cue.textContent = "SCROLL OR SWIPE  ·  " + String(nearest + 1).padStart(2, "0") + " / " + String(wardrobeCards.length).padStart(2, "0");
     };
     const queueUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updatePanels); };
     const pauseAutoplay = () => { pauseUntilRef.current = Date.now() + 9000; };
@@ -761,10 +787,12 @@ function DressCodeSection(){
               className: "wardrobe-copy",
               children: [
                 d.jsx("h3", {children: card.title}),
-                d.jsx("p", {className: "wardrobe-note", children: card.note}),
-                card.date && d.jsx("p", {className: "wardrobe-date", children: card.date}),
+                card.note && d.jsx("p", {className: "wardrobe-note", children: card.note}),
                 card.time && d.jsx("p", {className: "wardrobe-time", children: card.time}),
-                card.place && d.jsx("p", {className: "wardrobe-place", children: card.place})
+                card.secondaryTitle && d.jsx("h4", {className: "wardrobe-secondary-title", children: card.secondaryTitle}),
+                card.secondaryNote && d.jsx("p", {className: "wardrobe-secondary-note", children: card.secondaryNote}),
+                card.dressCode && d.jsxs("p", {className: "wardrobe-dress-code", children: [d.jsx("span", {children: "DRESS CODE"}), card.dressCode]}),
+                !card.dressCode && card.place && d.jsx("p", {className: "wardrobe-place", children: card.place})
               ]
             })
           ]
@@ -774,7 +802,7 @@ function DressCodeSection(){
         className: "wardrobe-controls",
         children: [
           d.jsx("button", {type: "button", className: "wardrobe-arrow", "aria-label": "Previous event", onClick: () => { pauseUntilRef.current = Date.now() + 9000; scrollToLook((activeIndex - 1 + wardrobeCards.length) % wardrobeCards.length, !0); }, children: "‹"}),
-          d.jsx("p", {id: "wardrobe-scroll-hint", className: "wardrobe-scroll-hint", "aria-live": "polite", children: "SCROLL OR SWIPE  ·  01 / 05"}),
+          d.jsx("p", {id: "wardrobe-scroll-hint", className: "wardrobe-scroll-hint", "aria-live": "polite", children: "SCROLL OR SWIPE  ·  01 / " + String(wardrobeCards.length).padStart(2, "0")}),
           d.jsx("button", {type: "button", className: "wardrobe-arrow", "aria-label": "Next event", onClick: () => { pauseUntilRef.current = Date.now() + 9000; scrollToLook((activeIndex + 1) % wardrobeCards.length, !0); }, children: "›"})
         ]
       }),
