@@ -225,8 +225,8 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
       d.jsx("div", {
         className: "absolute inset-0 overflow-hidden",
         children: d.jsx("img", {
-          src: "/assets/Embroidered%20Indian%20Celebration%20Invitation.png?v=1",
-          alt: "Indian wedding celebration embroidered on ivory cloth",
+          src: "/assets/Mediterranean%20Villa%20Through%20Floral%20Archway%20(1).png?v=19",
+          alt: "Mediterranean Villa Floral Archway",
           className: "absolute inset-0 w-full h-full object-cover object-center",
           draggable: !1
         })
