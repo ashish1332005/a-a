@@ -247,7 +247,7 @@
       }
       .event-nook-copy {
         position: absolute;
-        inset: 11% 27% 12%;
+        inset: 10% 25% 13%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -255,6 +255,7 @@
         text-align: center;
         color: #26372a;
         font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, .96), 0 0 7px rgba(255, 255, 255, .74);
       }
       .event-nook-item {
         width: 100%;
@@ -266,54 +267,68 @@
       }
       .event-nook-item h2 {
         margin: 0;
-        color: #26372a;
+        color: #263b2d;
         font-family: 'Cinzel', 'Playfair Display', serif;
-        font-size: clamp(17px, 4vw, 30px);
+        font-size: clamp(19px, 4.3vw, 31px);
         font-weight: 600;
         line-height: 1.15;
         letter-spacing: 0.035em;
       }
       .event-nook-item p { margin: 5px 0 0; }
       .event-nook-note {
-        font-size: clamp(13px, 2.7vw, 19px);
+        color: #604a2d;
+        font-size: clamp(14px, 2.8vw, 19px);
         font-style: italic;
         line-height: 1.2;
       }
       .event-nook-date {
         margin: 0 0 4px !important;
-        font-size: clamp(12px, 2.5vw, 17px);
-        font-weight: 600;
+        color: #805719;
+        font-family: 'Cinzel', 'Playfair Display', serif;
+        font-size: clamp(13px, 2.5vw, 17px);
+        font-weight: 700;
         line-height: 1.2;
-        letter-spacing: .08em;
+        letter-spacing: .1em;
         text-transform: uppercase;
       }
       .event-nook-time {
-        font-size: clamp(14px, 3vw, 21px);
-        font-weight: 600;
+        color: #3d2716;
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(14px, 3vw, 19px);
+        font-weight: 700;
         line-height: 1.2;
       }
       .event-nook-place {
         font-family: 'Cinzel', 'Playfair Display', serif;
-        font-size: clamp(10px, 2vw, 14px);
-        font-weight: 600;
-        letter-spacing: 0.08em;
+        font-size: clamp(11px, 2vw, 14px);
+        font-weight: 700;
+        letter-spacing: 0.045em;
         line-height: 1.25;
       }
-      .event-nook-card-dense .event-nook-copy { inset: 8% 25% 10%; justify-content: space-around; }
-      .event-nook-card-dense .event-nook-item { padding: 3px 0; }
-      .event-nook-card-dense .event-nook-item + .event-nook-item { padding-top: 7px; }
-      .event-nook-card-dense .event-nook-item h2 { font-size: clamp(13px, 3.2vw, 21px); line-height: 1.1; }
-      .event-nook-card-dense .event-nook-note { font-size: clamp(11px, 2.3vw, 15px); }
-      .event-nook-card-dense .event-nook-time { font-size: clamp(12px, 2.6vw, 17px); }
-      .event-nook-card-dense .event-nook-place { font-size: clamp(9px, 1.8vw, 12px); letter-spacing: .04em; }
+      .event-nook-card-dense .event-nook-copy { inset: 9% 23% 11%; justify-content: space-around; }
+      .event-nook-card-dense .event-nook-item { padding: 5px 0; }
+      .event-nook-card-dense .event-nook-item + .event-nook-item { padding-top: 9px; }
+      .event-nook-card-dense .event-nook-item h2 { font-size: clamp(16px, 3.8vw, 23px); line-height: 1.12; }
+      .event-nook-card-dense .event-nook-note { font-size: clamp(13px, 2.6vw, 16px); }
+      .event-nook-card-dense .event-nook-time { font-size: clamp(13px, 2.8vw, 17px); }
+      .event-nook-card-dense .event-nook-place { font-size: clamp(11px, 2vw, 13px); letter-spacing: .035em; }
       @media (max-width: 420px) {
-        .event-nook-copy { inset: 12% 25% 13%; }
-        .event-nook-item { padding: 5px 0; }
-        .event-nook-item + .event-nook-item { padding-top: 14px; }
+        .event-nook-copy { inset: 9% 23% 13%; }
+        .event-nook-item { padding: 7px 0; }
+        .event-nook-item + .event-nook-item { padding-top: 12px; }
         .event-nook-item p { margin-top: 3px; }
-        .event-nook-item h2 { font-size: clamp(15px, 4vw, 17px); }
-        .event-nook-card-dense .event-nook-copy { inset: 8% 24% 9%; }
-        .event-nook-card-dense .event-nook-item + .event-nook-item { padding-top: 6px; }
+        .event-nook-item h2 { font-size: clamp(17px, 4.5vw, 19px); }
+        .event-nook-note { font-size: 14px; }
+        .event-nook-date { font-size: 12px; }
+        .event-nook-time { font-size: 13px; }
+        .event-nook-place { font-size: 10px; }
+        .event-nook-card-dense .event-nook-copy { inset: 8% 21% 11%; }
+        .event-nook-card-dense .event-nook-item { padding: 5px 0; }
+        .event-nook-card-dense .event-nook-item + .event-nook-item { padding-top: 8px; }
+        .event-nook-card-dense .event-nook-item h2 { font-size: 16px; }
+        .event-nook-card-dense .event-nook-note { font-size: 12px; }
+        .event-nook-card-dense .event-nook-time { font-size: 12px; }
+        .event-nook-card-dense .event-nook-place { font-size: 10px; }
       }
 
       .travel-guide-section {
@@ -827,6 +842,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=118"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=119"></script>
   </body>
 </html>
