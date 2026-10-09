@@ -225,8 +225,8 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
       d.jsx("div", {
         className: "absolute inset-0 overflow-hidden",
         children: d.jsx("img", {
-          src: "/assets/Mediterranean%20Villa%20Through%20Floral%20Archway%20(1).png?v=19",
-          alt: "Mediterranean Villa Floral Archway",
+          src: "/assets/Embroidered%20Indian%20Celebration%20Invitation.png?v=1",
+          alt: "Indian wedding celebration embroidered on ivory cloth",
           className: "absolute inset-0 w-full h-full object-cover object-center",
           draggable: !1
         })
@@ -584,7 +584,7 @@ function bV(){
               d.jsx("p", {
                 className: "whitespace-nowrap text-[10px] sm:text-xs md:text-sm text-[#f5e7c7] font-medium tracking-normal invitation-parentage",
                 style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
-                children: "(D/O of Mr. Manish & Mrs. Sangeeta Chawla)"
+                children: "(Daughter of Mr. Manish & Mrs. Sangeeta Chawla)"
               })
             ]
           }),
@@ -1208,13 +1208,13 @@ function W8(){
     const msg = encodeURIComponent(
       `*Wedding RSVP: Sarthak & Shivangi*
 ` +
-      `👤 *Full Name:* ${fullName}
+      `Full Name: ${fullName}
 ` +
-      `📞 *Contact:* ${contact || 'N/A'}
+      `Contact: ${contact || 'N/A'}
 ` +
-      `✨ *Will You Attend:* ${attendance}
+      `Will You Attend: ${attendance}
 ` +
-      `🚗 *Airport / Station Pickup:* ${pickup}
+      `Airport / Station Pickup: ${pickup}
 ` +
       `_Looking forward to celebrating at Pushkara Resort and Spa!_`
     );
@@ -1241,10 +1241,10 @@ function W8(){
             children: [
               d.jsx("p", {
                 className: "font-body text-xs md:text-sm uppercase tracking-[0.3em] text-[#8b6534] font-bold",
-                children: "✦ RSVP ✦"
+                children: "KINDLY REPLY"
               }),
               d.jsx("h2", {
-                className: "text-4xl sm:text-5xl md:text-6xl text-[#3d2716] font-normal tracking-wide", style: {fontFamily: "'Alex Brush', 'Great Vibes', cursive"},
+                className: "text-4xl sm:text-5xl md:text-6xl text-[#3d2716] font-normal tracking-wide", style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
                 children: "RSVP"
               }),
               d.jsx("p", {
@@ -1258,7 +1258,6 @@ function W8(){
             animate: {opacity: 1, scale: 1},
             className: "py-8 space-y-3 bg-[#f5ecda]/60 rounded-2xl border border-[#c5a059]/40 p-6",
             children: [
-              d.jsx("span", {className: "text-4xl", children: "🎉"}),
               d.jsx("h3", {className: "font-display text-2xl text-[#3d2716] font-bold", children: "Thank You, " + fullName + "!"}),
               d.jsx("p", {className: "font-body text-sm text-[#704f24]", children: "Your RSVP response has been recorded. We look forward to celebrating together!"})
             ]
@@ -1276,9 +1275,9 @@ function W8(){
                   d.jsxs("div", {
                     className: "grid grid-cols-1 gap-2.5",
                     children: [
-                      ["YES, I’LL BE THERE", "🎉 YES, I’LL BE THERE"],
-                      ["Sorry, I can’t make it", "💐 Sorry, I can’t make it"],
-                      ["NOT SURE, 50-50", "⏳ NOT SURE, 50-50"]
+                      ["YES, I’LL BE THERE", "YES, I’LL BE THERE"],
+                      ["Sorry, I can’t make it", "Sorry, I can’t make it"],
+                      ["NOT SURE, 50-50", "NOT SURE, 50-50"]
                     ].map(([val, label]) => d.jsxs("label", {
                       key: val,
                       className: `flex items-center gap-3 p-3.5 rounded-2xl border cursor-pointer transition-all ${attendance === val ? 'bg-[#f4ebd8] border-[#8b6534] text-[#3d2716] font-bold shadow-sm' : 'bg-white border-[#c5a059]/30 text-[#523d29] hover:bg-[#faf6ee]'}`,
@@ -1345,8 +1344,8 @@ function W8(){
                   d.jsxs("div", {
                     className: "grid grid-cols-2 gap-3",
                     children: [
-                      ["YES", "🚗 YES"],
-                      ["NO", "❌ NO"]
+                      ["YES", "YES"],
+                      ["NO", "NO"]
                     ].map(([val, label]) => d.jsxs("label", {
                       key: val,
                       className: `flex items-center justify-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${pickup === val ? 'bg-[#f4ebd8] border-[#8b6534] text-[#3d2716] font-bold shadow-sm' : 'bg-white border-[#c5a059]/30 text-[#523d29] hover:bg-[#faf6ee]'}`,
