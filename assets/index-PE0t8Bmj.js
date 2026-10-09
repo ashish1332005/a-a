@@ -678,11 +678,11 @@ function DressCodeSection(){
   const pauseUntilRef = m.useRef(0);
   const [activeIndex, setActiveIndex] = m.useState(0);
   const wardrobeCards = [
-    { id: "w1", image: "/assets/Embroidered%20Haldi%20Celebration%20Gathering.png", title: "Pyaar Ka Rang", time: "1 PM till sundowner", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered haldi celebration" },
-    { id: "w2", image: "/assets/Embroidered%20Midnight%20Reception%20Tapestry.png", title: "Shaam Shandaar", time: "8:30 PM onwards", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered reception" },
-    { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", time: "1 PM · Starting from Ganesh Mandir", secondaryTitle: "The Sacred Seven", secondaryNote: "Wedding ceremony · 2:30 PM followed by lunch · At Palm Deck", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat and Sacred Seven embroidered wedding celebration" },
-    { id: "w4", image: "/assets/Embroidered%20Desert%20Boho%20Gathering.png", title: "Dune At Dusk", time: "9 PM onwards · At Sand Dunes", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert gathering" },
-    { id: "w5", image: "/assets/Embroidered%20Afterparty%20Lounge%20Scene.png", title: "The Midnight Rave", note: "Afterparty", dressCode: "Ultra-Comfy Streetwear, PJ-Chic or Party Glam", alt: "The Midnight Rave afterparty embroidered lounge" }
+    { id: "w1", image: "/assets/Pastel%20Marigold%20Mehndi%20Celebration.png", title: "Pyaar Ka Rang", date: "11th November · Wednesday", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang pastel marigold mehndi celebration" },
+    { id: "w2", image: "/assets/Embroidered%20Midnight%20Reception%20Tapestry.png", title: "Shaam Shandaar", date: "11th November · Wednesday", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered reception" },
+    { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", date: "12th November · Thursday", secondaryTitle: "The Sacred Seven", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat and Sacred Seven embroidered wedding celebration" },
+    { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Gathering.png", title: "Dune At Dusk", date: "12th November · Thursday", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert sunset gathering" },
+    { id: "w5", image: "/assets/Embroidered%20Afterparty%20Lounge%20Scene.png", title: "The Midnight Rave — Afterparty", date: "12th November · Thursday", dressCode: "Ultra-Comfy Streetwear, PJ-Chic or Party Glam", alt: "The Midnight Rave afterparty embroidered lounge" }
   ];
   const scrollToLook = (index, smooth) => {
     const track = trackRef.current;
@@ -788,12 +788,9 @@ function DressCodeSection(){
               className: "wardrobe-copy wardrobe-copy-" + card.id,
               children: [
                 d.jsx("h3", {children: card.title}),
-                card.note && d.jsx("p", {className: "wardrobe-note", children: card.note}),
-                card.time && d.jsx("p", {className: "wardrobe-time", children: card.time}),
                 card.secondaryTitle && d.jsx("h4", {className: "wardrobe-secondary-title", children: card.secondaryTitle}),
-                card.secondaryNote && d.jsx("p", {className: "wardrobe-secondary-note", children: card.secondaryNote}),
+                card.date && d.jsx("p", {className: "wardrobe-date", children: card.date}),
                 card.dressCode && d.jsxs("p", {className: "wardrobe-dress-code", children: [d.jsx("span", {children: "DRESS CODE"}), card.dressCode]}),
-                !card.dressCode && card.place && d.jsx("p", {className: "wardrobe-place", children: card.place})
               ]
             })
           ]
