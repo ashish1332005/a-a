@@ -678,10 +678,10 @@ function DressCodeSection(){
   const pauseUntilRef = m.useRef(0);
   const [activeIndex, setActiveIndex] = m.useState(0);
   const wardrobeCards = [
-    { id: "w1", image: "/assets/Pastel%20Marigold%20Mehndi%20Celebration.png", title: "Pyaar Ka Rang", date: "11th November · Wednesday", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang pastel marigold mehndi celebration" },
-    { id: "w2", image: "/assets/Embroidered%20Midnight%20Reception%20Tapestry.png", title: "Shaam Shandaar", date: "11th November · Wednesday", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered reception" },
+    { id: "w1", image: "/assets/Embroidered%20Mehndi%20Wedding%20Celebration.png", title: "Pyaar Ka Rang", date: "11th November · Wednesday", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered mehndi wedding celebration" },
+    { id: "w2", image: "/assets/Embroidered%20Royal%20Reception%20Ensemble.png", title: "Shaam Shandaar", date: "11th November · Wednesday", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered royal reception ensemble" },
     { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", date: "12th November · Thursday", secondaryTitle: "The Sacred Seven", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat and Sacred Seven embroidered wedding celebration" },
-    { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Gathering.png", title: "Dune At Dusk", date: "12th November · Thursday", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert sunset gathering" },
+    { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Lounge.png", title: "Dune At Dusk", date: "12th November · Thursday", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert sunset lounge" },
     { id: "w5", image: "/assets/Embroidered%20Afterparty%20Lounge%20Scene.png", title: "The Midnight Rave — Afterparty", date: "12th November · Thursday", dressCode: "Ultra-Comfy Streetwear, PJ-Chic or Party Glam", alt: "The Midnight Rave afterparty embroidered lounge" }
   ];
   const scrollToLook = (index, smooth) => {
