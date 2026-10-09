@@ -654,9 +654,9 @@ function jV(){
           d.jsx("div", {
             className: "event-nook-copy",
             children: [
-              d.jsx("p", { className: "event-nook-date", children: day.date }),
+              d.jsxs("p", { className: "event-nook-date", children: day.date.split(" · ").map((part, index) => d.jsx("span", {children: part}, index)) }),
               ...day.events.map((event, eventIndex) => d.jsxs("article", {
-                className: "event-nook-item",
+                className: "event-nook-item event-nook-item-" + eventIndex,
                 children: [
                   d.jsx("h2", { children: event.title }),
                   event.note && d.jsx("p", { className: "event-nook-note", children: event.note }),
