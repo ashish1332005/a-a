@@ -553,7 +553,7 @@ function bV(){
               d.jsx("p", {
                 className: "whitespace-nowrap text-[10px] sm:text-xs md:text-sm text-[#f5e7c7] font-medium tracking-normal invitation-parentage",
                 style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
-                children: "(G/S/O Shri Joginder Luthra & Late Smt. Shukla Luthra)"
+                children: "Grandson of Shri Joginder Luthra & Late Smt. Shukla Luthra"
               })
             ]
           }),
@@ -591,12 +591,12 @@ function bV(){
 
           /* Venue */
           d.jsxs("div", {
-            className: "relative z-20 pt-2 border-t border-[#c5a059]/40 space-y-0.5 pb-1",
+            className: "relative z-20 pt-2 border-t border-[#c5a059]/40 space-y-0.5 pb-1 invitation-venue",
             children: [
               d.jsx("p", {
                 className: "text-[10px] sm:text-xs md:text-sm tracking-[0.12em] uppercase text-[#fff8ec] font-medium invitation-venue-title",
                 style: {fontFamily: "'Cinzel', 'Playfair Display', serif"},
-                children: "AT PUSHKARA RESORT AND SPA, PUSHKAR"
+                children: "AT PUSHKARA RESORT AND SPA"
               }),
               d.jsx("p", {
                 className: "text-[9px] sm:text-[10px] tracking-[0.1em] uppercase text-[#f5e7c7] font-medium invitation-venue-location",
@@ -621,18 +621,17 @@ function jV(){
       alt: "Embroidered celebration cloth for 11 November",
       date: "11th November · Wednesday",
       events: [
-        { title: "Pyaar Ka Rang", time: "1 PM till sundowner" },
-        { title: "Shaam Shandaar", time: "8:30 PM onwards" }
+        { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "12 PM – 4 PM", place: "AT POOL GARDEN" },
+        { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "9:30 PM onwards", place: "AT PUSHKARA BAAGH" }
       ]
     },
     {
-      image: "/assets/Elegant%20Embroidered%20Wedding%20Invitation%20Background.png?v=1",
+      image: "/assets/Embroidered%20Ivory%20Wedding%20Frame.png?v=1",
       alt: "Embroidered wedding canopy cloth for 12 November",
       date: "12th November · Thursday",
       events: [
-        { title: "Band Baaja Baraat", time: "1 PM", place: "Starting from Ganesh Mandir" },
-        { title: "The Sacred Seven", note: "Wedding ceremony", time: "2:30 PM followed by lunch", place: "At Palm Deck" },
-        { title: "Dune At Dusk", time: "9 PM onwards", place: "At Sand Dunes" }
+        { title: "Band Baaja Baraat", time: "12 PM", secondaryTitle: "THE SACRED SEVEN", place: "AT PALM DECK" },
+        { title: "Dune At Dusk", note: "Arabian night under the starry light", time: "10 PM onwards", place: "AT SAND DUNES" }
       ]
     }
   ];
@@ -643,7 +642,7 @@ function jV(){
     children: d.jsx("div", {
       className: "event-nook-stack",
       children: days.map((day, dayIndex) => d.jsxs("div", {
-        className: dayIndex === 1 ? "event-nook-card event-nook-card-canopy event-nook-card-dense" : "event-nook-card",
+        className: dayIndex === 1 ? "event-nook-card event-nook-card-day-two" : "event-nook-card",
         children: [
           d.jsx("img", {
             src: day.image,
@@ -661,6 +660,7 @@ function jV(){
                   d.jsx("h2", { children: event.title }),
                   event.note && d.jsx("p", { className: "event-nook-note", children: event.note }),
                   d.jsx("p", { className: "event-nook-time", children: event.time }),
+                  event.secondaryTitle && d.jsx("h3", { className: "event-nook-secondary-title", children: event.secondaryTitle }),
                   event.place && d.jsx("p", { className: "event-nook-place", children: event.place })
                 ]
               }, "event-" + dayIndex + "-" + eventIndex))

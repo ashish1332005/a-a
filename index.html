@@ -139,8 +139,11 @@
 
       #invitation .invitation-host-name {
         color: #3d2716 !important;
-        font-size: clamp(1.55rem, 6vw, 2.15rem) !important;
-        line-height: 1.05 !important;
+        font-family: 'Cormorant Garamond', 'Playfair Display', serif !important;
+        font-size: clamp(14px, 4vw, 21px) !important;
+        line-height: 1.1 !important;
+        letter-spacing: .01em !important;
+        white-space: nowrap !important;
         text-shadow: none;
       }
 
@@ -162,17 +165,18 @@
         color: #704f24 !important;
         display: block;
         width: 100%;
+        max-width: 90% !important;
         white-space: nowrap !important;
         font-family: 'Cormorant Garamond', 'Playfair Display', serif !important;
-        font-size: clamp(9px, 2.6vw, 13px) !important;
+        font-size: clamp(8px, 2.4vw, 12px) !important;
         font-weight: 500 !important;
         letter-spacing: 0 !important;
         line-height: 1.25 !important;
       }
 
       #invitation .invitation-connector {
-        min-height: 20px;
-        gap: 12px !important;
+        min-height: 0;
+        gap: 8px !important;
         margin: 0 !important;
       }
 
@@ -198,6 +202,8 @@
         letter-spacing: 0.08em !important;
         line-height: 1.3 !important;
       }
+
+      #invitation .invitation-venue { gap: 2px !important; }
 
       @media (min-width: 640px) {
         #invitation .invitation-card { padding: 80px 32px 32px !important; gap: 10px; }
@@ -235,19 +241,9 @@
         user-select: none;
         pointer-events: none;
       }
-      .event-nook-card-canopy .event-nook-image {
-        left: 0;
-        width: 100%;
-      }
-      .event-nook-card-canopy .event-nook-copy {
-        inset-inline: 30%;
-      }
-      .event-nook-card-canopy .event-nook-item h2 {
-        font-size: clamp(14px, 3.8vw, 27px);
-      }
       .event-nook-copy {
         position: absolute;
-        inset: 11% 29% 18%;
+        inset: 10% 25% 13%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -259,11 +255,11 @@
       }
       .event-nook-item {
         width: 100%;
-        padding: 10px 0;
+        padding: 7px 0;
       }
       .event-nook-item + .event-nook-item {
         border-top: 1px solid rgba(137, 105, 61, 0.38);
-        padding-top: clamp(20px, 4vw, 34px);
+        padding-top: clamp(12px, 2.5vw, 20px);
       }
       .event-nook-item h2 {
         margin: 0;
@@ -282,14 +278,15 @@
         line-height: 1.2;
       }
       .event-nook-date {
-        max-width: 19ch;
+        max-width: 24ch;
         margin: 0 auto 4px !important;
         color: #805719;
-        font-family: 'Cinzel', 'Playfair Display', serif;
-        font-size: clamp(13px, 2.5vw, 17px);
-        font-weight: 700;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-size: clamp(12px, 2.4vw, 16px);
+        font-weight: 800;
         line-height: 1.3;
-        letter-spacing: .075em;
+        letter-spacing: .055em;
+        font-variant-numeric: lining-nums tabular-nums;
         text-transform: uppercase;
       }
       .event-nook-date span { display: block; }
@@ -307,32 +304,33 @@
         letter-spacing: 0.045em;
         line-height: 1.25;
       }
-      .event-nook-card-dense .event-nook-copy { inset: 10% 30% 24%; justify-content: space-between; }
-      .event-nook-card-dense .event-nook-item { padding: 5px 0; }
-      .event-nook-card-dense .event-nook-item + .event-nook-item { padding-top: 9px; }
-      .event-nook-card-dense .event-nook-item h2 { font-size: clamp(15px, 3.5vw, 22px); line-height: 1.12; }
-      .event-nook-card-dense .event-nook-note { font-size: clamp(13px, 2.6vw, 16px); }
-      .event-nook-card-dense .event-nook-time { font-size: clamp(13px, 2.8vw, 17px); }
-      .event-nook-card-dense .event-nook-place { font-size: clamp(11px, 2vw, 13px); letter-spacing: .035em; }
-      .event-nook-card-dense .event-nook-item-1 { transform: translateX(20%); }
+      .event-nook-secondary-title {
+        margin: 8px 0 0;
+        color: #263b2d;
+        font-family: 'Cinzel', 'Playfair Display', serif;
+        font-size: clamp(14px, 3.4vw, 23px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: .045em;
+      }
+      .event-nook-card-day-two .event-nook-copy { inset: 9% 25% 12%; }
+      .event-nook-card-day-two .event-nook-item h2 { font-size: clamp(17px, 3.8vw, 27px); }
       @media (max-width: 420px) {
-        .event-nook-copy { inset: 10% 29% 18%; }
+        .event-nook-copy { inset: 9% 22% 12%; }
         .event-nook-item { padding: 7px 0; }
         .event-nook-item + .event-nook-item { padding-top: 12px; }
         .event-nook-item p { margin-top: 3px; }
         .event-nook-item h2 { font-size: clamp(17px, 4.5vw, 19px); }
         .event-nook-note { font-size: 14px; }
-        .event-nook-date { max-width: 18ch; font-size: 11px; }
+        .event-nook-date { max-width: 24ch; font-size: 10px; }
         .event-nook-time { font-size: 13px; }
         .event-nook-place { font-size: 10px; }
-        .event-nook-card-dense .event-nook-copy { inset: 10% 30% 24%; }
-        .event-nook-card-dense .event-nook-item { padding: 5px 0; }
-        .event-nook-card-dense .event-nook-item + .event-nook-item { padding-top: 8px; }
-        .event-nook-card-dense .event-nook-item h2 { font-size: 14px; }
-        .event-nook-card-dense .event-nook-note { font-size: 12px; }
-        .event-nook-card-dense .event-nook-time { font-size: 11px; }
-        .event-nook-card-dense .event-nook-place { font-size: 9px; letter-spacing: .015em; }
-        .event-nook-card-dense .event-nook-item-1 { transform: translateX(20%); }
+        .event-nook-card-day-two .event-nook-copy { inset: 8% 21% 10%; }
+        .event-nook-card-day-two .event-nook-item h2 { font-size: 16px; }
+        .event-nook-card-day-two .event-nook-note { font-size: 12px; }
+        .event-nook-card-day-two .event-nook-time { font-size: 12px; }
+        .event-nook-card-day-two .event-nook-place { font-size: 9px; letter-spacing: .015em; }
+        .event-nook-secondary-title { font-size: 13px; }
       }
 
       .travel-guide-section {
@@ -846,6 +844,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=120"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=121"></script>
   </body>
 </html>
