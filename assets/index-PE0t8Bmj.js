@@ -735,6 +735,7 @@ function DressCodeSection(){
     const queueUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updatePanels); };
     const pauseAutoplay = () => { pauseUntilRef.current = Date.now() + 9000; };
     const onWheel = (event) => {
+      pauseUntilRef.current = Date.now() + 10000;
       if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
         const canMove = event.deltaY > 0 ? track.scrollLeft + track.clientWidth < track.scrollWidth - 1 : track.scrollLeft > 1;
         if (canMove) {
@@ -816,11 +817,16 @@ function DressCodeSection(){
   });
 }function OurStorySection() {
   const trackRef = m.useRef(null);
+  const activeIndexRef = m.useRef(0);
+  const pauseUntilRef = m.useRef(0);
   const [activeIndex, setActiveIndex] = m.useState(0);
   const storyCards = [
-    { id: "move", image: "/assets/Embroidered%20House%20Move%20Story.png", alt: "The Longest House Move Ever embroidered love story" },
-    { id: "stats", image: "/assets/Embroidered%20Couple%20Wedding%20Card%20Design.png", alt: "The Stats - Him and Her embroidered couple story" },
-    { id: "houses", image: "/assets/Embroidered%20Cottage%20Garland%20Invitation.png", alt: "Embroidered cottage illustration with two homes" }
+    { id: "move", image: "/assets/Our%20Little%20Story_%20The%20Longest%20House%20Move.png", alt: "Our Little Story: The Longest House Move" },
+    { id: "stats", image: "/assets/Embroidered%20Power%20Couple%20Poster.png", alt: "Embroidered power couple poster" },
+    { id: "houses", image: "/assets/Embroidered%20House%20Move%20Announcement%20%281%29.png", alt: "Embroidered house move announcement" },
+    { id: "shortcut", image: "/assets/Embroidered%20Shortcut%20to%20Pushkar.png", alt: "Embroidered shortcut to Pushkar" },
+    { id: "pushkar", image: "/assets/Embroidered%20Love%20Story_%20Pushkar.png", alt: "Embroidered love story in Pushkar" },
+    { id: "chapter", image: "/assets/Our%20Next%20Chapter%20Embroidered%20Invitation.png", alt: "Our next chapter embroidered invitation" }
   ];
   const scrollToCard = (index) => {
     const track = trackRef.current;
@@ -844,6 +850,7 @@ function DressCodeSection(){
         const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
         if (nextDistance < distance) { nearest = index; distance = nextDistance; }
       });
+      activeIndexRef.current = nearest;
       setActiveIndex(nearest);
     };
     const queueUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateActive); };
@@ -853,12 +860,28 @@ function DressCodeSection(){
         if (canMove) { track.scrollLeft += event.deltaY; event.preventDefault(); }
       }
     };
+    let isVisible = !("IntersectionObserver" in window);
+    const visibilityObserver = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    }, {threshold: 0.15}) : null;
+    if (visibilityObserver) visibilityObserver.observe(track);
+    const pauseAuto = () => { pauseUntilRef.current = Date.now() + 10000; };
     track.addEventListener("scroll", queueUpdate, {passive: !0});
     track.addEventListener("wheel", onWheel, {passive: !1});
+    track.addEventListener("touchstart", pauseAuto, {passive: !0});
+    track.addEventListener("pointerdown", pauseAuto, {passive: !0});
     updateActive();
+    const autoplay = window.setInterval(() => {
+      if (!isVisible || document.hidden || Date.now() < pauseUntilRef.current) return;
+      scrollToCard((activeIndexRef.current + 1) % storyCards.length);
+    }, 7000);
     return () => {
       track.removeEventListener("scroll", queueUpdate);
       track.removeEventListener("wheel", onWheel);
+      track.removeEventListener("touchstart", pauseAuto);
+      track.removeEventListener("pointerdown", pauseAuto);
+      window.clearInterval(autoplay);
+      if (visibilityObserver) visibilityObserver.disconnect();
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
@@ -869,6 +892,7 @@ function DressCodeSection(){
       d.jsxs("header", {
         className: "story-heading",
         children: [
+          d.jsx("span", {className: "story-camera", "aria-hidden": !0}),
           d.jsx("p", {className: "story-kicker", children: "OUR LOVE STORY"}),
           d.jsx("h2", {className: "story-title", children: "A Little Story of Us"})
         ]
@@ -876,57 +900,19 @@ function DressCodeSection(){
       d.jsx("div", {
         ref: trackRef,
         className: "story-track",
-        children: storyCards.map((card) => d.jsxs("article", {
-          className: "story-panel",
+        children: storyCards.map((card, index) => d.jsxs("article", {
+          className: index === activeIndex ? "story-panel is-active" : "story-panel",
           children: [
             d.jsx("img", {src: card.image, alt: card.alt, className: "story-art", draggable: !1}),
-            card.id === "stats" && d.jsxs("div", {
-              className: "story-stats-overlay",
-              children: [
-                d.jsx("h3", {className: "story-stats-title", children: "THE STATS"}),
-                d.jsxs("div", {
-                  className: "story-stats-columns",
-                  children: [
-                    d.jsxs("div", {className: "story-stats-column story-him", children: [
-                      d.jsx("h4", {children: "HIM"}),
-                      d.jsxs("ul", {children: [
-                        d.jsx("li", {children: "Calm"}),
-                        d.jsx("li", {children: "Practical"}),
-                        d.jsx("li", {children: "Professional Procrastinator"}),
-                        d.jsx("li", {children: "Winter Enthusiast"})
-                      ]})
-                    ]}),
-                    d.jsxs("div", {className: "story-stats-column story-her", children: [
-                      d.jsx("h4", {children: "HER"}),
-                      d.jsxs("ul", {children: [
-                        d.jsx("li", {children: "Emotional"}),
-                        d.jsx("li", {children: "Lively"}),
-                        d.jsx("li", {children: "Chronically Early"}),
-                        d.jsx("li", {children: "Summer Lover"})
-                      ]})
-                    ]})
-                  ]
-                })
-              ]
-            }),
-            card.id === "houses" && d.jsxs("div", {
-              className: "story-move-overlay",
-              children: [
-                d.jsx("h3", {className: "story-move-title", children: "THE MOVE"}),
-                d.jsxs("p", {className: "story-move-address story-move-first", children: [d.jsx("strong", {children: "153"}), "First Floor"]}),
-                d.jsxs("p", {className: "story-move-address story-move-second", children: [d.jsx("strong", {children: "176"}), "Second Floor"]}),
-                d.jsx("p", {className: "story-move-tagline", children: "Same colony. Different houses."})
-              ]
-            })
           ]
         }, card.id))
       }),
       d.jsxs("div", {
         className: "story-controls",
         children: [
-          d.jsx("button", {type: "button", className: "story-arrow", "aria-label": "Previous story card", onClick: () => scrollToCard(Math.max(0, activeIndex - 1)), children: "‹"}),
+          d.jsx("button", {type: "button", className: "story-arrow", "aria-label": "Previous story card", onClick: () => { pauseUntilRef.current = Date.now() + 10000; scrollToCard(Math.max(0, activeIndex - 1)); }, children: "‹"}),
           d.jsx("p", {className: "story-scroll-hint", "aria-live": "polite", children: "SWIPE OR SCROLL  ·  " + String(activeIndex + 1).padStart(2, "0") + " / " + String(storyCards.length).padStart(2, "0")}),
-          d.jsx("button", {type: "button", className: "story-arrow", "aria-label": "Next story card", onClick: () => scrollToCard(Math.min(storyCards.length - 1, activeIndex + 1)), children: "›"})
+          d.jsx("button", {type: "button", className: "story-arrow", "aria-label": "Next story card", onClick: () => { pauseUntilRef.current = Date.now() + 10000; scrollToCard(Math.min(storyCards.length - 1, activeIndex + 1)); }, children: "›"})
         ]
       })
     ]
