@@ -87,9 +87,104 @@
         color: #182d20 !important;
         font-family: 'Greysilya Regular', 'Gresilya', cursive !important;
         font-size: clamp(5rem, 16vw, 6rem) !important;
+        font-weight: 500 !important;
         line-height: 0.92 !important;
         white-space: nowrap;
+        -webkit-text-stroke: .25px currentColor;
+        paint-order: stroke fill;
         text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95);
+      }
+
+      .ss-opening-wash {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(250,246,238,.12), transparent 45%, rgba(250,246,238,.16));
+      }
+      .ss-opening-swan {
+        position: absolute;
+        z-index: 10;
+        height: auto;
+        object-fit: contain;
+        pointer-events: none;
+        user-select: none;
+        filter: drop-shadow(0 5px 9px rgba(72, 55, 28, .18));
+      }
+      .ss-opening-swan {
+        width: clamp(82px, 18vw, 148px);
+        left: 50%;
+        bottom: 20%;
+        transform: translateX(-50%);
+        animation: ss-swan-orbit 8s ease-in-out infinite paused;
+      }
+      .ss-opening-swan.is-moving { animation-play-state: running; }
+      .ss-site-butterfly {
+        position: fixed;
+        z-index: 38;
+        left: var(--ss-bfly-x, 52vw);
+        top: var(--ss-bfly-y, 13vh);
+        width: clamp(32px, 6vw, 52px);
+        height: auto;
+        pointer-events: none;
+        user-select: none;
+        filter: drop-shadow(0 3px 5px rgba(72, 55, 28, .22));
+        transform-origin: 50% 50%;
+        animation: ss-butterfly-flight 1.7s ease-in-out infinite;
+      }
+      .ss-opening-petal {
+        position: absolute;
+        z-index: 11;
+        top: -7%;
+        width: clamp(15px, 4.5vw, 26px);
+        height: auto;
+        opacity: .68;
+        pointer-events: none;
+        user-select: none;
+        animation: ss-petal-fall 8s linear infinite;
+      }
+      @keyframes ss-swan-orbit {
+        0%, 100% { transform: translate(-50%, -13px) rotate(0); }
+        25% { transform: translate(calc(-50% - 18px), -9px) rotate(-6deg); }
+        50% { transform: translate(-50%, 0) rotate(0); }
+        75% { transform: translate(calc(-50% + 18px), -9px) rotate(6deg); }
+      }
+      @keyframes ss-butterfly-flight {
+        0%, 100% { transform: translate3d(-50%, -50%, 0) rotate(-5deg) scaleX(1); }
+        50% { transform: translate3d(-50%, -54%, 0) rotate(5deg) scaleX(.86); }
+      }
+      @keyframes ss-petal-fall { to { transform: translate3d(26px, 115vh, 0) rotate(280deg); opacity: .12; } }
+      .ss-opening-prompt {
+        position: absolute;
+        z-index: 30;
+        left: 50%;
+        bottom: max(28px, env(safe-area-inset-bottom));
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-width: 154px;
+        padding: 12px 22px;
+        border: 1px solid rgba(183, 143, 66, .82);
+        border-radius: 999px;
+        background: rgba(250, 246, 238, .9);
+        color: #5b4726;
+        box-shadow: 0 7px 24px rgba(56, 43, 25, .16), inset 0 0 0 3px rgba(255,255,255,.5);
+        font: 600 12px/1 'Cinzel', 'Playfair Display', serif;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transform: translateX(-50%);
+        backdrop-filter: blur(6px);
+      }
+      .ss-opening-prompt-icon { color: #a77a31; font-size: 19px; line-height: .7; }
+      .ss-opening-tap { animation: ss-prompt-in 1s ease-out both, ss-prompt-glow 2.4s 1s ease-in-out infinite; }
+      .ss-opening-swipe { cursor: pointer; }
+      @keyframes ss-prompt-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+      @keyframes ss-prompt-glow { 50% { box-shadow: 0 8px 28px rgba(56, 43, 25, .22), 0 0 0 5px rgba(183,143,66,.1), inset 0 0 0 3px rgba(255,255,255,.5); } }
+      @keyframes ss-swipe-bob { 50% { translate: 0 -7px; } }
+      @media (prefers-reduced-motion: reduce) {
+        .ss-opening-swan, .ss-site-butterfly, .ss-opening-petal { animation-duration: .01ms; animation-iteration-count: 1; }
       }
 
       .hashtag-title {
@@ -861,6 +956,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=129"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=131"></script>
   </body>
 </html>
