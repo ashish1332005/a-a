@@ -7,12 +7,18 @@ const start = bundle.indexOf('function bL({name1: e, name2: t, showText: n, onVi
 const end = bundle.indexOf('\nconst sy=m.createContext', start);
 if (start < 0 || end < 0) throw new Error('Could not locate the opening hero component');
 
-const replacement = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r}){
+const replacement = `function bL({name1: e, name2: t, showText: n, onVideoEnded: r, opening: opened}){
   const [motionReady, setMotionReady] = m.useState(!1);
+  const [entranceReady, setEntranceReady] = m.useState(!1);
   m.useEffect(() => {
     const timer = window.setTimeout(() => setMotionReady(!0), 1000);
     return () => window.clearTimeout(timer);
   }, []);
+  m.useEffect(() => {
+    if (!opened) { setEntranceReady(!1); return; }
+    const timer = window.setTimeout(() => setEntranceReady(!0), 80);
+    return () => window.clearTimeout(timer);
+  }, [opened]);
   const scrollIntoWedding = () => window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   return d.jsxs("section", {
     className: "ss-opening relative w-full min-h-screen overflow-hidden bg-[#faf6ee]",
@@ -33,13 +39,13 @@ const replacement = `function bL({name1: e, name2: t, showText: n, onVideoEnded:
       d.jsx("img", {
         src: "/assets/Elegant%20Ivory%20Bridal%20Lehenga%20Portrait.png",
         alt: "Bride in an ivory bridal lehenga",
-        className: "ss-opening-person ss-opening-bride",
+        className: "ss-opening-person ss-opening-bride" + (entranceReady ? " is-entering" : ""),
         draggable: !1
       }),
       d.jsx("img", {
         src: "/assets/Ivory%20Sherwani%20Groom%20Portrait.png",
         alt: "Groom in an ivory sherwani",
-        className: "ss-opening-person ss-opening-groom",
+        className: "ss-opening-person ss-opening-groom" + (entranceReady ? " is-entering" : ""),
         draggable: !1
       }),
       d.jsxs(he.div, {
@@ -157,6 +163,7 @@ const appChildrenAnchor = 'children:[n&&d.jsx(wF,{onEnter:()=>{r(!1),t(!1)},onSt
 if (bundle.includes(appChildrenAnchor)) {
   bundle = bundle.replace(appChildrenAnchor, 'children:[n&&d.jsx(wF,{onEnter:()=>{r(!1),t(!1)},onStartMusic:c,onShowHeroText:()=>i(!0)}),d.jsx(ButterflyVoyager,{}),d.jsxs("main"');
 }
+bundle = bundle.replace('d.jsx(bL,{name1:Dr.hero_name_1,name2:Dr.hero_name_2,date:Dr.wedding_date,showText:s,onVideoEnded:()=>t(!1)})', 'd.jsx(bL,{name1:Dr.hero_name_1,name2:Dr.hero_name_2,date:Dr.wedding_date,showText:s,onVideoEnded:()=>t(!1),opening:!n})');
 
 fs.writeFileSync(bundlePath, bundle, 'utf8');
 console.log('Placed Tap to open on the intro video and refined the hero animations.');

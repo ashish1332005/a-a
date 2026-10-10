@@ -122,7 +122,7 @@
       .ss-opening-person {
         position: absolute;
         z-index: 15;
-        bottom: 4vh;
+        bottom: .5vh;
         width: auto;
         height: min(56vh, 540px);
         max-width: 49vw;
@@ -134,12 +134,14 @@
       }
       .ss-opening-bride {
         left: 50%;
-        animation: ss-bride-arrive 1.45s .15s cubic-bezier(.2,.72,.25,1) both;
+        transform: translateX(calc(-100% + 8px));
       }
       .ss-opening-groom {
         left: 50%;
-        animation: ss-groom-arrive 1.45s .15s cubic-bezier(.2,.72,.25,1) both;
+        transform: translateX(-8px);
       }
+      .ss-opening-bride.is-entering { animation: ss-bride-arrive 1.45s .08s cubic-bezier(.2,.72,.25,1) both; }
+      .ss-opening-groom.is-entering { animation: ss-groom-arrive 1.45s .08s cubic-bezier(.2,.72,.25,1) both; }
       .ss-global-motion-layer {
         position: fixed;
         z-index: 35;
@@ -444,7 +446,7 @@
         margin: 0 auto 4px !important;
         color: #805719;
         font-family: 'Montserrat', Arial, sans-serif;
-        font-size: clamp(12px, 2.4vw, 16px);
+        font-size: clamp(15px, 3vw, 19px);
         font-weight: 800;
         line-height: 1.3;
         letter-spacing: .045em;
@@ -453,7 +455,7 @@
         white-space: nowrap;
       }
       .event-nook-date-month, .event-nook-date-weekday { font-size: .78em; }
-      .event-nook-date-day { color: #65451d; font-size: 1.45em; font-weight: 800; line-height: .9; }
+      .event-nook-date-day { color: #65451d; font-size: 1.55em; font-weight: 800; line-height: .9; }
       .event-nook-time {
         color: #51402b;
         font-family: 'Montserrat', sans-serif;
@@ -486,8 +488,8 @@
         .event-nook-item p { margin-top: 3px; }
         .event-nook-item h2 { font-size: clamp(17px, 4.5vw, 19px); }
         .event-nook-note { font-size: 14px; }
-        .event-nook-date { gap: 5px; font-size: 11px; }
-        .event-nook-date-day { font-size: 1.45em; }
+        .event-nook-date { gap: 5px; font-size: 13px; }
+        .event-nook-date-day { font-size: 1.5em; }
         .event-nook-time { font-size: 13px; }
         .event-nook-place { font-size: 10px; }
         .event-nook-card-day-two .event-nook-copy { inset: 8% 21% 10%; }
@@ -1009,6 +1011,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=135"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=136"></script>
   </body>
 </html>
