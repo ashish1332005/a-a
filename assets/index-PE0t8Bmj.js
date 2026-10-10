@@ -822,11 +822,11 @@ function DressCodeSection(){
   const [activeIndex, setActiveIndex] = m.useState(0);
   const storyCards = [
     { id: "move", image: "/assets/Our%20Little%20Story_%20The%20Longest%20House%20Move.png", alt: "Our Little Story: The Longest House Move" },
-    { id: "stats", image: "/assets/Embroidered%20Power%20Couple%20Poster.png", alt: "Embroidered power couple poster" },
+    { id: "stats", image: "/assets/Untitled_design_upscaled.png", alt: "Embroidered power couple poster" },
     { id: "houses", image: "/assets/Embroidered%20House%20Move%20Announcement%20%281%29.png", alt: "Embroidered house move announcement" },
     { id: "shortcut", image: "/assets/Embroidered%20Shortcut%20to%20Pushkar.png", alt: "Embroidered shortcut to Pushkar" },
     { id: "pushkar", image: "/assets/Embroidered%20Love%20Story_%20Pushkar.png", alt: "Embroidered love story in Pushkar" },
-    { id: "chapter", image: "/assets/Our%20Next%20Chapter%20Embroidered%20Invitation.png", alt: "Our next chapter embroidered invitation" }
+    { id: "chapter", image: "/assets/Our%20Next%20Chapter%20Wedding%20Announcement.png", alt: "Our next chapter wedding announcement" }
   ];
   const scrollToCard = (index) => {
     const track = trackRef.current;
