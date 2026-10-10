@@ -14,8 +14,6 @@ const replacement = `function bL({name1: e, name2: t, showText: n, onVideoEnded:
     return () => window.clearTimeout(timer);
   }, []);
   const scrollIntoWedding = () => window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-  const petalPositions = [8, 21, 36, 49, 64, 78, 91];
-
   return d.jsxs("section", {
     className: "ss-opening relative w-full min-h-screen overflow-hidden bg-[#faf6ee]",
     children: [
@@ -32,13 +30,6 @@ const replacement = `function bL({name1: e, name2: t, showText: n, onVideoEnded:
         "aria-hidden": !0,
         className: motionReady ? "ss-opening-swan is-moving" : "ss-opening-swan"
       }),
-      petalPositions.map((left, index) => d.jsx("img", {
-        src: "/__l5e/assets-v1/ac682b5b-4d77-408f-b7c9-227bee99656b/image.png",
-        alt: "",
-        "aria-hidden": !0,
-        className: "ss-opening-petal",
-        style: { left: left + "%", animationDelay: (index * .85) + "s", animationDuration: (7 + index % 3) + "s" }
-      }, index)),
       d.jsxs(he.div, {
         initial: {opacity: 0, y: 12},
         animate: {opacity: 1, y: 0},
@@ -88,11 +79,16 @@ if (!intro.includes(buttonAnchor)) throw new Error('Could not locate the intro S
 if (!intro.includes('ss-opening-video-tap')) intro = intro.replace(buttonAnchor, 'r==="idle"&&d.jsx("button",{type:"button",onClick:v=>{v.stopPropagation(),h()},className:"ss-opening-prompt ss-opening-video-tap",children:[d.jsx("span",{className:"ss-opening-prompt-icon",children:"✧"}),"Tap to open"]}),r==="envelope"&&d.jsx("button"');
 bundle = bundle.slice(0, introStart) + intro + bundle.slice(introEnd);
 
-if (!bundle.includes('ButterflyVoyager=()=>{')) {
-  const appAnchor = 'K8=()=>{';
-  const appIndex = bundle.indexOf(appAnchor);
-  if (appIndex < 0) throw new Error('Could not locate the main page component');
-  const traveler = `ButterflyVoyager=()=>{
+const oldTravelerStart = bundle.indexOf('ButterflyVoyager=()=>{');
+if (oldTravelerStart >= 0) {
+  const oldTravelerEnd = bundle.indexOf(',K8=()=>{', oldTravelerStart);
+  if (oldTravelerEnd < 0) throw new Error('Could not locate the main page component after the butterfly');
+  bundle = bundle.slice(0, oldTravelerStart) + bundle.slice(oldTravelerEnd + 1);
+}
+const appAnchor = 'K8=()=>{';
+const appIndex = bundle.indexOf(appAnchor);
+if (appIndex < 0) throw new Error('Could not locate the main page component');
+const traveler = `ButterflyVoyager=()=>{
   m.useEffect(() => {
     let frame = 0;
     const update = () => {
@@ -116,14 +112,34 @@ if (!bundle.includes('ButterflyVoyager=()=>{')) {
       document.documentElement.style.removeProperty("--ss-bfly-y");
     };
   }, []);
-  return d.jsx("img", {
-    src: "/assets/Ornate%20Golden%20Ivory%20Butterfly.png",
-    alt: "",
+  const petalPositions = [4, 12, 20, 29, 38, 47, 56, 65, 74, 83, 92, 100];
+  return d.jsxs("div", {
+    className: "ss-global-motion-layer",
     "aria-hidden": !0,
-    className: "ss-site-butterfly"
+    children: [
+      petalPositions.map((left, index) => d.jsx("img", {
+        src: "/__l5e/assets-v1/ac682b5b-4d77-408f-b7c9-227bee99656b/image.png",
+        alt: "",
+        className: "ss-opening-petal",
+        style: { left: left + "%", animationDelay: (-index * .73) + "s", animationDuration: (7.5 + index % 4 * .7) + "s" }
+      }, index)),
+      d.jsx("img", {
+        src: "/assets/Ornate%20Golden%20Ivory%20Butterfly.png",
+        alt: "",
+        className: "ss-site-butterfly"
+      })
+    ]
   });
 },`;
-  bundle = bundle.slice(0, appIndex) + traveler + bundle.slice(appIndex);
+bundle = bundle.slice(0, appIndex) + traveler + bundle.slice(appIndex);
+const hashtagStart = bundle.indexOf('function SectionHashtag(');
+const hashtagEnd = bundle.indexOf('\nfunction ', hashtagStart + 1);
+if (hashtagStart >= 0 && hashtagEnd > hashtagStart) {
+  let hashtag = bundle.slice(hashtagStart, hashtagEnd);
+  hashtag = hashtag.replace('src: "/assets/wedding/column.png",', 'src: "/assets/Embroidered%20Floral%20Corinthian%20Column.png",');
+  hashtag = hashtag.replace('src: "/assets/wedding/column.png",', 'src: "/assets/Embroidered%20Floral%20Corinthian%20Column%20%281%29.png",');
+  hashtag = hashtag.replace('          transform: "scaleX(-1)"\n', '');
+  bundle = bundle.slice(0, hashtagStart) + hashtag + bundle.slice(hashtagEnd);
 }
 const appChildrenAnchor = 'children:[n&&d.jsx(wF,{onEnter:()=>{r(!1),t(!1)},onStartMusic:c,onShowHeroText:()=>i(!0)}),d.jsxs("main"';
 if (bundle.includes(appChildrenAnchor)) {

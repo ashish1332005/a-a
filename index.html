@@ -119,6 +119,13 @@
         animation: ss-swan-orbit 8s ease-in-out infinite paused;
       }
       .ss-opening-swan.is-moving { animation-play-state: running; }
+      .ss-global-motion-layer {
+        position: fixed;
+        z-index: 35;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
       .ss-site-butterfly {
         position: fixed;
         z-index: 38;
@@ -130,15 +137,15 @@
         user-select: none;
         filter: drop-shadow(0 3px 5px rgba(72, 55, 28, .22));
         transform-origin: 50% 50%;
-        animation: ss-butterfly-flight 1.7s ease-in-out infinite;
+        animation: ss-butterfly-flight 8.5s ease-in-out infinite;
       }
       .ss-opening-petal {
         position: absolute;
         z-index: 11;
         top: -7%;
-        width: clamp(15px, 4.5vw, 26px);
+        width: clamp(17px, 4.8vw, 29px);
         height: auto;
-        opacity: .68;
+        opacity: .76;
         pointer-events: none;
         user-select: none;
         animation: ss-petal-fall 8s linear infinite;
@@ -151,7 +158,11 @@
       }
       @keyframes ss-butterfly-flight {
         0%, 100% { transform: translate3d(-50%, -50%, 0) rotate(-5deg) scaleX(1); }
-        50% { transform: translate3d(-50%, -54%, 0) rotate(5deg) scaleX(.86); }
+        16% { transform: translate3d(calc(-50% + 22px), calc(-50% - 12px), 0) rotate(8deg) scaleX(.86); }
+        33% { transform: translate3d(calc(-50% + 36px), calc(-50% + 3px), 0) rotate(-2deg) scaleX(1); }
+        50% { transform: translate3d(calc(-50% + 12px), calc(-50% + 24px), 0) rotate(9deg) scaleX(.86); }
+        68% { transform: translate3d(calc(-50% - 20px), calc(-50% + 17px), 0) rotate(-7deg) scaleX(1); }
+        84% { transform: translate3d(calc(-50% - 26px), calc(-50% - 8px), 0) rotate(5deg) scaleX(.86); }
       }
       @keyframes ss-petal-fall { to { transform: translate3d(26px, 115vh, 0) rotate(280deg); opacity: .12; } }
       .ss-opening-prompt {
@@ -956,6 +967,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=131"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=133"></script>
   </body>
 </html>
