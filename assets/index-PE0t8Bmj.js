@@ -892,7 +892,6 @@ function DressCodeSection(){
       d.jsxs("header", {
         className: "story-heading",
         children: [
-          d.jsx("span", {className: "story-camera", "aria-hidden": !0}),
           d.jsx("p", {className: "story-kicker", children: "OUR LOVE STORY"}),
           d.jsx("h2", {className: "story-title", children: "A Little Story of Us"})
         ]
