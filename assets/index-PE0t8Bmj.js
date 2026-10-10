@@ -510,7 +510,7 @@ function bV(){
               d.jsx("p", {
                 className: "whitespace-nowrap text-[10px] sm:text-xs md:text-sm text-[#f5e7c7] font-medium tracking-normal invitation-parentage",
                 style: {fontFamily: "'Cormorant Garamond', 'Playfair Display', serif"},
-                children: "Grandson of Shri Joginder Luthra & Late Smt. Shukla Luthra"
+                children: "(Grandson of Shri Joginder Luthra & Late Smt. Shukla Luthra)"
               })
             ]
           }),
@@ -576,20 +576,20 @@ function jV(){
     {
       image: "/assets/Embroidered%20Botanical%20Wedding%20Frame.png?v=1",
       alt: "Embroidered celebration cloth for 11 November",
-      date: "11th November · Wednesday",
+      month: "Nov.", day: "11", weekday: "Wed.",
       events: [
-        { title: "Pyaar Ka Rang", note: "Henna & Haldi Hues", time: "1 PM till sundowner", place: "AT POOL GARDEN" },
-        { title: "Shaam Shandaar", note: "Glitz, Glam & Dance", time: "8:30 PM onwards", place: "AT PUSHKARA BAAGH" }
+        { title: "Pyaar Ka Rang", note: "(Henna & Haldi Hues)", time: "1 PM till sundowner", place: "AT POOL GARDEN" },
+        { title: "Shaam Shandaar", note: "(Glitz, Glam & Dance)", time: "8:30 PM onwards", place: "AT PUSHKARA BAAGH" }
       ]
     },
     {
       image: "/assets/Embroidered%20Ivory%20Wedding%20Frame.png?v=1",
       alt: "Embroidered wedding canopy cloth for 12 November",
-      date: "12th November · Thursday",
+      month: "Nov.", day: "12", weekday: "Thu.",
       events: [
         { title: "Band Baaja Baraat", time: "1 PM", place: "Starting from Ganesh Mandir" },
-        { title: "The Sacred Seven", note: "Wedding ceremony", time: "2:30 PM followed by lunch", place: "At Palm Deck" },
-        { title: "Dune At Dusk", note: "Arabian night under the starry light", time: "9 PM onwards", place: "At Sand Dunes" }
+        { title: "The Sacred Seven", note: "(Wedding Ceremony)", time: "2:30 PM followed by lunch", place: "At Palm Deck" },
+        { title: "Dune At Dusk", note: "(Arabian Night Under the Starry Light)", time: "9 PM onwards", place: "At Sand Dunes" }
       ]
     }
   ];
@@ -611,7 +611,11 @@ function jV(){
           d.jsx("div", {
             className: "event-nook-copy",
             children: [
-              d.jsxs("p", { className: "event-nook-date", children: day.date.split(" · ").map((part, index) => d.jsx("span", {children: part}, index)) }),
+              d.jsxs("p", { className: "event-nook-date", children: [
+                d.jsx("span", { className: "event-nook-date-month", children: day.month }),
+                d.jsx("strong", { className: "event-nook-date-day", children: day.day }),
+                d.jsx("span", { className: "event-nook-date-weekday", children: day.weekday })
+              ] }),
               ...day.events.map((event, eventIndex) => d.jsxs("article", {
                 className: "event-nook-item event-nook-item-" + eventIndex,
                 children: [
