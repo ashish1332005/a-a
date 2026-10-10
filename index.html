@@ -119,6 +119,27 @@
         animation: ss-swan-orbit 8s ease-in-out infinite paused;
       }
       .ss-opening-swan.is-moving { animation-play-state: running; }
+      .ss-opening-person {
+        position: absolute;
+        z-index: 15;
+        bottom: 4vh;
+        width: auto;
+        height: min(56vh, 540px);
+        max-width: 49vw;
+        object-fit: contain;
+        object-position: bottom;
+        pointer-events: none;
+        user-select: none;
+        filter: drop-shadow(0 7px 10px rgba(54, 43, 27, .2));
+      }
+      .ss-opening-bride {
+        left: 50%;
+        animation: ss-bride-arrive 1.45s .15s cubic-bezier(.2,.72,.25,1) both;
+      }
+      .ss-opening-groom {
+        left: 50%;
+        animation: ss-groom-arrive 1.45s .15s cubic-bezier(.2,.72,.25,1) both;
+      }
       .ss-global-motion-layer {
         position: fixed;
         z-index: 35;
@@ -155,6 +176,16 @@
         25% { transform: translate(calc(-50% - 18px), -9px) rotate(-6deg); }
         50% { transform: translate(-50%, 0) rotate(0); }
         75% { transform: translate(calc(-50% + 18px), -9px) rotate(6deg); }
+      }
+      @keyframes ss-bride-arrive {
+        0% { transform: translateX(calc(-100% - 100vw)); opacity: .25; }
+        78% { transform: translateX(calc(-100% + 16px)); opacity: 1; }
+        100% { transform: translateX(calc(-100% + 8px)); opacity: 1; }
+      }
+      @keyframes ss-groom-arrive {
+        0% { transform: translateX(100vw); opacity: .25; }
+        78% { transform: translateX(8px); opacity: 1; }
+        100% { transform: translateX(-8px); opacity: 1; }
       }
       @keyframes ss-butterfly-flight {
         0%, 100% { transform: translate3d(-50%, -50%, 0) rotate(-5deg) scaleX(1); }
@@ -195,7 +226,7 @@
       @keyframes ss-prompt-glow { 50% { box-shadow: 0 8px 28px rgba(56, 43, 25, .22), 0 0 0 5px rgba(183,143,66,.1), inset 0 0 0 3px rgba(255,255,255,.5); } }
       @keyframes ss-swipe-bob { 50% { translate: 0 -7px; } }
       @media (prefers-reduced-motion: reduce) {
-        .ss-opening-swan, .ss-site-butterfly, .ss-opening-petal { animation-duration: .01ms; animation-iteration-count: 1; }
+        .ss-opening-swan, .ss-site-butterfly, .ss-opening-petal, .ss-opening-person { animation-duration: .01ms; animation-iteration-count: 1; animation-delay: 0ms; }
       }
 
       .hashtag-title {
@@ -978,6 +1009,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=134"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=135"></script>
   </body>
 </html>

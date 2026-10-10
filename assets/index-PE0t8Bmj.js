@@ -236,6 +236,18 @@ stay@comolaketravel.it`,"accommodation.perNight":"per night · incl. taxes & bre
         "aria-hidden": !0,
         className: motionReady ? "ss-opening-swan is-moving" : "ss-opening-swan"
       }),
+      d.jsx("img", {
+        src: "/assets/Elegant%20Ivory%20Bridal%20Lehenga%20Portrait.png",
+        alt: "Bride in an ivory bridal lehenga",
+        className: "ss-opening-person ss-opening-bride",
+        draggable: !1
+      }),
+      d.jsx("img", {
+        src: "/assets/Ivory%20Sherwani%20Groom%20Portrait.png",
+        alt: "Groom in an ivory sherwani",
+        className: "ss-opening-person ss-opening-groom",
+        draggable: !1
+      }),
       d.jsxs(he.div, {
         initial: {opacity: 0, y: 12},
         animate: {opacity: 1, y: 0},
