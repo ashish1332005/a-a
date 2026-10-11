@@ -657,9 +657,9 @@ function DressCodeSection(){
   const pauseUntilRef = m.useRef(0);
   const [activeIndex, setActiveIndex] = m.useState(0);
   const wardrobeCards = [
-    { id: "w1", image: "/assets/Embroidered%20Indian%20Wedding%20Celebration%20%281%29.png", title: "Pyaar Ka Rang", date: "11th November · Wednesday", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered Indian wedding celebration" },
+    { id: "w1", image: "/assets/Pastel%20Pink%20Indian%20Wedding%20Celebration.png", title: "Pyaar Ka Rang", date: "11th November · Wednesday", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered Indian wedding celebration" },
     { id: "w2", image: "/assets/Embroidered%20Royal%20Reception%20Ensemble.png", title: "Shaam Shandaar", date: "11th November · Wednesday", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered royal reception ensemble" },
-    { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", date: "12th November · Thursday", secondaryTitle: "The Sacred Seven", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat and Sacred Seven embroidered wedding celebration" },
+    { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", date: "12th November · Thursday", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat embroidered wedding celebration" },
     { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Lounge.png", title: "Dune At Dusk", date: "12th November · Thursday", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert sunset lounge" },
     { id: "w5", image: "/assets/Embroidered%20Afterparty%20Lounge%20Scene.png", title: "The Midnight Rave — Afterparty", date: "12th November · Thursday", dressCode: "Ultra-Comfy Streetwear, PJ-Chic or Party Glam", alt: "The Midnight Rave afterparty embroidered lounge" }
   ];
@@ -751,7 +751,6 @@ function DressCodeSection(){
         initial: {opacity: 0, y: 16}, whileInView: {opacity: 1, y: 0}, viewport: {once: !0}, transition: {duration: 0.6},
         className: "wardrobe-heading",
         children: [
-          d.jsx("p", {className: "wardrobe-kicker", children: "ATTIRE INSPIRATION"}),
           d.jsx("h2", {className: "wardrobe-title", children: "Wardrobe Planner"}),
           d.jsx("p", {className: "wardrobe-intro", children: "Scroll, swipe or wait for each embroidered look to unfold"})
         ]
@@ -801,7 +800,7 @@ function DressCodeSection(){
   const [activeIndex, setActiveIndex] = m.useState(0);
   const storyCards = [
     { id: "move", image: "/assets/Our%20Little%20Story_%20The%20Longest%20House%20Move.png", alt: "Our Little Story: The Longest House Move" },
-    { id: "stats", image: "/assets/Untitled_design_upscaled.png", alt: "Embroidered power couple poster" },
+    { id: "stats", image: "/assets/Untitled%20design%20(4).png", alt: "Sarthak and Shivangi in Diplomatic Script" },
     { id: "houses", image: "/assets/Embroidered%20House%20Move%20Announcement%20%281%29.png", alt: "Embroidered house move announcement" },
     { id: "shortcut", image: "/assets/Embroidered%20Shortcut%20to%20Pushkar.png", alt: "Embroidered shortcut to Pushkar" },
     { id: "pushkar", image: "/assets/Embroidered%20Love%20Story_%20Pushkar.png", alt: "Embroidered love story in Pushkar" },
@@ -871,7 +870,6 @@ function DressCodeSection(){
       d.jsxs("header", {
         className: "story-heading",
         children: [
-          d.jsx("p", {className: "story-kicker", children: "OUR LOVE STORY"}),
           d.jsx("h2", {className: "story-title", children: "A Little Story of Us"})
         ]
       }),
