@@ -596,8 +596,8 @@ function jV(){
       alt: "Embroidered celebration cloth for 11 November",
       month: "November", day: "11", weekday: "Wednesday",
       events: [
-        { title: "Pyaar Ka Rang", note: "(Henna & Haldi Hues)", time: "1 PM till sundowner", place: "AT POOL GARDEN" },
-        { title: "Shaam Shandaar", note: "(Glitz, Glam & Dance)", time: "8:30 PM onwards", place: "AT PUSHKARA BAAGH" }
+        { title: "Pyaar Ka Rang", note: "(Henna & Haldi Hues)", time: "1 PM till sundowner", place: "(AT POOL GARDEN)" },
+        { title: "Shaam Shandaar", note: "(Glitz, Glam & Dance)", time: "8:30 PM onwards", place: "(AT PUSHKARA BAAGH)" }
       ]
     },
     {
@@ -606,8 +606,8 @@ function jV(){
       month: "November", day: "12", weekday: "Thursday",
       events: [
         { title: "Band Baaja Baraat", time: "1 PM", place: "Starting from Ganesh Mandir" },
-        { title: "The Sacred Seven", note: "(Wedding Ceremony)", time: "2:30 PM followed by lunch", place: "At Palm Deck" },
-        { title: "Dune At Dusk", note: "(Arabian Night Under the Starry Light)", time: "9 PM onwards", place: "At Sand Dunes" }
+        { title: "The Sacred Seven", note: "(Wedding Ceremony)", time: "2:30 PM followed by lunch", place: "(At Palm Deck)" },
+        { title: "Dune At Dusk", note: "(Arabian Night Under the Starry Light)", time: "9 PM onwards", place: "(At Sand Dunes)" }
       ]
     }
   ];
@@ -660,7 +660,7 @@ function DressCodeSection(){
     { id: "w1", image: "/assets/Pastel%20Pink%20Indian%20Wedding%20Celebration.png", title: "Pyaar Ka Rang", date: "11th November · Wednesday", dressCode: "Ethnics + Pops of Color", alt: "Pyaar Ka Rang embroidered Indian wedding celebration" },
     { id: "w2", image: "/assets/Embroidered%20Royal%20Reception%20Ensemble.png", title: "Shaam Shandaar", date: "11th November · Wednesday", dressCode: "Indo-Western, Sequin Ethnics & Western Formal", alt: "Shaam Shandaar embroidered royal reception ensemble" },
     { id: "w3", image: "/assets/Embroidered%20Band%20Baaja%20Baraat%20Celebration.png", title: "Band Baaja Baraat", date: "12th November · Thursday", dressCode: "Pastel Ethnics & Royal Daywear", alt: "Band Baaja Baraat embroidered wedding celebration" },
-    { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Lounge.png", title: "Dune At Dusk", date: "12th November · Thursday", dressCode: "Flowy Ethnics & Boho-Chic", alt: "Dune at Dusk embroidered desert sunset lounge" },
+    { id: "w4", image: "/assets/Embroidered%20Desert%20Sunset%20Lounge.png", title: "Dune At Dusk", date: "12th November · Thursday", dressCode: "Flowy Ethnics & Boho-Chic; wear wedges and flats, no stilettos", alt: "Dune at Dusk embroidered desert sunset lounge" },
     { id: "w5", image: "/assets/Embroidered%20Afterparty%20Lounge%20Scene.png", title: "The Midnight Rave — Afterparty", date: "12th November · Thursday", dressCode: "Ultra-Comfy Streetwear, PJ-Chic or Party Glam", alt: "The Midnight Rave afterparty embroidered lounge" }
   ];
   const scrollToLook = (index, smooth) => {

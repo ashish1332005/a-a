@@ -362,6 +362,21 @@
       #rsvp form button {
         font-family: 'Cinzel', 'Playfair Display', serif !important;
         letter-spacing: .12em !important;
+        transition: background .22s ease, color .22s ease, box-shadow .22s ease, transform .18s ease !important;
+      }
+      #rsvp form button:hover {
+        background-image: linear-gradient(110deg, #8b6534, #65451d 52%, #8b6534) !important;
+        color: #fffdf7 !important;
+        box-shadow: 0 8px 20px rgba(72, 48, 21, .32) !important;
+      }
+      #rsvp form button:active {
+        background-image: linear-gradient(110deg, #65451d, #493015 52%, #65451d) !important;
+        color: #fff8e8 !important;
+        transform: scale(.98) !important;
+      }
+      #rsvp form button:focus-visible {
+        outline: 2px solid #8b6534;
+        outline-offset: 4px;
       }
 
       @media (min-width: 640px) {
