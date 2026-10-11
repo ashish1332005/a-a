@@ -803,8 +803,8 @@ function DressCodeSection(){
     { id: "stats", image: "/assets/Untitled%20design%20(4).png", alt: "Sarthak and Shivangi in Diplomatic Script" },
     { id: "houses", image: "/assets/Embroidered%20House%20Move%20Announcement%20%281%29.png", alt: "Embroidered house move announcement" },
     { id: "shortcut", image: "/assets/Embroidered%20Shortcut%20to%20Pushkar.png", alt: "Embroidered shortcut to Pushkar" },
-    { id: "pushkar", image: "/assets/Embroidered%20Pushkar%20Wedding%20Announcement.png", alt: "Embroidered Pushkar wedding announcement" },
-    { id: "chapter", image: "/assets/And%20Now,%20Forever%20Begins.png", alt: "And now, forever begins" }
+    { id: "pushkar", image: "/assets/Pushkar_%20Ready%20for%20Forever.png", alt: "Pushkar, ready for forever—Sarthak and Shivangi" },
+    { id: "chapter", image: "/assets/Embroidered%20Linen%20Wedding%20Announcement%20%281%29.png", alt: "Embroidered linen wedding announcement" }
   ];
   const scrollToCard = (index) => {
     const track = trackRef.current;
