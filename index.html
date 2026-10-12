@@ -1238,6 +1238,17 @@
         letter-spacing: .08em;
         text-align: center;
       }
+      .site-credit-link {
+        color: inherit;
+        text-decoration: none;
+        transition: color .2s ease;
+      }
+      .site-credit-link:hover, .site-credit-link:focus-visible {
+        color: #65451d;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      #rsvp { padding-bottom: clamp(24px, 5vw, 40px) !important; }
       @media (max-width: 640px) {
         .travel-route-card + .travel-route-card { border-left: 0; border-top: 1px solid rgba(137, 105, 61, .18); }
         .travel-route-card { padding: 12px 5px; }
@@ -1404,6 +1415,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=163"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=165"></script>
   </body>
 </html>
