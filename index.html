@@ -134,6 +134,8 @@
       }
       .ss-opening-bride {
         left: 50%;
+        bottom: -2vh;
+        height: min(53vh, 510px);
         transform: translateX(calc(-100% + 8px));
       }
       .ss-opening-groom {
@@ -154,13 +156,13 @@
         z-index: 38;
         left: var(--ss-bfly-x, 52vw);
         top: var(--ss-bfly-y, 13vh);
-        width: clamp(32px, 6vw, 52px);
+        width: clamp(32px, 6.5vw, 56px);
         height: auto;
         pointer-events: none;
         user-select: none;
-        filter: drop-shadow(0 3px 5px rgba(72, 55, 28, .22));
+        filter: drop-shadow(0 4px 7px rgba(104, 73, 29, .3));
         transform-origin: 50% 50%;
-        animation: ss-butterfly-flight 8.5s ease-in-out infinite;
+        animation: ss-butterfly-flight 7.2s cubic-bezier(.45,0,.55,1) infinite;
       }
       .ss-opening-petal {
         position: absolute;
@@ -190,12 +192,14 @@
         100% { transform: translateX(-8px); opacity: 1; }
       }
       @keyframes ss-butterfly-flight {
-        0%, 100% { transform: translate3d(-50%, -50%, 0) rotate(-5deg) scaleX(1); }
-        16% { transform: translate3d(calc(-50% + 22px), calc(-50% - 12px), 0) rotate(8deg) scaleX(.86); }
-        33% { transform: translate3d(calc(-50% + 36px), calc(-50% + 3px), 0) rotate(-2deg) scaleX(1); }
-        50% { transform: translate3d(calc(-50% + 12px), calc(-50% + 24px), 0) rotate(9deg) scaleX(.86); }
-        68% { transform: translate3d(calc(-50% - 20px), calc(-50% + 17px), 0) rotate(-7deg) scaleX(1); }
-        84% { transform: translate3d(calc(-50% - 26px), calc(-50% - 8px), 0) rotate(5deg) scaleX(.86); }
+        0%, 100% { transform: translate3d(-50%, -50%, 0) rotate(-12deg) scaleX(1); }
+        12% { transform: translate3d(calc(-50% + 16px), calc(-50% - 15px), 0) rotate(7deg) scaleX(.78); }
+        25% { transform: translate3d(calc(-50% + 34px), calc(-50% - 4px), 0) rotate(14deg) scaleX(1); }
+        39% { transform: translate3d(calc(-50% + 25px), calc(-50% + 17px), 0) rotate(-3deg) scaleX(.76); }
+        52% { transform: translate3d(calc(-50% + 2px), calc(-50% + 25px), 0) rotate(-14deg) scaleX(1); }
+        66% { transform: translate3d(calc(-50% - 23px), calc(-50% + 14px), 0) rotate(-8deg) scaleX(.78); }
+        80% { transform: translate3d(calc(-50% - 32px), calc(-50% - 5px), 0) rotate(10deg) scaleX(1); }
+        92% { transform: translate3d(calc(-50% - 14px), calc(-50% - 18px), 0) rotate(4deg) scaleX(.78); }
       }
       @keyframes ss-petal-fall { to { transform: translate3d(26px, 115vh, 0) rotate(280deg); opacity: .12; } }
       .ss-opening-prompt {
