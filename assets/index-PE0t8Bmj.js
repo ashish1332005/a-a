@@ -555,8 +555,8 @@ const _V=1,SV="ac682b5b-4d77-408f-b7c9-227bee99656b",kV="3f9d9875-eabc-44df-87dc
 function jV(){
   const days = [
     {
-      image: "/assets/Embroidered%20Botanical%20Wedding%20Frame.png?v=1",
-      alt: "Embroidered celebration cloth for 11 November",
+      image: "/assets/Elegant%20Beige%20Embroidered%20Wedding%20Stationery.png",
+      alt: "Elegant beige embroidered wedding stationery for 11 November",
       month: "Nov", day: "11", weekday: "Wednesday",
       events: [
         { title: "Pyaar Ka Rang", note: "(Henna & Haldi Hues)", time: "1 PM till sundowner", place: "(AT POOL GARDEN)" },
@@ -564,8 +564,8 @@ function jV(){
       ]
     },
     {
-      image: "/assets/Embroidered%20Ivory%20Wedding%20Frame.png?v=1",
-      alt: "Embroidered wedding canopy cloth for 12 November",
+      image: "/assets/Elegant%20Beige%20Embroidered%20Invitation%20Frame.png",
+      alt: "Elegant beige embroidered invitation frame for 12 November",
       month: "Nov", day: "12", weekday: "Thursday",
       events: [
         { title: "Band Baaja Baraat", time: "1 PM", place: "Starting from Ganesh Mandir" },
