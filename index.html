@@ -242,6 +242,15 @@
       .ss-opening-prompt-icon { color: #a77a31; font-size: 19px; line-height: .7; }
       .ss-opening-tap { animation: ss-prompt-in 1s ease-out both, ss-prompt-glow 2.4s 1s ease-in-out infinite; }
       .ss-opening-swipe { cursor: pointer; }
+      .ss-opening-scroll-cta { bottom: max(22px, env(safe-area-inset-bottom)); width: 164px; min-width: 0; min-height: 56px; padding: 8px 16px 7px; flex-direction: column; gap: 5px; overflow: hidden; background: rgba(249,245,235,.78); border-color: rgba(183,143,66,.74); box-shadow: 0 5px 20px rgba(56,43,25,.13), inset 0 0 0 2px rgba(255,255,255,.45); animation: ss-scroll-cta-glow 2.8s ease-in-out infinite; }
+      .ss-opening-scroll-cta::before { content: ""; position: absolute; inset: -45% auto -45% -55%; width: 38%; transform: rotate(18deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.72), rgba(214,174,92,.24), transparent); animation: ss-scroll-cta-shimmer 3.8s ease-in-out infinite; pointer-events: none; }
+      .ss-opening-scroll-label { position: relative; z-index: 1; font: 600 9px/1 'Cinzel', 'Playfair Display', serif; letter-spacing: .16em; }
+      .ss-opening-scroll-arrows { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0; height: 13px; }
+      .ss-opening-scroll-arrows > span { width: 7px; height: 7px; margin-top: -3px; color: transparent; font-size: 0; border-right: 1.5px solid #9c722f; border-bottom: 1.5px solid #9c722f; transform: rotate(45deg); animation: ss-scroll-arrow 1.35s ease-in-out infinite; }
+      .ss-opening-scroll-arrows > span + span { animation-delay: .18s; }
+      @keyframes ss-scroll-cta-shimmer { 0%,18% { left: -55%; opacity: 0; } 32% { opacity: .9; } 62%,100% { left: 125%; opacity: 0; } }
+      @keyframes ss-scroll-cta-glow { 50% { box-shadow: 0 7px 25px rgba(56,43,25,.2), 0 0 0 4px rgba(183,143,66,.08), inset 0 0 0 2px rgba(255,255,255,.52); } }
+      @keyframes ss-scroll-arrow { 0%,100% { opacity: .52; translate: 0 -1px; } 50% { opacity: 1; translate: 0 2px; } }
       @keyframes ss-prompt-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
       @keyframes ss-prompt-glow { 50% { box-shadow: 0 8px 28px rgba(56, 43, 25, .22), 0 0 0 5px rgba(183,143,66,.1), inset 0 0 0 3px rgba(255,255,255,.5); } }
       @keyframes ss-swipe-bob { 50% { translate: 0 -7px; } }
@@ -1429,6 +1438,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=168"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=169"></script>
   </body>
 </html>
