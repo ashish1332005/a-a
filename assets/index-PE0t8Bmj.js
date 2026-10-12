@@ -610,7 +610,7 @@ function jV(){
                 d.jsx("span", { className: "event-nook-date-weekday", children: day.weekday })
               ] }),
               ...day.events.map((event, eventIndex) => d.jsxs("article", {
-                className: "event-nook-item event-nook-item-" + eventIndex,
+                className: "event-nook-item event-nook-item-" + eventIndex + (event.title === "Shaam Shandaar" ? " event-nook-shaam" : ""),
                 children: [
                   d.jsx("h2", { children: event.title }),
                   event.note && d.jsx("p", { className: "event-nook-note", children: event.note }),
@@ -870,7 +870,7 @@ function DressCodeSection(){
   });
 }function TravelGuideSection() {
   const travelOptions = [
-    { title: "By Air", items: ["Jaipur International Airport (JAI)"] },
+    { title: "By Air", items: ["Jaipur International Airport (JAI)", "Kishangarh Airport (KQH)"] },
     { title: "By Train", items: ["Ajmer Junction (AII)"] },
     { title: "By Bus", items: ["Jaipur-Ajmer Expressway"] }
   ];
@@ -911,7 +911,49 @@ function DressCodeSection(){
         ] })
       ]
     })
-  });}function VenueSection() {
+  });}
+function ScratchMapReveal({ mapsUrl }) {
+  const canvasRef = m.useRef(null);
+  const distanceRef = m.useRef(0);
+  const lastPointRef = m.useRef(null);
+  const [revealed, setRevealed] = m.useState(false);
+  m.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const scale = window.devicePixelRatio || 1;
+    canvas.width = Math.max(1, Math.round(rect.width * scale));
+    canvas.height = Math.max(1, Math.round(rect.height * scale));
+    const ctx = canvas.getContext("2d");
+    ctx.scale(scale, scale);
+    const gradient = ctx.createLinearGradient(0, 0, rect.width, rect.height);
+    gradient.addColorStop(0, "#f5e8c9"); gradient.addColorStop(.5, "#e7d2a5"); gradient.addColorStop(1, "#f4e7c8");
+    ctx.fillStyle = gradient; ctx.fillRect(0, 0, rect.width, rect.height);
+    ctx.strokeStyle = "rgba(132, 92, 35, .22)"; ctx.lineWidth = 1;
+    for (let y = 5; y < rect.height; y += 7) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(rect.width, y + 2); ctx.stroke(); }
+    ctx.fillStyle = "#68491f"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.font = "600 11px Cinzel, Georgia, serif"; ctx.fillText("SCRATCH TO REVEAL MAP", rect.width / 2, rect.height / 2);
+  }, []);
+  const scratch = (event) => {
+    const canvas = canvasRef.current;
+    if (!canvas || !event.buttons) return;
+    const rect = canvas.getBoundingClientRect();
+    const point = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    const ctx = canvas.getContext("2d"); ctx.globalCompositeOperation = "destination-out"; ctx.lineWidth = 24; ctx.lineCap = "round";
+    if (lastPointRef.current) {
+      ctx.beginPath(); ctx.moveTo(lastPointRef.current.x, lastPointRef.current.y); ctx.lineTo(point.x, point.y); ctx.stroke();
+      distanceRef.current += Math.hypot(point.x - lastPointRef.current.x, point.y - lastPointRef.current.y);
+    } else { ctx.beginPath(); ctx.arc(point.x, point.y, 12, 0, Math.PI * 2); ctx.fill(); }
+    lastPointRef.current = point;
+    if (distanceRef.current > 330) setRevealed(true);
+  };
+  const stopScratch = () => { lastPointRef.current = null; };
+  return d.jsxs("div", { className: "venue-scratch-wrap", children: [
+    !revealed && d.jsx("canvas", { ref: canvasRef, className: "venue-scratch", "aria-label": "Scratch here to reveal the map link", onPointerDown: (event) => { event.currentTarget.setPointerCapture(event.pointerId); scratch(event); }, onPointerMove: scratch, onPointerUp: stopScratch, onPointerCancel: stopScratch }),
+    revealed && d.jsx("a", { href: mapsUrl, target: "_blank", rel: "noopener noreferrer", className: "venue-map-button venue-map-revealed", children: ["Open Map", d.jsx("span", { "aria-hidden": "true", children: "↗" })] })
+  ] });
+}
+function VenueSection() {
   const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Pushkara+Resort+and+Spa,+Pushkar,+Rajasthan+305022";
   return d.jsx("section", {
     id: "venue",
@@ -948,10 +990,9 @@ function DressCodeSection(){
                 d.jsx("p", { className: "venue-hashtag", children: "#ShiGotSariDuniya" })
               ] }),
               d.jsxs("div", { className: "venue-actions", children: [
-                d.jsx("a", { href: mapsUrl, target: "_blank", rel: "noopener noreferrer", className: "venue-map-button", children: ["View on Map ", d.jsx("span", { "aria-hidden": "true", children: "↗" })] }),
+                d.jsx(ScratchMapReveal, { mapsUrl }),
                 d.jsxs("div", { className: "venue-managed", children: [
-                  d.jsx("span", { children: "Wedding Managed by" }),
-                  d.jsx("img", { src: "/assets/IMG_7780.JPG.jpeg", alt: "Bee Creatives", loading: "lazy" })
+                  d.jsx("span", { children: "Wedding Managed by Adiva Weddings" })
                 ] })
               ] })
             ]
