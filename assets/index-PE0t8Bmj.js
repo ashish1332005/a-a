@@ -922,7 +922,7 @@ function ScratchMapReveal({ mapsUrl }) {
     ctx.strokeStyle = "rgba(132, 92, 35, .22)"; ctx.lineWidth = 1;
     for (let y = 5; y < rect.height; y += 7) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(rect.width, y + 2); ctx.stroke(); }
     ctx.fillStyle = "#68491f"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.font = "600 11px Cinzel, Georgia, serif"; ctx.fillText("SCRATCH TO REVEAL MAP", rect.width / 2, rect.height / 2);
+    ctx.font = "600 11px Cinzel, Georgia, serif"; ctx.fillText("SCRATCH TO VIEW MAP", rect.width / 2, rect.height / 2);
   }, []);
   const scratch = (event) => {
     const canvas = canvasRef.current;
