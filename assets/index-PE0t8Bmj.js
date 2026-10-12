@@ -766,7 +766,7 @@ function DressCodeSection(){
   const storyCards = [
     { id: "move", image: "/assets/Our%20Little%20Story_%20The%20Longest%20House%20Move.png", alt: "Our Little Story: The Longest House Move" },
     { id: "stats", image: "/assets/Untitled%20design%20(5).png", alt: "Sarthak and Shivangi in Diplomatic Script" },
-    { id: "houses", image: "/assets/Embroidered%20House%20Move%20Announcement%20%281%29.png", alt: "Embroidered house move announcement" },
+    { id: "houses", image: "/assets/Embroidered%20Mediterranean%20Move%20Poster%20%281%29.png", alt: "Embroidered Mediterranean move poster" },
     { id: "shortcut", image: "/assets/The%20Shortcut%20We%20Didn%E2%80%99t%20Take.png", alt: "The Shortcut We Did not Take" },
     { id: "pushkar", image: "/assets/Embroidered%20Pushkar%20Wedding%20Announcement%20%281%29.png", alt: "Embroidered Pushkar wedding announcement" },
     { id: "chapter", image: "/assets/Embroidered%20Linen%20Wedding%20Announcement%20%281%29.png", alt: "Embroidered linen wedding announcement" }
