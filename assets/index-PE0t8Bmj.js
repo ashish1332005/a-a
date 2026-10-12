@@ -568,7 +568,7 @@ function jV(){
       alt: "Elegant beige embroidered invitation frame for 12 November",
       month: "Nov", day: "12", weekday: "Thursday",
       events: [
-        { title: "Band Baaja Baraat", time: "1 PM", place: "Starting from Ganesh Mandir" },
+        { title: "Band Baaja Baraat", time: "1 PM", place: "(Starting from Ganesh Mandir)" },
         { title: "The Sacred Seven", note: "(Wedding Ceremony)", time: "2:30 PM followed by lunch", place: "(At Palm Deck)" },
         { title: "Dune At Dusk", note: "(Arabian Night Under the Starry Light)", time: "9 PM onwards", place: "(At Sand Dunes)" }
       ]
@@ -606,7 +606,12 @@ function jV(){
                   event.note && d.jsx("p", { className: "event-nook-note", children: event.note }),
                   d.jsx("p", { className: "event-nook-time", children: event.time }),
                   event.secondaryTitle && d.jsx("h3", { className: "event-nook-secondary-title", children: event.secondaryTitle }),
-                  event.place && d.jsx("p", { className: "event-nook-place", children: event.place })
+                  event.place && d.jsx("p", {
+                    className: "event-nook-place",
+                    children: event.place === "(Starting from Ganesh Mandir)"
+                      ? d.jsxs(d.Fragment, { children: ["(Starting from", d.jsx("br", {}), "Ganesh Mandir)"] })
+                      : event.place
+                  })
                 ]
               }, "event-" + dayIndex + "-" + eventIndex))
             ]
