@@ -1248,13 +1248,27 @@ function H8({name1:e,name2:t,date:n,date2:r}){
       viewport:{once:!0},
       transition:{duration:.8},
       children:[
+        d.jsx("p",{className:"text-base text-foreground/60 font-body tracking-wide",children:a(n)}),
+        r&&d.jsx("p",{className:"text-base text-foreground/60 font-body tracking-wide",children:a(r)}),
         d.jsxs("p",{
-          className:"text-4xl sm:text-5xl md:text-6xl text-foreground mb-3 leading-tight font-normal",
+          className:"text-4xl sm:text-5xl md:text-6xl text-foreground mt-5 mb-0 leading-tight font-normal",
           style:{fontFamily:"'Alex Brush', 'Great Vibes', cursive"},
           children:[e," ",d.jsx("span",{className:"text-3xl md:text-4xl text-foreground/50 italic",children:"&"})," ",t]
         }),
-        d.jsx("p",{className:"text-base text-foreground/60 font-body tracking-wide",children:a(n)}),
-        r&&d.jsx("p",{className:"text-base text-foreground/60 font-body tracking-wide",children:a(r)})
+        d.jsx("a",{
+          href:"https://www.instagram.com/adivaweddings.in?stkn=bTJxcTZzbTB0M2pq",
+          target:"_blank",
+          rel:"noopener noreferrer",
+          "aria-label":"Visit Adiva Weddings on Instagram",
+          className:"inline-block",
+          children:d.jsx("img",{
+            src:"/assets/Warm%20brown%20ADIVA%20wedding%20logo.png",
+            alt:"Wedding managed by Adiva Weddings",
+            className:"block mx-auto mt-2 h-auto",
+            style:{width:"min(42vw, 190px)"},
+            draggable:!1
+          })
+        })
       ]
     })
   })
