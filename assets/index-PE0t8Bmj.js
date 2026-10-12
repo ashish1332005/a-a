@@ -1260,7 +1260,7 @@ function H8({name1:e,name2:t,date:n,date2:r}){
           target:"_blank",
           rel:"noopener noreferrer",
           "aria-label":"Visit Adiva Weddings on Instagram",
-          className:"inline-block mt-6",
+          className:"inline-block mt-10",
           children:d.jsx("img",{
             src:"/assets/Elegant%20Wedding%20Curated%20By%20Logo.png",
             alt:"Wedding curated by",
