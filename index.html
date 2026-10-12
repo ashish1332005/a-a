@@ -42,6 +42,20 @@
         font-style: normal;
         font-display: swap;
       }
+      @font-face {
+        font-family: 'Lucy Said Ok';
+        src: url('/assets/Lucy%20Said%20Ok%20Personal%20Use.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Cintarini';
+        src: url('/assets/Cintarini.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
 
       :root {
         --font-display: 'Playfair Display', 'Cinzel', 'Cormorant Garamond', Georgia, serif !important;
@@ -1066,6 +1080,26 @@
         font-size: clamp(25px, 5.8vw, 39px) !important;
         line-height: 1.2 !important;
       }
+      .travel-notes-title {
+        color: #24190f !important;
+        font-family: 'Cinzel', 'Playfair Display', Georgia, serif !important;
+        font-size: clamp(20px, 4.8vw, 30px) !important;
+        font-weight: 600 !important;
+        letter-spacing: .08em !important;
+        text-transform: uppercase;
+      }
+      .venue-place-name {
+        font-family: 'Cinzel', 'Playfair Display', Georgia, serif !important;
+        font-size: clamp(15px, 4.3vw, 26px) !important;
+        font-weight: 600 !important;
+        letter-spacing: .06em !important;
+        white-space: nowrap;
+      }
+      .wardrobe-copy h3, .event-nook-item h2 {
+        font-family: 'Lucy Said Ok', cursive !important;
+        font-weight: 400 !important;
+        letter-spacing: .015em;
+      }
       .event-nook-item h2, .travel-route-card h3, .travel-note-group h4,
       .travel-notes-grid h5, #venue h3 {
         color: #24190f !important;
@@ -1231,16 +1265,57 @@
       .event-nook-date-day { order: 2; }
       .event-nook-date-weekday {
         order: 3;
-        flex: 0 0 100%;
+        flex: 0 0 auto;
         text-align: center;
         font-size: .68em;
         line-height: 1.15;
         letter-spacing: .08em;
       }
+      .event-nook-date {
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(4px, 1vw, 9px);
+        font-family: 'Lucy Said Ok', cursive;
+        font-size: clamp(16px, 3.6vw, 20px);
+        font-weight: 400;
+        letter-spacing: .015em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .event-nook-date > * { order: initial !important; flex: 0 0 auto; }
+      .event-nook-date-month, .event-nook-date-weekday {
+        font-family: 'Lucy Said Ok', cursive;
+        font-size: .9em;
+        font-weight: 400;
+        letter-spacing: .01em;
+        text-transform: none;
+      }
+      .event-nook-date-day {
+        color: #65451d;
+        font-family: 'Cintarini', Georgia, serif;
+        font-size: 1.55em;
+        font-weight: 400;
+        line-height: 1;
+      }
+      .event-nook-date-separator {
+        color: rgba(128, 87, 25, .72);
+        font-family: 'Cinzel', Georgia, serif;
+        font-size: .78em;
+        font-weight: 500;
+      }
+      .event-nook-time {
+        color: #51402b;
+        font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+        font-size: clamp(15px, 3.2vw, 19px);
+        font-style: italic;
+        font-weight: 600;
+        line-height: 1.2;
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=146"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=148"></script>
   </body>
 </html>

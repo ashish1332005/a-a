@@ -557,7 +557,7 @@ function jV(){
     {
       image: "/assets/Embroidered%20Botanical%20Wedding%20Frame.png?v=1",
       alt: "Embroidered celebration cloth for 11 November",
-      month: "November", day: "11", weekday: "Wednesday",
+      month: "Nov", day: "11", weekday: "Wednesday",
       events: [
         { title: "Pyaar Ka Rang", note: "(Henna & Haldi Hues)", time: "1 PM till sundowner", place: "(AT POOL GARDEN)" },
         { title: "Shaam Shandaar", note: "(Glitz, Glam & Dance)", time: "8:30 PM onwards", place: "(AT PUSHKARA BAAGH)" }
@@ -566,7 +566,7 @@ function jV(){
     {
       image: "/assets/Embroidered%20Ivory%20Wedding%20Frame.png?v=1",
       alt: "Embroidered wedding canopy cloth for 12 November",
-      month: "November", day: "12", weekday: "Thursday",
+      month: "Nov", day: "12", weekday: "Thursday",
       events: [
         { title: "Band Baaja Baraat", time: "1 PM", place: "Starting from Ganesh Mandir" },
         { title: "The Sacred Seven", note: "(Wedding Ceremony)", time: "2:30 PM followed by lunch", place: "(At Palm Deck)" },
@@ -594,7 +594,9 @@ function jV(){
             children: [
               d.jsxs("p", { className: "event-nook-date", children: [
                 d.jsx("span", { className: "event-nook-date-month", children: day.month }),
+                d.jsx("span", { className: "event-nook-date-separator", "aria-hidden": !0, children: "|" }),
                 d.jsx("strong", { className: "event-nook-date-day", children: day.day }),
+                d.jsx("span", { className: "event-nook-date-separator", "aria-hidden": !0, children: "|" }),
                 d.jsx("span", { className: "event-nook-date-weekday", children: day.weekday })
               ] }),
               ...day.events.map((event, eventIndex) => d.jsxs("article", {
@@ -888,7 +890,7 @@ function DressCodeSection(){
             children: [d.jsx("h3", { children: route.title }), d.jsx("ul", { children: route.items.map((name) => d.jsx("li", { children: d.jsx("strong", { children: name }) }, name)) })]
           }, route.title)) }),
           d.jsxs("div", { className: "travel-notes", children: [
-            d.jsx("h3", { className: "travel-notes-title", children: "Things to Know" }),
+            d.jsx("h3", { className: "travel-notes-title", children: "THINGS TO KNOW" }),
             ...noteGroups.map((group) => d.jsxs("section", { className: "travel-note-group", children: [
               d.jsx("h4", { children: group.title }),
               d.jsx("div", { className: "travel-notes-grid", children: group.items.map(([title, details]) => d.jsxs("article", {
@@ -965,10 +967,7 @@ function VenueSection() {
           d.jsxs("div", {
             className: "venue-card relative z-10 rounded-3xl sm:rounded-[2.5rem] pt-14 sm:pt-18 pb-10 sm:pb-12 px-6 sm:px-10 bg-[#fffdfa]/95 border-2 border-[#c5a059]/40 shadow-2xl backdrop-blur-sm space-y-4 sm:space-y-5 text-center",
             children: [
-              d.jsxs("div", { className: "space-y-0.5", children: [
-                d.jsx("h3", { className: "text-4xl sm:text-5xl text-[#182d20] font-normal leading-tight", style: { fontFamily: "'Alex Brush', 'Great Vibes', cursive" }, children: "Pushkara" }),
-                d.jsx("h3", { className: "text-3xl sm:text-4xl text-[#182d20] font-normal leading-tight -mt-1", style: { fontFamily: "'Alex Brush', 'Great Vibes', cursive" }, children: "Resort and Spa" })
-              ] }),
+              d.jsx("h3", { className: "venue-place-name text-[#182d20] font-normal leading-tight", children: "PUSHKARA RESORT AND SPA" }),
               d.jsx("div", { className: "w-20 h-[1.5px] bg-gradient-to-r from-transparent via-[#c5a059] to-transparent mx-auto my-2" }),
               d.jsxs("div", { className: "venue-date-block", children: [
                 d.jsx("p", { children: "11TH - 12TH NOVEMBER 2026" }),
