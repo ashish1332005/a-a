@@ -44,10 +44,40 @@ function handler(req, res) {
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
     const content = fs.readFileSync(filePath);
 
+    const range = req.headers.range;
+    if (range && ['.mp3', '.mp4', '.webm'].includes(ext)) {
+      const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+      if (!match) {
+        res.writeHead(416, { 'Content-Range': `bytes */${content.length}` });
+        res.end();
+        return;
+      }
+
+      const start = match[1] ? Number(match[1]) : Math.max(0, content.length - Number(match[2]));
+      const end = match[2] && match[1] ? Math.min(Number(match[2]), content.length - 1) : content.length - 1;
+      if (!Number.isSafeInteger(start) || start >= content.length || start > end) {
+        res.writeHead(416, { 'Content-Range': `bytes */${content.length}` });
+        res.end();
+        return;
+      }
+
+      const chunk = content.subarray(start, end + 1);
+      res.writeHead(206, {
+        'Content-Range': `bytes ${start}-${end}/${content.length}`,
+        'Accept-Ranges': 'bytes',
+        'Content-Length': chunk.length,
+        'Content-Type': contentType,
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end(chunk);
+      return;
+    }
+
     res.writeHead(200, {
       'Content-Type': contentType,
       'Content-Length': content.length,
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      ...(['.mp3', '.mp4', '.webm'].includes(ext) ? { 'Accept-Ranges': 'bytes' } : {})
     });
     res.end(content);
   } catch (err) {
