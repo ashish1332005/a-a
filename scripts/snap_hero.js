@@ -26,13 +26,23 @@ setTimeout(async () => {
         method: 'Runtime.evaluate',
         params: {
           expression: `
-            (() => {
+            (async () => {
+              const btns = Array.from(document.querySelectorAll('button'));
+              const tapBtn = btns.find(b => b.innerText.includes('Tap') || b.className.includes('video-tap'));
+              if (tapBtn) tapBtn.click();
+              await new Promise(r => setTimeout(r, 2000));
               const fixed = Array.from(document.querySelectorAll('.fixed'));
-              fixed.forEach(el => el.remove());
-              document.body.style.overflow = 'auto';
+              fixed.forEach(el => {
+                if (el.innerText.includes('Tap')) el.remove();
+              });
               window.scrollTo(0, 0);
+              await Promise.all(Array.from(document.images).map(img => {
+                if (img.complete) return Promise.resolve();
+                return new Promise(r => { img.onload = img.onerror = r; });
+              }));
             })()
-          `
+          `,
+          awaitPromise: true
         }
       }));
 
@@ -42,7 +52,7 @@ setTimeout(async () => {
           method: 'Page.captureScreenshot',
           params: { format: 'png' }
         }));
-      }, 1000);
+      }, 1500);
     };
 
     ws.onmessage = (event) => {

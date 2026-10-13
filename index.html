@@ -251,6 +251,110 @@
       @keyframes ss-scroll-cta-shimmer { 0%,18% { left: -55%; opacity: 0; } 32% { opacity: .9; } 62%,100% { left: 125%; opacity: 0; } }
       @keyframes ss-scroll-cta-glow { 50% { box-shadow: 0 7px 25px rgba(56,43,25,.2), 0 0 0 4px rgba(183,143,66,.08), inset 0 0 0 2px rgba(255,255,255,.52); } }
       @keyframes ss-scroll-arrow { 0%,100% { opacity: .52; translate: 0 -1px; } 50% { opacity: 1; translate: 0 2px; } }
+
+      /* Exact Royal Scroll to Explore Cue */
+      .ss-opening-scroll-cue {
+        position: absolute;
+        z-index: 30;
+        left: 50%;
+        bottom: clamp(30px, 4.8vh, 46px);
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 24px 6px;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        text-decoration: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+      .ss-opening-scroll-cue:hover {
+        transform: translateX(-50%) translateY(-2px);
+      }
+      .ss-opening-scroll-cue:active {
+        transform: translateX(-50%) translateY(1px);
+      }
+      /* Soft dreamy royal gold cloud mist strictly behind the scroll cue */
+      .ss-opening-scroll-cue::before {
+        content: "";
+        position: absolute;
+        inset: -14px -36px -14px;
+        border-radius: 999px;
+        background: radial-gradient(ellipse 85% 75% at 50% 50%, 
+          rgba(255, 252, 244, 0.98) 0%, 
+          rgba(255, 247, 226, 0.92) 38%, 
+          rgba(247, 224, 168, 0.65) 66%, 
+          rgba(235, 196, 120, 0.25) 84%, 
+          transparent 100%
+        );
+        filter: blur(5px);
+        pointer-events: none;
+        z-index: 0;
+        animation: ss-cue-gold-cloud 3.8s ease-in-out infinite;
+      }
+      .ss-scroll-cue-text {
+        position: relative;
+        z-index: 2;
+        color: #381f08;
+        font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+        font-size: clamp(12.5px, 3.2vw, 14px);
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.98), 0 0 12px rgba(255, 245, 215, 0.95);
+      }
+      .ss-scroll-cue-svg {
+        position: relative;
+        z-index: 2;
+        display: block;
+        width: clamp(175px, 46vw, 196px);
+        height: auto;
+        margin-top: 5px;
+        overflow: visible;
+      }
+      .ss-scroll-cue-svg line {
+        stroke: #42240a;
+        stroke-width: 1.6px;
+      }
+      .ss-fleuron-left ellipse, .ss-fleuron-right ellipse {
+        fill: #42240a;
+      }
+      .ss-chevron-top, .ss-chevron-bottom {
+        stroke: #42240a;
+        stroke-width: 2.3px;
+        filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.98));
+        animation: ss-chevron-bob 1.6s ease-in-out infinite;
+      }
+      .ss-chevron-bottom {
+        animation-delay: 0.15s;
+      }
+      @keyframes ss-chevron-bob {
+        0%, 100% {
+          transform: translateY(0);
+          opacity: 0.88;
+        }
+        50% {
+          transform: translateY(2.5px);
+          opacity: 1;
+        }
+      }
+      @keyframes ss-cue-gold-cloud {
+        0%, 100% {
+          opacity: 0.92;
+          transform: scale(0.98);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.02);
+        }
+      }
       @keyframes ss-prompt-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
       @keyframes ss-prompt-glow { 50% { box-shadow: 0 8px 28px rgba(56, 43, 25, .22), 0 0 0 5px rgba(183,143,66,.1), inset 0 0 0 3px rgba(255,255,255,.5); } }
       @keyframes ss-swipe-bob { 50% { translate: 0 -7px; } }
@@ -726,6 +830,77 @@
         border-radius: 8px;
         background: #596b52;
       }
+      .wardrobe-scroll-cue {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 28px auto 8px;
+        padding: 8px 26px 6px;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        text-decoration: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+      .wardrobe-scroll-cue:hover {
+        transform: translateY(-2px);
+      }
+      .wardrobe-scroll-cue:active {
+        transform: translateY(1px);
+      }
+      .wardrobe-scroll-cue::before {
+        content: "";
+        position: absolute;
+        inset: -12px -34px -12px;
+        border-radius: 999px;
+        background: radial-gradient(ellipse 85% 75% at 50% 50%, 
+          rgba(255, 252, 246, 0.95) 0%, 
+          rgba(252, 245, 230, 0.75) 45%, 
+          rgba(240, 222, 175, 0.30) 72%, 
+          transparent 100%
+        );
+        filter: blur(5px);
+        pointer-events: none;
+        z-index: 0;
+        animation: ss-cue-gold-cloud 3.8s ease-in-out infinite;
+      }
+      .wardrobe-scroll-cue-text {
+        position: relative;
+        z-index: 2;
+        color: #381f08;
+        font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+        font-size: clamp(12px, 3vw, 13.5px);
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.98), 0 0 10px rgba(255, 245, 215, 0.9);
+      }
+      .wardrobe-scroll-cue-svg {
+        position: relative;
+        z-index: 2;
+        display: block;
+        width: clamp(170px, 45vw, 192px);
+        height: auto;
+        margin-top: 5px;
+        overflow: visible;
+      }
+      .wardrobe-chevron-top, .wardrobe-chevron-bottom {
+        stroke: #42240a;
+        stroke-width: 2.3px;
+        filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.98));
+        animation: ss-chevron-bob 1.6s ease-in-out infinite;
+      }
+      .wardrobe-chevron-bottom {
+        animation-delay: 0.15s;
+      }
       .story-section {
         position: relative;
         width: 100%;
@@ -1198,14 +1373,14 @@
         letter-spacing: .06em;
       }
       .venue-actions { display: grid; justify-items: center; gap: 17px; padding-top: 4px; }
-      .venue-scratch-wrap { width: min(248px, 72vw); min-height: 46px; display: grid; place-items: center; }
+      .venue-scratch-wrap { width: min(264px, 78vw); min-height: 48px; display: grid; place-items: center; }
       .venue-scratch {
         display: block;
         width: 100%;
-        height: 46px;
+        height: 48px;
         border: 1px solid rgba(140, 103, 19, .58);
-        border-radius: 8px;
-        box-shadow: 0 3px 9px rgba(104, 74, 25, .12), inset 0 0 0 2px rgba(255, 251, 239, .65);
+        border-radius: 9px;
+        box-shadow: 0 3px 10px rgba(104, 74, 25, .14), inset 0 0 0 2px rgba(255, 251, 239, .65);
         cursor: crosshair;
         touch-action: none;
       }
@@ -1438,6 +1613,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=169"></script>
+    <script type="module" crossorigin src="/assets/index-PE0t8Bmj.js?v=176"></script>
   </body>
 </html>

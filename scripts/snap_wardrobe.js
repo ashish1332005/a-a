@@ -34,9 +34,12 @@ server.listen(3009, () => {
                 const fixed = Array.from(document.querySelectorAll('.fixed'));
                 fixed.forEach(el => el.remove());
                 document.body.style.overflow = 'auto';
-                const el = document.getElementById('dress-code');
-                if (el) {
-                  window.scrollTo(0, el.offsetTop);
+                const cue = document.querySelector('.wardrobe-scroll-cue');
+                if (cue) {
+                  cue.scrollIntoView({ block: 'center' });
+                } else {
+                  const el = document.getElementById('dress-code');
+                  if (el) window.scrollTo(0, el.offsetTop + el.offsetHeight - 800);
                 }
               })()
             `

@@ -254,14 +254,68 @@ d.jsxs(he.div, {
       d.jsxs("button", {
         type: "button",
         onClick: () => document.querySelector(".ss-opening")?.nextElementSibling?.scrollIntoView({behavior: "smooth", block: "start"}),
-        className: "ss-opening-prompt ss-opening-scroll-cta",
+        className: "ss-opening-scroll-cue",
         "aria-label": "Scroll to explore the wedding invitation",
         children: [
-          d.jsx("span", {className: "ss-opening-scroll-label", children: "SCROLL TO EXPLORE"}),
-          d.jsxs("span", {className: "ss-opening-scroll-arrows", "aria-hidden": !0, children: [
-            d.jsx("span", {children: "⌄"}),
-            d.jsx("span", {children: "⌄"})
-          ]})
+          d.jsx("span", {className: "ss-scroll-cue-text", children: "SCROLL TO EXPLORE"}),
+          d.jsxs("svg", {
+            className: "ss-scroll-cue-svg",
+            viewBox: "0 0 200 36",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
+            "aria-hidden": !0,
+            children: [
+              d.jsxs("defs", {
+                children: [
+                  d.jsxs("radialGradient", {
+                    id: "ssGoldArrowCloud",
+                    cx: "50%",
+                    cy: "50%",
+                    r: "50%",
+                    children: [
+                      d.jsx("stop", {offset: "0%", stopColor: "#ffe38a", stopOpacity: "0.85"}),
+                      d.jsx("stop", {offset: "45%", stopColor: "#f3c760", stopOpacity: "0.55"}),
+                      d.jsx("stop", {offset: "75%", stopColor: "#cca042", stopOpacity: "0.2"}),
+                      d.jsx("stop", {offset: "100%", stopColor: "#cca042", stopOpacity: "0"})
+                    ]
+                  }),
+                  d.jsx("filter", {
+                    id: "ssArrowCloudBlur",
+                    x: "-80%",
+                    y: "-80%",
+                    width: "260%",
+                    height: "260%",
+                    children: d.jsx("feGaussianBlur", {stdDeviation: "6"})
+                  })
+                ]
+              }),
+              d.jsx("ellipse", {cx: "100", cy: "15", rx: "30", ry: "16", fill: "url(#ssGoldArrowCloud)", filter: "url(#ssArrowCloudBlur)"}),
+              d.jsx("line", {x1: "22", y1: "15", x2: "64", y2: "15", stroke: "#42240a", strokeWidth: "1.6", strokeLinecap: "round"}),
+              d.jsxs("g", {
+                className: "ss-fleuron-left",
+                children: [
+                  d.jsx("ellipse", {cx: "65.2", cy: "15", rx: "1.8", ry: "1.2", fill: "#42240a"}),
+                  d.jsx("ellipse", {cx: "70.8", cy: "15", rx: "1.8", ry: "1.2", fill: "#42240a"}),
+                  d.jsx("ellipse", {cx: "68", cy: "12.2", rx: "1.2", ry: "1.8", fill: "#42240a"}),
+                  d.jsx("ellipse", {cx: "68", cy: "17.8", rx: "1.2", ry: "1.8", fill: "#42240a"}),
+                  d.jsx("circle", {cx: "68", cy: "15", r: "0.6", fill: "#fffdf6"})
+                ]
+              }),
+              d.jsxs("g", {
+                className: "ss-fleuron-right",
+                children: [
+                  d.jsx("ellipse", {cx: "129.2", cy: "15", rx: "1.8", ry: "1.2", fill: "#42240a"}),
+                  d.jsx("ellipse", {cx: "134.8", cy: "15", rx: "1.8", ry: "1.2", fill: "#42240a"}),
+                  d.jsx("ellipse", {cx: "132", cy: "12.2", rx: "1.2", ry: "1.8", fill: "#42240a"}),
+                  d.jsx("ellipse", {cx: "132", cy: "17.8", rx: "1.2", ry: "1.8", fill: "#42240a"}),
+                  d.jsx("circle", {cx: "132", cy: "15", r: "0.6", fill: "#fffdf6"})
+                ]
+              }),
+              d.jsx("line", {x1: "136", y1: "15", x2: "178", y2: "15", stroke: "#42240a", strokeWidth: "1.6", strokeLinecap: "round"}),
+              d.jsx("path", {className: "ss-chevron-top", d: "M 88 6 L 100 15 L 112 6", stroke: "#42240a", strokeWidth: "2.3", strokeLinecap: "round", strokeLinejoin: "round"}),
+              d.jsx("path", {className: "ss-chevron-bottom", d: "M 88 14 L 100 23 L 112 14", stroke: "#42240a", strokeWidth: "2.3", strokeLinecap: "round", strokeLinejoin: "round"})
+            ]
+          })
         ]
       })
     ]
@@ -773,6 +827,49 @@ function DressCodeSection(){
           className: index === activeIndex ? "wardrobe-dot is-active" : "wardrobe-dot",
           "aria-label": "Show " + card.title
         }))
+      }),
+      d.jsxs("button", {
+        type: "button",
+        onClick: () => {
+          const nextSec = document.getElementById("our-story") || document.querySelector(".story-section");
+          if (nextSec) nextSec.scrollIntoView({ behavior: "smooth", block: "start" });
+        },
+        className: "wardrobe-scroll-cue",
+        "aria-label": "Scroll to explore our story",
+        children: [
+          d.jsx("span", { className: "wardrobe-scroll-cue-text", children: "SCROLL TO EXPLORE" }),
+          d.jsxs("svg", {
+            className: "wardrobe-scroll-cue-svg",
+            viewBox: "0 0 200 36",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
+            "aria-hidden": !0,
+            children: [
+              d.jsx("line", { x1: "26", y1: "15", x2: "64", y2: "15", stroke: "#42240a", strokeWidth: "1.6", strokeLinecap: "round" }),
+              d.jsxs("g", {
+                children: [
+                  d.jsx("ellipse", { cx: "65.2", cy: "15", rx: "1.8", ry: "1.2", fill: "#42240a" }),
+                  d.jsx("ellipse", { cx: "70.8", cy: "15", rx: "1.8", ry: "1.2", fill: "#42240a" }),
+                  d.jsx("ellipse", { cx: "68", cy: "12.2", rx: "1.2", ry: "1.8", fill: "#42240a" }),
+                  d.jsx("ellipse", { cx: "68", cy: "17.8", rx: "1.2", ry: "1.8", fill: "#42240a" }),
+                  d.jsx("circle", { cx: "68", cy: "15", r: "0.6", fill: "#fffdf6" })
+                ]
+              }),
+              d.jsxs("g", {
+                children: [
+                  d.jsx("ellipse", { cx: "129.2", cy: "15", rx: "1.8", ry: "1.2", fill: "#42240a" }),
+                  d.jsx("ellipse", { cx: "134.8", cy: "15", rx: "1.8", ry: "1.2", fill: "#42240a" }),
+                  d.jsx("ellipse", { cx: "132", cy: "12.2", rx: "1.2", ry: "1.8", fill: "#42240a" }),
+                  d.jsx("ellipse", { cx: "132", cy: "17.8", rx: "1.2", ry: "1.8", fill: "#42240a" }),
+                  d.jsx("circle", { cx: "132", cy: "15", r: "0.6", fill: "#fffdf6" })
+                ]
+              }),
+              d.jsx("line", { x1: "136", y1: "15", x2: "174", y2: "15", stroke: "#42240a", strokeWidth: "1.6", strokeLinecap: "round" }),
+              d.jsx("path", { className: "wardrobe-chevron-top", d: "M 88 6 L 100 15 L 112 6", stroke: "#42240a", strokeWidth: "2.3", strokeLinecap: "round", strokeLinejoin: "round" }),
+              d.jsx("path", { className: "wardrobe-chevron-bottom", d: "M 88 14 L 100 23 L 112 14", stroke: "#42240a", strokeWidth: "2.3", strokeLinecap: "round", strokeLinejoin: "round" })
+            ]
+          })
+        ]
       })
     ]
   });
@@ -880,7 +977,7 @@ function DressCodeSection(){
   const travelOptions = [
     { title: "By Air", items: ["Jaipur International Airport (JAI)", "Kishangarh Airport (KQH)"] },
     { title: "By Train", items: ["Ajmer Junction (AII)"] },
-    { title: "By Bus", items: ["Jaipur-Ajmer Expressway"] }
+    { title: "By Road", items: ["Jaipur-Ajmer Expressway"] }
   ];
   const noteGroups = [
     { title: "📋 The Serious Stuff (Help Us Help You!)", items: [
@@ -924,41 +1021,116 @@ function ScratchMapReveal({ mapsUrl }) {
   const canvasRef = m.useRef(null);
   const distanceRef = m.useRef(0);
   const lastPointRef = m.useRef(null);
+  const isScratchedRef = m.useRef(false);
   const [revealed, setRevealed] = m.useState(false);
-  m.useEffect(() => {
+
+  const drawCover = m.useCallback(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || isScratchedRef.current || revealed) return;
     const rect = canvas.getBoundingClientRect();
+    const width = Math.round(rect.width) || canvas.offsetWidth || 264;
+    const height = Math.round(rect.height) || canvas.offsetHeight || 48;
     const scale = window.devicePixelRatio || 1;
-    canvas.width = Math.max(1, Math.round(rect.width * scale));
-    canvas.height = Math.max(1, Math.round(rect.height * scale));
+
+    canvas.width = Math.round(width * scale);
+    canvas.height = Math.round(height * scale);
+
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    if (ctx.resetTransform) ctx.resetTransform();
+    else ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(scale, scale);
-    const gradient = ctx.createLinearGradient(0, 0, rect.width, rect.height);
-    gradient.addColorStop(0, "#f5e8c9"); gradient.addColorStop(.5, "#e7d2a5"); gradient.addColorStop(1, "#f4e7c8");
-    ctx.fillStyle = gradient; ctx.fillRect(0, 0, rect.width, rect.height);
-    ctx.strokeStyle = "rgba(132, 92, 35, .22)"; ctx.lineWidth = 1;
-    for (let y = 5; y < rect.height; y += 7) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(rect.width, y + 2); ctx.stroke(); }
-    ctx.fillStyle = "#68491f"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.font = "600 11px Cinzel, Georgia, serif"; ctx.fillText("SCRATCH TO VIEW MAP", rect.width / 2, rect.height / 2);
-  }, []);
+
+    const gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, "#f7eccf");
+    gradient.addColorStop(0.35, "#e9d5a7");
+    gradient.addColorStop(0.7, "#ddbf88");
+    gradient.addColorStop(1, "#f5e7c8");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.strokeStyle = "rgba(132, 92, 35, 0.22)";
+    ctx.lineWidth = 1;
+    for (let y = 5; y < height; y += 7) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y + 2);
+      ctx.stroke();
+    }
+
+    ctx.fillStyle = "#5c3d17";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    const fontSize = Math.max(13, Math.min(14.5, Math.round(width * 0.054)));
+    ctx.font = `700 ${fontSize}px 'Cinzel', 'Playfair Display', Georgia, serif`;
+    try {
+      if ('letterSpacing' in ctx) ctx.letterSpacing = "2px";
+    } catch (e) {}
+    ctx.fillText("SCRATCH TO VIEW MAP", width / 2, height / 2 + 0.5);
+  }, [revealed]);
+
+  m.useEffect(() => {
+    drawCover();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        if (!isScratchedRef.current) drawCover();
+      });
+    }
+    const onResize = () => {
+      if (!isScratchedRef.current) drawCover();
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [drawCover]);
+
   const scratch = (event) => {
     const canvas = canvasRef.current;
-    if (!canvas || !event.buttons) return;
+    if (!canvas) return;
+    if (event.pointerType === 'mouse' && !event.buttons) return;
+    isScratchedRef.current = true;
     const rect = canvas.getBoundingClientRect();
     const point = { x: event.clientX - rect.left, y: event.clientY - rect.top };
-    const ctx = canvas.getContext("2d"); ctx.globalCompositeOperation = "destination-out"; ctx.lineWidth = 24; ctx.lineCap = "round";
+    const ctx = canvas.getContext("2d");
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.lineWidth = 26;
+    ctx.lineCap = "round";
     if (lastPointRef.current) {
-      ctx.beginPath(); ctx.moveTo(lastPointRef.current.x, lastPointRef.current.y); ctx.lineTo(point.x, point.y); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(lastPointRef.current.x, lastPointRef.current.y);
+      ctx.lineTo(point.x, point.y);
+      ctx.stroke();
       distanceRef.current += Math.hypot(point.x - lastPointRef.current.x, point.y - lastPointRef.current.y);
-    } else { ctx.beginPath(); ctx.arc(point.x, point.y, 12, 0, Math.PI * 2); ctx.fill(); }
+    } else {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 13, 0, Math.PI * 2);
+      ctx.fill();
+    }
     lastPointRef.current = point;
     if (distanceRef.current > 330) setRevealed(true);
   };
+
   const stopScratch = () => { lastPointRef.current = null; };
+
   return d.jsxs("div", { className: "venue-scratch-wrap", children: [
-    !revealed && d.jsx("canvas", { ref: canvasRef, className: "venue-scratch", "aria-label": "Scratch here to reveal the map link", onPointerDown: (event) => { event.currentTarget.setPointerCapture(event.pointerId); scratch(event); }, onPointerMove: scratch, onPointerUp: stopScratch, onPointerCancel: stopScratch }),
-    revealed && d.jsx("a", { href: mapsUrl, target: "_blank", rel: "noopener noreferrer", className: "venue-map-button venue-map-revealed", children: ["Open Map", d.jsx("span", { "aria-hidden": "true", children: "↗" })] })
+    !revealed && d.jsx("canvas", {
+      ref: canvasRef,
+      className: "venue-scratch",
+      "aria-label": "Scratch here to reveal the map link",
+      onPointerDown: (event) => {
+        event.currentTarget.setPointerCapture(event.pointerId);
+        scratch(event);
+      },
+      onPointerMove: scratch,
+      onPointerUp: stopScratch,
+      onPointerCancel: stopScratch
+    }),
+    revealed && d.jsx("a", {
+      href: mapsUrl,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      className: "venue-map-button venue-map-revealed",
+      children: ["Open Map", d.jsx("span", { "aria-hidden": "true", children: "↗" })]
+    })
   ] });
 }
 function VenueSection() {
