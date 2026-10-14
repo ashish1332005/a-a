@@ -273,10 +273,10 @@ d.jsxs(he.div, {
                     cy: "50%",
                     r: "50%",
                     children: [
-                      d.jsx("stop", {offset: "0%", stopColor: "#ffe38a", stopOpacity: "0.85"}),
-                      d.jsx("stop", {offset: "45%", stopColor: "#f3c760", stopOpacity: "0.55"}),
-                      d.jsx("stop", {offset: "75%", stopColor: "#cca042", stopOpacity: "0.2"}),
-                      d.jsx("stop", {offset: "100%", stopColor: "#cca042", stopOpacity: "0"})
+                      d.jsx("stop", {offset: "0%", stopColor: "#fff0b8", stopOpacity: "0.72"}),
+                      d.jsx("stop", {offset: "45%", stopColor: "#f7dfa0", stopOpacity: "0.42"}),
+                      d.jsx("stop", {offset: "75%", stopColor: "#ead08a", stopOpacity: "0.12"}),
+                      d.jsx("stop", {offset: "100%", stopColor: "#ead08a", stopOpacity: "0"})
                     ]
                   }),
                   d.jsx("filter", {
